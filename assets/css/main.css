@@ -464,6 +464,19 @@ header #menu-btn:hover{
     font-weight: 400;
 }
 
+ .skill-item  h1{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding:.7rem 0;
+    font-size: 1.7rem;
+    color: var(--white);
+    font-weight: 400;
+}
+
  .skill-item .box .progress-bar{
     width:100%;
     background:#222;
@@ -479,27 +492,27 @@ header #menu-btn:hover{
 }
 
  .skill-item.item1 .box:nth-child(1) .progress-bar span{
-    width:95%;
+    width:100%;
 }
 
  .skill-item.item1 .box:nth-child(2) .progress-bar span{
-    width:90%;
+    width:100%;
 }
 
  .skill-item.item1 .box:nth-child(3) .progress-bar span{
-    width:85%;
+    width:100%;
 }
 
 .skill-item.item2 .box:nth-child(1) .progress-bar span{
-    width:75%;
+    width:100%;
 }
 
  .skill-item.item2 .box:nth-child(2) .progress-bar span{
-    width:65%;
+    width:100%;
 }
 
  .skill-item.item2 .box:nth-child(3) .progress-bar span{
-    width:60%;
+    width:100%;
 }
 
 /*--------------------- 5- About Area CSS (End) ---------------------*/
