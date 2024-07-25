@@ -192,6 +192,8 @@ header .navbar a{
     color: var(--white);
     font-size: 1.8rem;
     margin-left: 1rem;
+    border : 0.1rem solid ;
+    padding: 1rem 1.5rem;
 }
 
 header .navbar a:hover,
@@ -473,8 +475,8 @@ header #menu-btn:hover{
     justify-content: space-between;
     padding:.7rem 0;
     font-size: 1.7rem;
-    color: var(--white);
-    font-weight: 400;
+    color: var(--grey);
+    font-size: 30px;
 }
 
  .skill-item .box .progress-bar{
