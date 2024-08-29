@@ -41,7 +41,7 @@ const AboutPage = () => {
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESC */}
             <p className="text-lg">
-              I'm Lihon Gebre, a versatile tech professional with expertise in 
+              I&apos;m Lihon Gebre, a versatile tech professional with expertise in 
               Software Engineering, AI Development, and DevOps. My passion lies 
               in creating innovative solutions that bridge the gap between 
               cutting-edge technology and real-world applications.

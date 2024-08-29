@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link  from 'next/link'
+import Link from 'next/link';
+
 const Homepage = () => {
   return (
     <motion.div
@@ -14,7 +15,13 @@ const Homepage = () => {
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 relative">
-          <Image src="/hero.jpeg" alt="" fill className="object-contain" />
+          <Image 
+            src="/hero.jpeg" 
+            alt="Hero image"
+            fill 
+            className="object-contain"
+            priority
+          />
         </div>
         {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
@@ -28,14 +35,12 @@ const Homepage = () => {
             excellence across multiple domains of modern computing.
           </p>
           <div className="w-full flex gap-4">
-            <Link href="/portfolio" legacyBehavior>
-              <a className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
-                View My Work
-              </a>
+            <Link href="/portfolio" className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
+              View My Work
             </Link>
-            <button className="p-4 rounded-lg ring-1 ring-black">
+            <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black">
               Contact Me
-            </button>
+            </Link>
           </div>
         </div>
       </div>
