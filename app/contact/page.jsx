@@ -65,22 +65,29 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-4 justify-center p-24"
         >
-          <span>Dear Lama Dev,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-red-50 border-b-2 border-b-black outline-none resize-none w-full pb-1"
             name="user_message"
+            placeholder="Your message here..."
+            style={{ cursor: 'text' }}
           />
-          <span>My mail address is:</span>
           <input
             name="user_email"
-            type="text"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            type="email"
+            className="bg-red-50 border-b-2 border-b-black outline-none w-full pb-1"
+            placeholder="Your email address"
+            required
+            style={{ cursor: 'text' }}
           />
-          <span>Regards</span>
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
+          <input
+            type="hidden"
+            name="to_email"
+            value="lihongebre@gmail.com"
+          />
+          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4 mt-8">
             Send
           </button>
           {success && (
