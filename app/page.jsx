@@ -33,11 +33,9 @@ const Homepage = () => {
                 View My Work
               </a>
             </Link>
-            <Link href="/contact" legacyBehavior>
-              <a className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
-                Contact Me
-              </a>
-            </Link>
+            <button className="p-4 rounded-lg ring-1 ring-black">
+              Contact Me
+            </button>
           </div>
         </div>
       </div>
