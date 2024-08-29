@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import Link  from 'next/link'
 const Homepage = () => {
   return (
     <motion.div
@@ -22,18 +22,22 @@ const Homepage = () => {
             Innovating with Code, AI, and DevOps.
           </h1>
           <p className="md:text-xl">
-            Welcome to my digital portfolio. I'm Lihon Gebre, a Software Engineer, 
+            Welcome to my digital portfolio. I&apos;m <span style={{ color: 'blue' }}>Lihon Gebre</span>, a Software Engineer, 
             AI Developer, and DevOps Engineer. My work combines cutting-edge 
             technology with practical solutions, showcasing a commitment to 
             excellence across multiple domains of modern computing.
           </p>
           <div className="w-full flex gap-4">
-            <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
-              View My Work
-            </button>
-            <button className="p-4 rounded-lg ring-1 ring-black">
-              Contact Me
-            </button>
+            <Link href="/portfolio" legacyBehavior>
+              <a className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
+                View My Work
+              </a>
+            </Link>
+            <Link href="/contact" legacyBehavior>
+              <a className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
+                Contact Me
+              </a>
+            </Link>
           </div>
         </div>
       </div>
