@@ -1,0 +1,177 @@
+{
+    "name": "Lihon Gebre",
+    "location": "Addis Ababa, Ethiopia",
+    "bio": "I am a passionate full stack software engineer based in Addis Ababa, Ethiopia specializing in backend development and DevOps work. I have a Bachelor's degree in Computer Science from Addis Ababa University and have specialized further in software engineering through ALX, an intensive online program. On GitHub under the username gelftheshot, you can see some of my past work building real-time chat applications, e-commerce solutions, inventory management systems, and more using technologies like the MERN stack, Django, Next.js, Python, and more. I am particularly interested in artificial intelligence and integrating models to solve complex problems. In addition to programming skills, I have experience in DevOps practices like Docker and cloud platforms from AWS. I am always looking to apply my full stack expertise in new and innovative ways and am excited to take on new engineering challenges.",
+    "skills": [
+      "JavaScript", 
+      "Python",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Express",
+      "Next.js",
+      "Django",
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+      "C",
+      "C++", 
+     "AWS",
+      "Docker",
+      "Kubernetes",
+      "Nginx",
+      "Linux",
+      "GitHub",
+      "Git",
+      "Data Structures",
+      "Algorithms"
+    ],
+    "projects": [
+      {
+        "name": "RateMyProfAI",
+        "description": "An innovative AI assistant leveraging Retrieval-Augmented Generation (RAG) technology to help students make informed decisions about professors and courses. This tool analyzes vast amounts of data to provide personalized recommendations, enhancing the academic decision-making process.",
+        "technologies": "RAG, AI, Natural Language Processing",
+        "url": "https://github.com/gelftheshot/academic-advisor-ai"
+      },
+      {
+        "name": "Inventory Management App",
+        "description": "A comprehensive inventory tracking solution developed with Next.js and Firebase. This app showcases proficiency in React, real-time databases, and serverless technologies, offering businesses an efficient way to manage their stock levels and supply chain.",
+        "technologies": "Next.js, Firebase, React",
+        "url": "https://github.com/gelftheshot/inventory-management-app"
+      },
+      {
+        "name": "Flashcards with AI",
+        "description": "An intelligent flashcard study application that combines React with AI technologies. This app enhances learning by adapting to user performance and generating personalized study materials, demonstrating the integration of modern web technologies with machine learning.",
+        "technologies": "React, AI, Machine Learning",
+        "url": "https://github.com/gelftheshot/flashcards-with-ai"
+      },
+      {
+        "name": "AI Customer Support",
+        "description": "A cutting-edge customer support solution powered by AI, capable of providing instant, accurate responses 24/7. This project showcases the ability to implement natural language processing and machine learning to improve customer service efficiency.",
+        "technologies": "AI, Natural Language Processing, Machine Learning",
+        "url": "https://github.com/gelftheshot/ai-customer-support"
+      },
+      {
+        "name": "Convo Chatbot",
+        "description": "An advanced chat system that enables users to engage in conversations with various AI models. This project demonstrates proficiency in integrating multiple AI APIs and creating a user-friendly interface for human-AI interaction.",
+        "technologies": "Next.js, Natural Language Models, AI APIs",
+        "url": "https://github.com/gelftheshot/convo"
+      },
+      {
+        "name": "Vibiro",
+        "description": "A private virtual office application featuring AI-powered workers, including an accountant. This innovative project showcases the ability to create complex, AI-driven business solutions that can automate and enhance various office functions.",
+        "technologies": "AI, Virtual Assistants, Web Development",
+        "url": "https://github.com/gelftheshot/Vibiro"
+      },
+      {
+        "name": "Simple Shell",
+        "description": "A basic shell implementation created for ALX, supporting common Unix commands. This project demonstrates proficiency in low-level programming, process management, and command-line interface design in C.",
+        "technologies": "C, Unix, System Programming",
+        "url": "https://github.com/gelftheshot/simple_shell"
+      },
+      {
+        "name": "Whisper (MERN Chat App)",  
+        "description": "Real-time messaging platform built with MongoDB, Express, React and Node.js that demonstrates my ability to develop robust real-time features through the integration of modern JavaScript frameworks and Socket.io.",
+        "technologies": "MongoDB, Express, React, Node.js, Socket.io"
+      },
+      {
+        "name": "ONLY_HERS E-Commerce Store",
+        "description": "Full-fledged e-commerce solution built with Django, Bootstrap and additional Django libraries.",
+        "technologies": "Django, Bootstrap"
+      },
+      {
+        "name": "ALX File Manager",
+        "description": "Single page app for file uploads/downloads built with Node.js, Express and MongoDB.",
+        "technologies": "Node.js, Express, MongoDB" 
+      },
+      {
+        "name": "AirBnB Clone",
+        "description": "Clone of the AirBnB home listings platform built with Python, Django, HTML and CSS.",
+        "technologies": "Python, Django, HTML, CSS"
+      }
+    ],
+    "education": [
+      {
+        "institution": "Addis Ababa University",
+        "degree": "Bachelor of Science, Computer Science",
+        "dates": "2015 - present"
+      },
+      {
+        "institution": "ALX", 
+        "degree": "Accelerated Software Engineering Program", 
+        "dates": "2022"
+      }
+    ],
+    "work": {
+      "company": "Headstarter AI",
+      "role": "Software Engineering Fellow",
+      "dates": "2023 - Present",
+      "description": "Applying full stack development expertise through new innovative projects at Headstarter AI."
+    },
+    "interests": [
+      "Artificial Intelligence", 
+      "Machine Learning",
+      "Web Development",
+      "Open Source",
+      "Blockchain",
+      "Cryptocurrency"
+    ],
+    "links": {
+      "website": "https://gelftheshot.github.io/",
+      "github": "https://github.com/gelftheshot",
+      "linkedin": "https://linkedin.com/in/lihon-gebre-a48803132"
+    },
+    "achievements": [
+      {
+        "title": "3.9 GPA in Computer Science",
+        "description": "Maintained a high academic performance throughout the Computer Science program at Addis Ababa University",
+        "date": "2015 - present"
+      },
+      {
+        "title": "Valedictorian",
+        "description": "Achieved top academic performance in the ALX Software Engineering Program",
+        "date": "2022"
+      },
+      {
+        "title": "Student Leaders Ambassador",
+        "description": "Served as a student leader and ambassador, representing peers and promoting academic excellence",
+        "date": "2022"
+      },
+      {
+        "title": "Regional State Award",
+        "description": "Recognized for outstanding performance in the Ethiopian University Entrance Examination",
+        "date": "2015"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "ALX Full Stack Software Engineering Certification",
+        "issuer": "ALX",
+        "date": "2022",
+        "url": "https://www.alxafrica.com/"
+      },
+      {
+        "name": "Relational Database Certification",
+        "issuer": "freeCodeCamp",
+        "date": "2022",
+        "url": "https://www.freecodecamp.org/certification/fcc12345/relational-database-v8"
+      },
+      {
+        "name": "AWS Cloud Practitioner Certification",
+        "issuer": "Coursera",
+        "date": "2022",
+        "url": "https://www.coursera.org/account/accomplishments/certificate/ABCDEFGHIJKL"
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "proficiency": "Fluent"
+      },
+      {
+        "language": "Amharic",
+        "proficiency": "Native"
+      }
+    ],
+    "preferred_work_environment": "Remote"
+  }
