@@ -72,7 +72,7 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div ref={chatWindowRef} className="flex-1 overflow-y-auto p-6 space-y-4">
+      <div ref={chatWindowRef} className="flex-1 overflow-y-auto p-6 space-y-6">
         {chatMessages.map(message => (
           <Message key={message._id} role={message.role} content={message.text} />
         ))}
