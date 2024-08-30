@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
+    "ai": "^3.3.20",
     "framer-motion": "^11.0.3",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^5.3.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "autoprefixer": "latest",
