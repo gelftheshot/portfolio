@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
-from langchain_community.vectorstores import Pinecone as LangchainPinecone
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import json
 
@@ -38,7 +37,7 @@ print(f"Created new index '{index_name}' with dimension {dim}")
 # Get the index
 index = pc.Index(index_name)
 
-def json_file_path(json_file_path):
+def process_json_file(json_file_path):
     # Load JSON data
     with open(json_file_path, 'r') as file:
         data = json.load(file)
@@ -50,44 +49,87 @@ def json_file_path(json_file_path):
     )
     
     processed_data = []
-    for professor in data['professors']:
-        # Create a comprehensive summary of the professor
-        summary = (
-            f"Professor {professor['name']} is a {professor['sex']} educator in the {professor['department']} department. "
-            f"They teach {', '.join(professor['subjects'])} and are known for {professor['knownFor']}. "
-            f"With {professor['yearsTeaching']} years of teaching experience and {professor['publications']} publications, "
-            f"they have a rating of {professor['rating']}. Their research interests include {' and '.join(professor['researchInterests'])}. "
-            f"Awards: {', '.join(professor['awards'])}. Fun fact: {professor['funFact']}"
+
+    # Process general information
+    general_info = (
+        f"{data['name']} is a {data['bio']} "
+        f"Based in {data['location']}, their skills include {', '.join(data['skills'])}. "
+        f"Education: {', '.join([f'{edu['degree']} from {edu['institution']}' for edu in data['education']])}. "
+        f"Current work: {data['work']['role']} at {data['work']['company']}. "
+        f"Interests: {', '.join(data['interests'])}."
+    )
+    general_embedding = embeddings.embed_query(general_info)
+    processed_data.append({
+        "values": general_embedding,
+        "id": "general_info",
+        "metadata": {
+            "type": "general_info",
+            "content": general_info
+        }
+    })
+
+    # Process projects
+    for project in data['projects']:
+        project_info = (
+            f"Project: {project['name']}. "
+            f"Description: {project['description']}. "
+            f"Technologies: {project['technologies']}."
         )
-        
-        # Create embedding for the summary
-        embedding = embeddings.embed_query(summary)
-        
-        # Prepare the data for storage
+        project_embedding = embeddings.embed_query(project_info)
         processed_data.append({
-            "values": embedding,
-            "id": f"professor_{professor['id']}",
+            "values": project_embedding,
+            "id": f"project_{project['name']}",
             "metadata": {
-                "name": professor['name'],
-                "sex": professor['sex'],
-                "department": professor['department'],
-                "subjects": professor['subjects'],
-                "known_for": professor['knownFor'],
-                "rating": professor['rating'],
-                "years_teaching": professor['yearsTeaching'],
-                "publications": professor['publications'],
-                "awards": professor['awards'],
-                "office_hours": professor['officeHours'],
-                "research_interests": professor['researchInterests'],
-                "fun_fact": professor['funFact']
+                "type": "project",
+                "name": project['name'],
+                "description": project['description'],
+                "technologies": project['technologies']
             }
         })
-    
+
+    # Process achievements
+    for achievement in data['achievements']:
+        achievement_info = (
+            f"Achievement: {achievement['title']}. "
+            f"Description: {achievement['description']}. "
+            f"Date: {achievement['date']}."
+        )
+        achievement_embedding = embeddings.embed_query(achievement_info)
+        processed_data.append({
+            "values": achievement_embedding,
+            "id": f"achievement_{achievement['title']}",
+            "metadata": {
+                "type": "achievement",
+                "title": achievement['title'],
+                "description": achievement['description'],
+                "date": achievement['date']
+            }
+        })
+
+    # Process certifications
+    for cert in data['certifications']:
+        cert_info = (
+            f"Certification: {cert['name']}. "
+            f"Issuer: {cert['issuer']}. "
+            f"Date: {cert['date']}."
+        )
+        cert_embedding = embeddings.embed_query(cert_info)
+        processed_data.append({
+            "values": cert_embedding,
+            "id": f"certification_{cert['name']}",
+            "metadata": {
+                "type": "certification",
+                "name": cert['name'],
+                "issuer": cert['issuer'],
+                "date": cert['date'],
+                "url": cert['url']
+            }
+        })
+
     # Store in Pinecone
-    index = pc.Index(index_name)
     index.upsert(vectors=processed_data)
 
-    print(f"Upserted {len(processed_data)} professors into Pinecone index '{index_name}'")
+    print(f"Upserted {len(processed_data)} items into Pinecone index '{index_name}'")
 
 # Call the function with your JSON file
-json_file_path('data.json')
+process_json_file('embeding/data.json')
