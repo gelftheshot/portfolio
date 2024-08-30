@@ -9,6 +9,7 @@ const links = [
   { url: "/about", title: "About" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/contact", title: "Contact" },
+  { url: "/askai", title: "ask my AI" },
 ];
 
 const Navbar = () => {
@@ -39,23 +40,27 @@ const Navbar = () => {
 
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
-      <div className="hidden md:flex gap-4 w-1/3">
-        {links.map((link) => (
-          <Link href={link.url} key={link.title}>
-            {link.title}
-          </Link>
-        ))}
-      </div>
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+      <div className="flex items-center justify-between w-full">
         <Link href="/" className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center">
           <span className="text-white mr-1">Lihon</span>
           <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">
             Gebre
           </span>
         </Link>
-      </div>
-      <div className="hidden md:flex gap-4 w-1/3 justify-end">
-        {/* Add social media icons here */}
+        <div className="hidden md:flex gap-4 items-center">
+          {links.map((link) => (
+            <Link 
+              href={link.url} 
+              key={link.title}
+              className={link.title.toLowerCase() === "ask my ai" ? "bg-blue-500 text-white px-4 py-2 rounded-md" : ""}
+            >
+              {link.title}
+            </Link>
+          ))}
+        </div>
+        <div className="hidden md:flex gap-4">
+          {/* Add social media icons here */}
+        </div>
       </div>
       <div className="md:hidden">
         <button
@@ -87,7 +92,12 @@ const Navbar = () => {
           >
             {links.map((link) => (
               <motion.div variants={listItemVariants} key={link.title}>
-                <Link href={link.url}>{link.title}</Link>
+                <Link
+                  href={link.url}
+                  className={link.title.toLowerCase() === "ask my ai" ? "bg-blue-500 text-white px-4 py-2 rounded-md" : ""}
+                >
+                  {link.title}
+                </Link>
               </motion.div>
             ))}
           </motion.div>

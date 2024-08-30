@@ -41,6 +41,9 @@ const Homepage = () => {
             <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black">
               Contact Me
             </Link>
+            <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black">
+              Ask my ai about me
+            </Link>
           </div>
         </div>
       </div>
