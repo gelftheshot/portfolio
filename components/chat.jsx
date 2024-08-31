@@ -6,6 +6,7 @@ const Chat = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [thinkingDots, setThinkingDots] = useState(0);
   const chatWindowRef = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -16,6 +17,13 @@ const Chat = () => {
     setChatMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
+
+    // Start the thinking animation
+    const thinkingInterval = setInterval(() => {
+      setThinkingDots(dots => (dots + 1) % 4);
+    }, 500);
+
+    setChatMessages(prev => [...prev, { role: 'assistant', content: 'thinking' }]);
 
     try {
       const response = await fetch('/api/chat', {
@@ -30,7 +38,8 @@ const Chat = () => {
       const decoder = new TextDecoder();
       let aiResponse = '';
 
-      setChatMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+      clearInterval(thinkingInterval);
+      setThinkingDots(0);
 
       while (true) {
         const { done, value } = await reader.read();
@@ -39,14 +48,20 @@ const Chat = () => {
         aiResponse += chunk;
         setChatMessages(prev => {
           const newMessages = [...prev];
-          newMessages[newMessages.length - 1].content = aiResponse;
+          newMessages[newMessages.length - 1] = { role: 'assistant', content: aiResponse };
           return newMessages;
         });
       }
     } catch (error) {
       console.error('Error:', error);
-      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, there was an error processing your request.' }]);
+      setChatMessages(prev => {
+        const newMessages = [...prev];
+        newMessages[newMessages.length - 1] = { role: 'assistant', content: 'Sorry, there was an error processing your request.' };
+        return newMessages;
+      });
     } finally {
+      clearInterval(thinkingInterval);
+      setThinkingDots(0);
       setIsLoading(false);
     }
   };
