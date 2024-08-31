@@ -50,11 +50,21 @@ Guidelines:
 4. Keep your answers concise and to the point.
 5. If appropriate, encourage the user to check out Lihon's projects or get in touch with him for more information.`;
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const generatedText = response.text();
+    const result = await model.generateContentStream(prompt);
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of result.stream) {
+          const text = chunk.text();
+          controller.enqueue(encoder.encode(text));
+        }
+        controller.close();
+      },
+    });
 
-    return NextResponse.json({ message: generatedText });
+    return new Response(stream, {
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json({ error: "An error occurred while processing your request." }, { status: 500 });

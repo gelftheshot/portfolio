@@ -26,8 +26,23 @@ const Chat = () => {
 
       if (!response.ok) throw new Error('Network response was not ok');
 
-      const data = await response.json();
-      setChatMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let aiResponse = '';
+
+      setChatMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value);
+        aiResponse += chunk;
+        setChatMessages(prev => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1].content = aiResponse;
+          return newMessages;
+        });
+      }
     } catch (error) {
       console.error('Error:', error);
       setChatMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, there was an error processing your request.' }]);
