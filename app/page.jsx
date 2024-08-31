@@ -53,7 +53,7 @@ const Homepage = () => {
               <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black text-center">
                 Contact Me
               </Link>
-              <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black text-center">
+              <Link href="/askai" className="p-4 rounded-lg ring-1 ring-black text-center">
                 Ask my AI about me
               </Link>
             </div>
