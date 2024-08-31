@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import NavLink from "./NavLink";
 
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
   { url: "/portfolio", title: "Portfolio" },
   { url: "/contact", title: "Contact" },
-  { url: "/askai", title: "ask my AI" },
+  { url: "/askai", title: "Ask my AI" },
 ];
 
 const Navbar = () => {
@@ -39,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
+    <nav className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
       <div className="flex items-center justify-between w-full">
         <Link href="/" className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center">
           <span className="text-white mr-1">Lihon</span>
@@ -49,13 +50,7 @@ const Navbar = () => {
         </Link>
         <div className="hidden md:flex gap-4 items-center">
           {links.map((link) => (
-            <Link 
-              href={link.url} 
-              key={link.title}
-              className={link.title.toLowerCase() === "ask my ai" ? "bg-blue-500 text-white px-4 py-2 rounded-md" : ""}
-            >
-              {link.title}
-            </Link>
+            <NavLink key={link.title} link={link} />
           ))}
         </div>
         <div className="hidden md:flex gap-4">
@@ -92,18 +87,13 @@ const Navbar = () => {
           >
             {links.map((link) => (
               <motion.div variants={listItemVariants} key={link.title}>
-                <Link
-                  href={link.url}
-                  className={link.title.toLowerCase() === "ask my ai" ? "bg-blue-500 text-white px-4 py-2 rounded-md" : ""}
-                >
-                  {link.title}
-                </Link>
+                <NavLink link={link} />
               </motion.div>
             ))}
           </motion.div>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 
