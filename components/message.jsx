@@ -17,7 +17,9 @@ const Message = ({ role, content }) => {
       </div>
       <div className={`max-w-[70%] p-3 rounded-lg ${role === 'user' ? 'bg-blue-100 rounded-tr-none' : 'bg-white rounded-tl-none'}`}>
         <div className="text-gray-800 whitespace-pre-wrap">
-          {isThinking ? `Thinking${thinkingDots}` : content}
+          {isThinking ? `Thinking${thinkingDots}` : (
+            <span className="animate-typing">{content}</span>
+          )}
         </div>
       </div>
     </div>

@@ -41,17 +41,24 @@ const Chat = () => {
       clearInterval(thinkingInterval);
       setThinkingDots(0);
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value);
-        aiResponse += chunk;
-        setChatMessages(prev => {
-          const newMessages = [...prev];
-          newMessages[newMessages.length - 1] = { role: 'assistant', content: aiResponse };
-          return newMessages;
-        });
-      }
+      const streamCharacters = async () => {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const chunk = decoder.decode(value);
+          for (let char of chunk) {
+            aiResponse += char;
+            setChatMessages(prev => {
+              const newMessages = [...prev];
+              newMessages[newMessages.length - 1] = { role: 'assistant', content: aiResponse };
+              return newMessages;
+            });
+            await new Promise(resolve => setTimeout(resolve, 5)); // Reduced from 20 to 5 milliseconds
+          }
+        }
+      };
+
+      await streamCharacters();
     } catch (error) {
       console.error('Error:', error);
       setChatMessages(prev => {
