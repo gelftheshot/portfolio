@@ -31,11 +31,11 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             {/* BIOGRAPHY IMAGE */}
             <Image
-              src="/lihon-profile.jpg"
+              src="/Lihongebre.jpeg"
               alt="Lihon Gebre"
-              width={112}
-              height={112}
-              className="w-28 h-28 rounded-full object-cover"
+              width={224}
+              height={224}
+              className="w-56 h-56 rounded object-cover" style={{ objectPosition: '0% 10%' }}
             />
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
