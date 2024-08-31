@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 const Homepage = () => {
   return (
-    <motion.div
-      className="h-full"
+    <motion.main
+      className="min-h-screen bg-gradient-to-b from-blue-100 to-red-100"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
@@ -60,7 +60,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.main>
   );
 };
 
