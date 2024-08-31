@@ -1,105 +1,66 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
-import { useCompletion } from 'ai/react';
-import { v4 as uuidv4 } from 'uuid';
+import { useState, useEffect, useRef } from "react";
 import Message from "./message";
 
 const Chat = () => {
-  const [message, setMessage] = useState("");
   const [chatMessages, setChatMessages] = useState([]);
-  const [streamingMessage, setStreamingMessage] = useState(null);
-  const textareaRef = useRef(null);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const chatWindowRef = useRef(null);
-  const { completion, complete, isLoading } = useCompletion({
-    api: '/api/chat',
-  });
 
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      const newHeight = Math.min(textareaRef.current.scrollHeight, 150);
-      textareaRef.current.style.height = newHeight + "px";
-      const borderRadius = newHeight > 40 ? "1rem" : "9999px";
-      textareaRef.current.style.borderRadius = borderRadius;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+
+    const userMessage = { role: 'user', content: input };
+    setChatMessages(prev => [...prev, userMessage]);
+    setInput('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: input }),
+      });
+
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const data = await response.json();
+      setChatMessages(prev => [...prev, { role: 'assistant', content: data.message }]);
+    } catch (error) {
+      console.error('Error:', error);
+      setChatMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, there was an error processing your request.' }]);
+    } finally {
+      setIsLoading(false);
     }
-  }, [message]);
+  };
 
   useEffect(() => {
     if (chatWindowRef.current) {
       chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight;
     }
-  }, [chatMessages, streamingMessage]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
-
-    const userMessage = { _id: uuidv4(), text: message, role: "user" };
-    setChatMessages((prev) => [...prev, userMessage]);
-    setMessage("");
-    setStreamingMessage({ _id: uuidv4(), text: "", role: "assistant" });
-
-    try {
-      await complete(message);
-    } catch (error) {
-      console.error("Error completing message:", error);
-      setStreamingMessage(null);
-      setChatMessages((prev) => [
-        ...prev,
-        {
-          _id: uuidv4(),
-          text: "An error occurred while processing your request.",
-          role: "assistant"
-        }
-      ]);
-    }
-  };
-
-  useEffect(() => {
-    if (completion) {
-      setStreamingMessage((prev) => 
-        prev ? { ...prev, text: completion } : null
-      );
-    }
-  }, [completion]);
-
-  useEffect(() => {
-    if (!isLoading && streamingMessage) {
-      setChatMessages((prev) => [...prev, streamingMessage]);
-      setStreamingMessage(null);
-    }
-  }, [isLoading, streamingMessage]);
+  }, [chatMessages]);
 
   return (
     <div className="flex flex-col h-full">
       <div ref={chatWindowRef} className="flex-1 overflow-y-auto p-6 space-y-6">
-        {chatMessages.map(message => (
-          <Message key={message._id} role={message.role} content={message.text} />
+        {chatMessages.map((message, index) => (
+          <Message key={index} role={message.role} content={message.content} />
         ))}
-        {streamingMessage && (
-          <Message role={streamingMessage.role} content={streamingMessage.text || "Thinking..."} />
-        )}
       </div>
       <footer className="border-t border-gray-200 p-4">
         <form onSubmit={handleSubmit} className="relative">
-          <textarea
-            ref={textareaRef}
-            className="w-full p-4 pr-20 text-gray-700 bg-white border-2 border-gray-300 rounded-lg resize-none transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            style={{ maxHeight: "150px", minHeight: "50px", overflowY: "auto" }}
-            rows="1"
-            placeholder="Ask your question about Lihon..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleSubmit(e);
-              }
-            }}
-          ></textarea>
+          <input
+            className="w-full p-4 pr-20 text-gray-700 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            value={input}
+            placeholder="Ask about Lihon..."
+            onChange={(e) => setInput(e.target.value)}
+            disabled={isLoading}
+          />
           <button
             type="submit"
-            className="absolute right-3 bottom-3 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
+            className={`absolute right-2 top-2 ${isLoading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'} text-white px-4 py-2 rounded-full text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors`}
             disabled={isLoading}
           >
             {isLoading ? 'Sending...' : 'Send'}

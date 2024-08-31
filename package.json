@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
+    "@google/generative-ai": "^0.17.1",
+    "@langchain/google-genai": "^0.0.26",
+    "@pinecone-database/pinecone": "^3.0.2",
     "ai": "^3.3.20",
     "framer-motion": "^11.0.3",
-    "next": "14.2.5",
+    "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",

@@ -5,7 +5,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import json
 
 # Load environment variables from .env.local
-load_dotenv(dotenv_path='.env.local')
+load_dotenv(dotenv_path='../.env.local')
 
 # Get API keys
 PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
@@ -52,11 +52,10 @@ def process_json_file(json_file_path):
 
     # Process general information
     general_info = (
-        f"{data['name']} is a {data['bio']} "
-        f"Based in {data['location']}, their skills include {', '.join(data['skills'])}. "
-        f"Education: {', '.join([f'{edu['degree']} from {edu['institution']}' for edu in data['education']])}. "
-        f"Current work: {data['work']['role']} at {data['work']['company']}. "
-        f"Interests: {', '.join(data['interests'])}."
+        "Based in {}, their skills include {}. ".format(data['location'], ', '.join(data['skills'])) +
+        "Education: {}. ".format(', '.join([edu['degree'] + ' from ' + edu['institution'] for edu in data['education']])) +
+        "Current work: {} at {}. ".format(data['work']['role'], data['work']['company']) +
+        "Interests: {}.".format(', '.join(data['interests']))
     )
     general_embedding = embeddings.embed_query(general_info)
     processed_data.append({
@@ -132,4 +131,4 @@ def process_json_file(json_file_path):
     print(f"Upserted {len(processed_data)} items into Pinecone index '{index_name}'")
 
 # Call the function with your JSON file
-process_json_file('embeding/data.json')
+process_json_file('./data.json')

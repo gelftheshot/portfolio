@@ -48,9 +48,7 @@ Guidelines:
 2. If the information to answer the question is not in the provided data, say "I don't have specific information about that, but I'd be happy to tell you what I do know about Lihon's background in related areas."
 3. If the question is completely unrelated to Lihon or his work, respond with "I'm sorry, but I can only answer questions about Lihon Gebre and his professional background. Is there anything specific about Lihon's skills, projects, or experience you'd like to know?"
 4. Keep your answers concise and to the point.
-5. If appropriate, encourage the user to check out Lihon's projects or get in touch with him for more information.
-
-Now, please provide an appropriate response to the user's question.`;
+5. If appropriate, encourage the user to check out Lihon's projects or get in touch with him for more information.`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
