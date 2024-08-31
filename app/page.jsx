@@ -53,8 +53,22 @@ const Homepage = () => {
               <Link href="/contact" className="p-4 rounded-lg ring-1 ring-black text-center">
                 Contact Me
               </Link>
-              <Link href="/askai" className="p-4 rounded-lg ring-1 ring-black text-center">
-                Ask my AI about me
+              <Link href="/askai" className="p-4 rounded-lg ring-1 ring-black text-center bg-blue-500 text-white hover:bg-blue-600 transition-colors relative overflow-hidden group flex items-center justify-center">
+                <span className="mr-2">Ask my AI</span>
+                <motion.span
+                  className="inline-block"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
+                  🤖
+                </motion.span>
+                <span className="ml-2">about me</span>
+                <motion.div 
+                  className="absolute inset-0 bg-blue-600"
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "100%" }}
+                  transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                />
               </Link>
             </div>
           </div>
