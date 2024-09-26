@@ -67,26 +67,26 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
+          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-4 sm:p-8 md:p-12 lg:p-24"
         >
           <input
             type="text"
             required
             placeholder="Name"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-transparent border-2 border-black rounded-md p-2 outline-none focus:border-purple-500"
             name="user_name"
           />
           <input
             type="email"
             required
             placeholder="Email"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-transparent border-2 border-black rounded-md p-2 outline-none focus:border-purple-500"
             name="user_email"
           />
           <textarea
             required
             placeholder="Message"
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-transparent border-2 border-black rounded-md p-2 outline-none resize-none min-h-[100px] focus:border-purple-500"
             name="message"
             rows={4}
           />
