@@ -83,6 +83,19 @@ const items = [
     github: "https://github.com/gelftheshot/inventory-management-app",
     tech: "Next.js, React, Material-UI, Firebase, Google's Generative AI (Gemini)",
   },
+  {
+    id: 6,
+    color: "from-blue-100 to-green-200",
+    title: "AI Customer Support",
+    desc: "An AI-powered customer support application that offers quick, personalized responses to customer queries. It operates 24/7 and can escalate complex issues when needed, improving efficiency and customer satisfaction with intelligent support.",
+    images: [
+      "/customer1.png",
+      "/customer2.png",
+    ],
+    link: "https://ai-customer-support-topaz.vercel.app/",
+    github: "https://github.com/gelftheshot/ai-customer-support",
+    tech: "Next.js, AI, JavaScript, Tailwind CSS, Firebase",
+  },
 ];
 
 const PortfolioItem = ({ item }) => {
