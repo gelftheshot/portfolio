@@ -19,6 +19,7 @@ const items = [
       "/onlyhers5.png",
     ],
     link: "https://only-hers.com",
+    github: "https://github.com/yourusername/only-hers",
     tech: "Django, HTML/CSS, JavaScript, jQuery, AJAX",
   },
   {
@@ -34,6 +35,7 @@ const items = [
       "/academy5.png",
     ],
     link: "https://academic-advisor-ai.com",
+    github: "https://github.com/yourusername/academic-advisor-ai",
     tech: "Next.js, Google Generative AI, Pinecone",
   },
   {
@@ -48,7 +50,24 @@ const items = [
       "/wisper4.png",
     ],
     link: "https://whisper-chat.com",
+    github: "https://github.com/yourusername/whisper-chat",
     tech: "MongoDB, Express.js, React.js, Node.js",
+  },
+  {
+    id: 4,
+    color: "from-green-100 to-blue-200",
+    title: "Alx Study with AI",
+    desc: "An open-source study tool using AI, built with Next.js. This project helps students study with short notes and various materials, featuring automatically generated questions. It utilizes the Llama 3.1 8B model to provide an AI-powered educational experience.",
+    images: [
+      "/study1.png",
+      "/study2.png",
+      "/study3.png",
+      "/study4.png",
+      "/study5.png",
+    ],
+    link: "https://study-with-ai.me",
+    github: "https://github.com/gelftheshot/Alx-study-with-ai",
+    tech: "Next.js, AI (Llama 3.1 8B), JavaScript, CSS",
   },
 ];
 
@@ -83,11 +102,18 @@ const PortfolioItem = ({ item }) => {
             <h2 className="text-xl font-semibold mb-2">Technologies:</h2>
             <p className="text-lg">{item.tech}</p>
           </div>
-          <Link href={item.link} className="inline-block">
-            <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
-              See Project
-            </button>
-          </Link>
+          <div className="flex flex-wrap gap-4">
+            <Link href={item.link} className="inline-block">
+              <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
+                See Project
+              </button>
+            </Link>
+            <Link href={item.github} className="inline-block">
+              <button className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-300">
+                See Code
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="md:w-1/2">
           <div className={`relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden rounded-lg shadow-xl ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}>
