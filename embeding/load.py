@@ -90,8 +90,7 @@ def process_json_file(json_file_path):
     for achievement in data['achievements']:
         achievement_info = (
             f"Achievement: {achievement['title']}. "
-            f"Description: {achievement['description']}. "
-            f"Date: {achievement['date']}."
+            f"Description: {achievement['description']}."
         )
         achievement_embedding = embeddings.embed_query(achievement_info)
         processed_data.append({
@@ -100,8 +99,7 @@ def process_json_file(json_file_path):
             "metadata": {
                 "type": "achievement",
                 "title": achievement['title'],
-                "description": achievement['description'],
-                "date": achievement['date']
+                "description": achievement['description']
             }
         })
 
@@ -109,8 +107,7 @@ def process_json_file(json_file_path):
     for cert in data['certifications']:
         cert_info = (
             f"Certification: {cert['name']}. "
-            f"Issuer: {cert['issuer']}. "
-            f"Date: {cert['date']}."
+            f"Issuer: {cert['issuer']}."
         )
         cert_embedding = embeddings.embed_query(cert_info)
         processed_data.append({
@@ -120,7 +117,6 @@ def process_json_file(json_file_path):
                 "type": "certification",
                 "name": cert['name'],
                 "issuer": cert['issuer'],
-                "date": cert['date'],
                 "url": cert['url']
             }
         })

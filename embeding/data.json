@@ -47,8 +47,8 @@
       },
       {
         "name": "AI Customer Support",
-        "description": "A cutting-edge customer support solution powered by AI, capable of providing instant, accurate responses 24/7. This project showcases the ability to implement natural language processing and machine learning to improve customer service efficiency.",
-        "technologies": "AI, Natural Language Processing, Machine Learning",
+        "description": "A cutting-edge customer support application that offers quick, personalized responses to customer queries. It operates 24/7 and can escalate complex issues when needed, improving efficiency and customer satisfaction with intelligent support.",
+        "technologies": "Next.js, AI, JavaScript, Tailwind CSS, Firebase",
         "url": "https://github.com/gelftheshot/ai-customer-support"
       },
       {
@@ -76,36 +76,36 @@
       },
       {
         "name": "ONLY_HERS E-Commerce Store",
-        "description": "Full-fledged e-commerce solution built with Django, Bootstrap and additional Django libraries.",
-        "technologies": "Django, Bootstrap"
+        "description": "A fully functional e-commerce website connecting vendors, social media influencers, and female shoppers. Only-Hers offers a curated product selection, influencer partnerships, and a seamless shopping experience.",
+        "technologies": "Django, HTML/CSS, JavaScript, jQuery, AJAX",
+        "url": "https://only-hers.com"
       },
       {
-        "name": "ALX File Manager",
-        "description": "Single page app for file uploads/downloads built with Node.js, Express and MongoDB.",
-        "technologies": "Node.js, Express, MongoDB" 
+        "name": "Academic Advisor AI",
+        "description": "A Next.js application designed to assist students in academic planning, finding professors, and getting career advice. Features include professor search, major advisor, and course planner, using Google Generative AI and Pinecone for personalized recommendations.",
+        "technologies": "Next.js, Google Generative AI, Pinecone",
+        "url": "https://academic-advisor-ai.com"
       },
       {
-        "name": "AirBnB Clone",
-        "description": "Clone of the AirBnB home listings platform built with Python, Django, HTML and CSS.",
-        "technologies": "Python, Django, HTML, CSS"
+        "name": "Alx Study with AI",
+        "description": "An open-source study tool using AI, built with Next.js. This project helps students study with short notes and various materials, featuring automatically generated questions. It utilizes the Llama 3.1 8B model to provide an AI-powered educational experience.",
+        "technologies": "Next.js, AI (Llama 3.1 8B), JavaScript, CSS",
+        "url": "https://study-with-ai.me"
       }
     ],
     "education": [
       {
         "institution": "Addis Ababa University",
-        "degree": "Bachelor of Science, Computer Science",
-        "dates": "2015 - present"
+        "degree": "Bachelor of Science, Computer Science"
       },
       {
         "institution": "ALX", 
-        "degree": "Accelerated Software Engineering Program", 
-        "dates": "2022"
+        "degree": "Accelerated Software Engineering Program"
       }
     ],
     "work": {
       "company": "Headstarter AI",
       "role": "Software Engineering Fellow",
-      "dates": "2023 - Present",
       "description": "Applying full stack development expertise through new innovative projects at Headstarter AI."
     },
     "interests": [
@@ -124,42 +124,35 @@
     "achievements": [
       {
         "title": "3.9 GPA in Computer Science",
-        "description": "Maintained a high academic performance throughout the Computer Science program at Addis Ababa University",
-        "date": "2015 - present"
+        "description": "Maintained a high academic performance throughout the Computer Science program at Addis Ababa University"
       },
       {
         "title": "Valedictorian",
-        "description": "Achieved top academic performance in the ALX Software Engineering Program",
-        "date": "2022"
+        "description": "Achieved top academic performance in the ALX Software Engineering Program"
       },
       {
         "title": "Student Leaders Ambassador",
-        "description": "Served as a student leader and ambassador, representing peers and promoting academic excellence",
-        "date": "2022"
+        "description": "Served as a student leader and ambassador, representing peers and promoting academic excellence"
       },
       {
         "title": "Regional State Award",
-        "description": "Recognized for outstanding performance in the Ethiopian University Entrance Examination",
-        "date": "2015"
+        "description": "Recognized for outstanding performance in the Ethiopian University Entrance Examination"
       }
     ],
     "certifications": [
       {
         "name": "ALX Full Stack Software Engineering Certification",
         "issuer": "ALX",
-        "date": "2022",
         "url": "https://www.alxafrica.com/"
       },
       {
         "name": "Relational Database Certification",
         "issuer": "freeCodeCamp",
-        "date": "2022",
         "url": "https://www.freecodecamp.org/certification/fcc12345/relational-database-v8"
       },
       {
         "name": "AWS Cloud Practitioner Certification",
         "issuer": "Coursera",
-        "date": "2022",
         "url": "https://www.coursera.org/account/accomplishments/certificate/ABCDEFGHIJKL"
       }
     ],
