@@ -23,11 +23,13 @@ const ContactPage = () => {
         process.env.NEXT_PUBLIC_PUBLIC_KEY
       )
       .then(
-        () => {
+        (result) => {
+          console.log('Email sent successfully:', result.text);
           setSuccess(true);
           form.current.reset();
         },
-        () => {
+        (error) => {
+          console.error('Failed to send email:', error.text);
           setError(true);
         }
       );
@@ -42,7 +44,7 @@ const ContactPage = () => {
     >
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -65,29 +67,30 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-4 justify-center p-8 lg:p-24"
+          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
         >
-          <textarea
-            rows={6}
-            className="bg-red-50 border-b-2 border-b-black outline-none resize-none w-full pb-1"
-            name="user_message"
-            placeholder="Your message here..."
-            style={{ cursor: 'text' }}
-          />
           <input
-            name="user_email"
-            type="email"
-            className="bg-red-50 border-b-2 border-b-black outline-none w-full pb-1"
-            placeholder="Your email address"
+            type="text"
             required
-            style={{ cursor: 'text' }}
+            placeholder="Name"
+            className="bg-transparent border-b-2 border-b-black outline-none"
+            name="user_name"
           />
           <input
-            type="hidden"
-            name="to_email"
-            value="lihongebre@gmail.com"
+            type="email"
+            required
+            placeholder="Email"
+            className="bg-transparent border-b-2 border-b-black outline-none"
+            name="user_email"
           />
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4 mt-8">
+          <textarea
+            required
+            placeholder="Message"
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            name="message"
+            rows={4}
+          />
+          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
             Send
           </button>
           {success && (

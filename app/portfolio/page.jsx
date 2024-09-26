@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 
 const items = [
   {
@@ -19,6 +19,7 @@ const items = [
       "/onlyhers5.png",
     ],
     link: "https://only-hers.com",
+    github: "https://github.com/yourusername/only-hers",
     tech: "Django, HTML/CSS, JavaScript, jQuery, AJAX",
   },
   {
@@ -34,6 +35,7 @@ const items = [
       "/academy5.png",
     ],
     link: "https://academic-advisor-ai.com",
+    github: "https://github.com/yourusername/academic-advisor-ai",
     tech: "Next.js, Google Generative AI, Pinecone",
   },
   {
@@ -48,27 +50,70 @@ const items = [
       "/wisper4.png",
     ],
     link: "https://whisper-chat.com",
+    github: "https://github.com/yourusername/whisper-chat",
     tech: "MongoDB, Express.js, React.js, Node.js",
+  },
+  {
+    id: 4,
+    color: "from-green-100 to-blue-200",
+    title: "Alx Study with AI",
+    desc: "An open-source study tool using AI, built with Next.js. This project helps students study with short notes and various materials, featuring automatically generated questions. It utilizes the Llama 3.1 8B model to provide an AI-powered educational experience.",
+    images: [
+      "/study1.png",
+      "/study2.png",
+      "/study3.png",
+      "/study4.png",
+      "/study5.png",
+    ],
+    link: "https://study-with-ai.me",
+    github: "https://github.com/gelftheshot/Alx-study-with-ai",
+    tech: "Next.js, AI (Llama 3.1 8B), JavaScript, CSS",
+  },
+  {
+    id: 5,
+    color: "from-yellow-100 to-green-200",
+    title: "Inventory Management App",
+    desc: "A modern inventory management application built with Next.js, Firebase, and Material-UI. It features photo-based item entry with automatic categorization, real-time inventory management, and an intuitive user interface.",
+    images: [
+      "/inventory1.jfif",
+      "/inventory2.png",
+      "/inventory3.png",
+    ],
+    link: "https://github.com/gelftheshot/inventory-management-app",
+    github: "https://github.com/gelftheshot/inventory-management-app",
+    tech: "Next.js, React, Material-UI, Firebase, Google's Generative AI (Gemini)",
+  },
+  {
+    id: 6,
+    color: "from-blue-100 to-green-200",
+    title: "AI Customer Support",
+    desc: "An AI-powered customer support application that offers quick, personalized responses to customer queries. It operates 24/7 and can escalate complex issues when needed, improving efficiency and customer satisfaction with intelligent support.",
+    images: [
+      "/customer1.png",
+      "/customer2.png",
+    ],
+    link: "https://ai-customer-support-topaz.vercel.app/",
+    github: "https://github.com/gelftheshot/ai-customer-support",
+    tech: "Next.js, AI, JavaScript, Tailwind CSS, Firebase",
   },
 ];
 
 const PortfolioItem = ({ item }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isZoomed, setIsZoomed] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % item.images.length);
   };
 
   const prevImage = () => {
-    console.log('prevImage called');
     setCurrentImageIndex((prevIndex) => 
       prevIndex === 0 ? item.images.length - 1 : prevIndex - 1
     );
   };
 
-  const toggleZoom = () => {
-    setIsZoomed(!isZoomed);
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
   };
 
   return (
@@ -83,45 +128,51 @@ const PortfolioItem = ({ item }) => {
             <h2 className="text-xl font-semibold mb-2">Technologies:</h2>
             <p className="text-lg">{item.tech}</p>
           </div>
-          <Link href={item.link} className="inline-block">
-            <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
-              See Project
-            </button>
-          </Link>
+          <div className="flex flex-wrap gap-4">
+            <Link href={item.link} className="inline-block">
+              <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
+                See Project
+              </button>
+            </Link>
+            <Link href={item.github} className="inline-block">
+              <button className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-300">
+                See Code
+              </button>
+            </Link>
+          </div>
         </div>
         <div className="md:w-1/2">
-          <div className={`relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden rounded-lg shadow-xl ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}>
+          <div className="relative w-full h-[40vh] md:h-[50vh] lg:h-[60vh] overflow-hidden rounded-lg shadow-xl cursor-pointer">
             <Image 
               src={item.images[currentImageIndex]} 
               alt="" 
               fill 
-              className={`object-cover transition-transform duration-300 ${isZoomed ? 'scale-150' : 'hover:scale-105'}`}
-              onClick={toggleZoom}
+              className="object-cover transition-transform duration-300 hover:scale-105"
+              onClick={toggleFullScreen}
             />
-            {!isZoomed && (
-              <>
-                <button
-                  onClick={() => {
-                    console.log('Left arrow clicked');
-                    prevImage();
-                  }}
-                  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-75 hover:bg-opacity-100 rounded-full p-3 transition-all duration-300 ease-in-out"
-                >
-                  <FaChevronLeft className="text-white text-2xl" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-75 hover:bg-opacity-100 rounded-full p-3 transition-all duration-300 ease-in-out"
-                >
-                  <FaChevronRight className="text-white text-2xl" />
-                </button>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-50 rounded-full px-2 py-1">
-                  <span className="text-black text-sm">
-                    {currentImageIndex + 1} / {item.images.length}
-                  </span>
-                </div>
-              </>
-            )}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-75 hover:bg-opacity-100 rounded-full p-3 transition-all duration-300 ease-in-out"
+            >
+              <FaChevronLeft className="text-white text-2xl" />
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-75 hover:bg-opacity-100 rounded-full p-3 transition-all duration-300 ease-in-out"
+            >
+              <FaChevronRight className="text-white text-2xl" />
+            </button>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-50 rounded-full px-2 py-1">
+              <span className="text-black text-sm">
+                {currentImageIndex + 1} / {item.images.length}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -152,6 +203,7 @@ const PortfolioPage = () => {
             {items.map((item) => (
               <PortfolioItem key={item.id} item={item} />
             ))}
+            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-red-300 to-purple-300" />
           </motion.div>
         </div>
       </div>
