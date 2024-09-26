@@ -3,51 +3,37 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
-
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
   const text = "Say Hello";
 
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true);
     setError(false);
     setSuccess(false);
 
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      form.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    )
-    .then(
-      (result) => {
-        console.log('Email sent successfully:', result.text);
-        setSuccess(true);
-        setLoading(false);
-        form.current.reset();
-      },
-      (error) => {
-        console.error('Failed to send email:', error);
-        setError(true);
-        setLoading(false);
-      }
-    )
-    .catch((err) => {
-      console.error('Unexpected error:', err);
-      setError(true);
-      setLoading(false);
-    });
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log('Email sent successfully:', result.text);
+          setSuccess(true);
+          form.current.reset();
+        },
+        (error) => {
+          console.error('Failed to send email:', error.text);
+          setError(true);
+        }
+      );
   };
-
-  console.log('Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
-  console.log('Template ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID);
-  console.log('Public Key:', process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
 
   return (
     <motion.div
@@ -58,7 +44,7 @@ const ContactPage = () => {
     >
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-4xl lg:text-6xl">
+        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -81,34 +67,31 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-4 justify-center p-8 lg:p-24"
+          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
         >
           <input
             type="text"
-            name="user_name"
-            placeholder="Name"
             required
-            className="bg-red-50 border-b-2 border-b-black outline-none w-full pb-1"
+            placeholder="Name"
+            className="bg-transparent border-b-2 border-b-black outline-none"
+            name="user_name"
           />
           <input
-            name="user_email"
             type="email"
-            placeholder="Email"
             required
-            className="bg-red-50 border-b-2 border-b-black outline-none w-full pb-1"
+            placeholder="Email"
+            className="bg-transparent border-b-2 border-b-black outline-none"
+            name="user_email"
           />
           <textarea
-            rows={6}
-            name="message"
-            placeholder="Message"
             required
-            className="bg-red-50 border-b-2 border-b-black outline-none resize-none w-full pb-1"
+            placeholder="Message"
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            name="message"
+            rows={4}
           />
-          <button
-            className="bg-purple-200 rounded font-semibold text-gray-600 p-4"
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Send"}
+          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
+            Send
           </button>
           {success && (
             <span className="text-green-600 font-semibold">
@@ -117,7 +100,7 @@ const ContactPage = () => {
           )}
           {error && (
             <span className="text-red-600 font-semibold">
-              Something went wrong. Please try again.
+              Something went wrong!
             </span>
           )}
         </form>

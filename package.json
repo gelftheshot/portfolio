@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.12.1",
+    "@emailjs/browser": "^4.4.1",
     "@google/generative-ai": "^0.17.1",
     "@langchain/google-genai": "^0.0.26",
     "@pinecone-database/pinecone": "^3.0.2",
