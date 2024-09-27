@@ -42,9 +42,7 @@ const Homepage = () => {
             </h1>
             <p className="md:text-xl text-center lg:text-left">
               Welcome to my digital portfolio. I&apos;m <span style={{ color: 'blue' }}>Lihon Gebre</span>, a Software Engineer, 
-              AI Developer, and DevOps Engineer. My work combines cutting-edge 
-              technology with practical solutions, showcasing a commitment to 
-              excellence across multiple domains of modern computing.
+              AI Developer, and DevOps Engineer.
             </p>
             <div className="w-full flex flex-col sm:flex-row gap-4">
               <Link href="/portfolio" className="p-4 rounded-lg ring-1 ring-black bg-black text-white text-center">

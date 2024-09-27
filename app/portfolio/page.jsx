@@ -75,7 +75,7 @@ const items = [
     title: "Inventory Management App",
     desc: "A modern inventory management application built with Next.js, Firebase, and Material-UI. It features photo-based item entry with automatic categorization, real-time inventory management, and an intuitive user interface.",
     images: [
-      "/inventory1.jfif",
+      "/inventory1.jpj",
       "/inventory2.png",
       "/inventory3.png",
     ],
