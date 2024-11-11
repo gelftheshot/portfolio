@@ -193,41 +193,37 @@ const AboutPage = () => {
             <motion.div
               initial={{ x: "-300px" }}
               animate={isExperienceRefInView ? { x: "0" } : {}}
-              className="flex flex-col gap-36" // Increased gap between experiences
+              className="flex flex-col gap-36"
             >
-              {/* Axion Engineering */}
+              {/* ALX Africa - First */}
               <div className="flex justify-between h-48">
                 <div className="w-1/3 ">
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Full Stack Developer
+                    Backend Developer
                   </div>
                   <div className="p-3 text-sm italic">
-                    Developed and maintained web applications using React, Node.js, and PostgreSQL. Implemented RESTful APIs and improved application performance.
+                    Designed and implemented scalable backend systems using Python and Django. Collaborated on RESTful API development and database optimization.
                   </div>
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2019 - 2020
+                    2022 - 2023
                   </div>
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    Axion Engineering
+                    ALX Africa
                   </div>
                 </div>
                 <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
                   </div>
                 </div>
                 <div className="w-1/3 "></div>
               </div>
 
-              {/* Headstarter AI Fellow */}
+              {/* AI Customer Support - Second */}
               <div className="flex justify-between h-48">
                 <div className="w-1/3 "></div>
                 <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
                   </div>
                 </div>
@@ -239,7 +235,7 @@ const AboutPage = () => {
                     Participated in intensive AI and machine learning projects. Developed models for natural language processing and computer vision applications.
                   </div>
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2018 - 2019
+                    2024
                   </div>
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
                     Headstarter AI Fellowship
@@ -247,26 +243,24 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              {/* ALX Africa */}
+              {/* Axion Engineering - Third */}
               <div className="flex justify-between h-48">
                 <div className="w-1/3 ">
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Backend Developer
+                    Full Stack Developer
                   </div>
                   <div className="p-3 text-sm italic">
-                    Designed and implemented scalable backend systems using Python and Django. Collaborated on RESTful API development and database optimization.
+                    Developed and maintained web applications using React, Node.js, and PostgreSQL. Implemented RESTful APIs and improved application performance.
                   </div>
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2017 - 2018
+                    2021 - 2022
                   </div>
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
-                    ALX Africa
+                    Axion Engineering
                   </div>
                 </div>
                 <div className="w-1/6 flex justify-center">
-                  {/* LINE */}
                   <div className="w-1 h-full bg-gray-600 rounded relative">
-                    {/* LINE CIRCLE */}
                     <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white -left-2"></div>
                   </div>
                 </div>

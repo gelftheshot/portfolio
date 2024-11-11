@@ -8,53 +8,6 @@ import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 const items = [
   {
     id: 1,
-    color: "from-blue-100 to-purple-200",
-    title: "Only Hers",
-    desc: "A fully functional e-commerce website connecting vendors, social media influencers, and female shoppers. Only-Hers offers a curated product selection, influencer partnerships, and a seamless shopping experience.",
-    images: [
-      "/onlyhers1.png",
-      "/onlyhers2.png",
-      "/onlyhers3.png",
-      "/onlyhers4.png",
-      "/onlyhers5.png",
-    ],
-    link: "https://only-hers.com",
-    github: "https://github.com/yourusername/only-hers",
-    tech: "Django, HTML/CSS, JavaScript, jQuery, AJAX",
-  },
-  {
-    id: 2,
-    color: "from-purple-100 to-pink-200",
-    title: "Academic Advisor AI",
-    desc: "A Next.js application designed to assist students in academic planning, finding professors, and getting career advice. Features include professor search, major advisor, and course planner, using Google Generative AI and Pinecone for personalized recommendations.",
-    images: [
-      "/academy1.png",
-      "/academy2.png",
-      "/academy3.png",
-      "/academy4.png",
-      "/academy5.png",
-    ],
-    link: "https://academic-advisor-ai.com",
-    github: "https://github.com/yourusername/academic-advisor-ai",
-    tech: "Next.js, Google Generative AI, Pinecone",
-  },
-  {
-    id: 3,
-    color: "from-pink-100 to-red-200",
-    title: "Whisper",
-    desc: "A real-time chat application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). Whisper provides instant messaging capabilities with a modern and intuitive interface.",
-    images: [
-      "/whisper1.png",
-      "/whisper2.png",
-      "/whisper3.png",
-      "/wisper4.png",
-    ],
-    link: "https://whisper-chat.com",
-    github: "https://github.com/yourusername/whisper-chat",
-    tech: "MongoDB, Express.js, React.js, Node.js",
-  },
-  {
-    id: 4,
     color: "from-green-100 to-blue-200",
     title: "Alx Study with AI",
     desc: "An open-source study tool using AI, built with Next.js. This project helps students study with short notes and various materials, featuring automatically generated questions. It utilizes the Llama 3.1 8B model to provide an AI-powered educational experience.",
@@ -70,7 +23,20 @@ const items = [
     tech: "Next.js, AI (Llama 3.1 8B), JavaScript, CSS",
   },
   {
-    id: 5,
+    id: 2,
+    color: "from-blue-100 to-green-200",
+    title: "AI Customer Support",
+    desc: "An AI-powered customer support application that offers quick, personalized responses to customer queries. It operates 24/7 and can escalate complex issues when needed, improving efficiency and customer satisfaction with intelligent support.",
+    images: [
+      "/customer1.png",
+      "/customer2.png",
+    ],
+    link: "https://ai-customer-support-topaz.vercel.app/",
+    github: "https://github.com/gelftheshot/ai-customer-support",
+    tech: "Next.js, AI, JavaScript, Tailwind CSS, Firebase",
+  },
+  {
+    id: 3,
     color: "from-yellow-100 to-green-200",
     title: "Inventory Management App",
     desc: "A modern inventory management application built with Next.js, Firebase, and Material-UI. It features photo-based item entry with automatic categorization, real-time inventory management, and an intuitive user interface.",
@@ -84,17 +50,47 @@ const items = [
     tech: "Next.js, React, Material-UI, Firebase, Google's Generative AI (Gemini)",
   },
   {
-    id: 6,
-    color: "from-blue-100 to-green-200",
-    title: "AI Customer Support",
-    desc: "An AI-powered customer support application that offers quick, personalized responses to customer queries. It operates 24/7 and can escalate complex issues when needed, improving efficiency and customer satisfaction with intelligent support.",
+    id: 4,
+    color: "from-pink-100 to-red-200",
+    title: "Whisper",
+    desc: "A real-time chat application built using the MERN stack. Features include real-time messaging with Socket.io, user authentication with JWT, and secure information storage. The app provides instant messaging capabilities with a modern and intuitive interface.",
     images: [
-      "/customer1.png",
-      "/customer2.png",
+      "/whisper1.png",
+      "/whisper2.png",
+      "/whisper3.png",
+      "/wisper4.png",
     ],
-    link: "https://ai-customer-support-topaz.vercel.app/",
-    github: "https://github.com/gelftheshot/ai-customer-support",
-    tech: "Next.js, AI, JavaScript, Tailwind CSS, Firebase",
+    github: "https://github.com/WalaEddine01/Whisper",
+    tech: "MongoDB, Express.js, React.js, Node.js, Socket.io, JWT",
+  },
+  {
+    id: 5,
+    color: "from-purple-100 to-pink-200",
+    title: "Academic Advisor AI",
+    desc: "A Next.js application designed to assist students in academic planning, finding professors, and getting career advice. Features include professor search, major advisor, and course planner, using Google Generative AI and Pinecone for personalized recommendations.",
+    images: [
+      "/academy1.png",
+      "/academy2.png",
+      "/academy3.png",
+      "/academy4.png",
+      "/academy5.png",
+    ],
+    github: "https://github.com/gelftheshot/academic-advisor-ai",
+    tech: "Next.js, Google Generative AI, Pinecone",
+  },
+  {
+    id: 6,
+    color: "from-blue-100 to-purple-200",
+    title: "Only Hers",
+    desc: "A fully functional e-commerce website with an integrated AI chatbot. As the AI engineer, I developed a sophisticated chatbot with real-time product knowledge through automated vector database updates from PostgreSQL. The system features continuous learning capabilities and personalized shopping recommendations based on user interactions.",
+    images: [
+      "/onlyhers1.png",
+      "/onlyhers2.png",
+      "/onlyhers3.png",
+      "/onlyhers4.png",
+      "/onlyhers5.png",
+    ],
+    tech: "Django, PostgreSQL, Vector Database, LangChain, Machine Learning, React, Redis",
   },
 ];
 
@@ -129,16 +125,25 @@ const PortfolioItem = ({ item }) => {
             <p className="text-lg">{item.tech}</p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <Link href={item.link} className="inline-block">
-              <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
-                See Project
+            {item.link && (
+              <Link href={item.link} className="inline-block">
+                <button className="px-6 py-3 bg-gray-800 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-700">
+                  See Project
+                </button>
+              </Link>
+            )}
+            {item.github && (
+              <Link href={item.github} className="inline-block">
+                <button className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-300">
+                  See Code
+                </button>
+              </Link>
+            )}
+            {!item.link && !item.github && (
+              <button className="px-6 py-3 bg-gray-400 text-white font-semibold rounded-lg cursor-not-allowed">
+                Under Deployment
               </button>
-            </Link>
-            <Link href={item.github} className="inline-block">
-              <button className="px-6 py-3 bg-gray-200 text-gray-800 font-semibold rounded-lg transition-colors duration-300 hover:bg-gray-300">
-                See Code
-              </button>
-            </Link>
+            )}
           </div>
         </div>
         <div className="md:w-1/2">
