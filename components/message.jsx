@@ -15,8 +15,12 @@ const Message = ({ role, content }) => {
         }
         <span className="text-sm font-medium text-gray-600">{role === 'user' ? 'You' : "Lihon's AI"}</span>
       </div>
-      <div className={`max-w-[70%] p-3 rounded-lg ${role === 'user' ? 'bg-blue-100 rounded-tr-none' : 'bg-white rounded-tl-none'}`}>
-        <div className="text-gray-800 whitespace-pre-wrap">
+      <div className={`max-w-[90%] md:max-w-[70%] p-4 rounded-lg break-words ${
+        role === 'user' 
+          ? 'bg-blue-100 rounded-tr-none ml-4' 
+          : 'bg-white rounded-tl-none mr-4'
+      }`}>
+        <div className="text-gray-800 whitespace-pre-wrap overflow-hidden">
           {isThinking ? `Thinking${thinkingDots}` : (
             <span className="animate-typing">{content}</span>
           )}

@@ -83,18 +83,14 @@ const Chat = () => {
     <div className="flex flex-col h-full">
       <div 
         ref={chatWindowRef} 
-        className="flex-1 overflow-y-auto p-6 space-y-6 overscroll-contain"
-        style={{ 
-          maxHeight: 'calc(100vh - 14rem)',
-          minHeight: '0'
-        }}
+        className="flex-1 overflow-y-auto p-4 space-y-4"
       >
         {chatMessages.map((message, index) => (
           <Message key={index} role={message.role} content={message.content} />
         ))}
       </div>
-      <footer className="border-t border-gray-200 p-4 bg-white mt-auto">
-        <form onSubmit={handleSubmit} className="relative">
+      <div className="border-t border-gray-200 p-4 bg-white">
+        <form onSubmit={handleSubmit} className="relative max-w-4xl mx-auto">
           <input
             className="w-full p-4 pr-20 text-gray-700 bg-white border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={input}
@@ -112,7 +108,7 @@ const Chat = () => {
             {isLoading ? 'Sending...' : 'Send'}
           </button>
         </form>
-      </footer>
+      </div>
     </div>
   );
 };
