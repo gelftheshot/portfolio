@@ -1,0 +1,151 @@
+{
+  "source": {
+    "name": "Upwork",
+    "profileUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
+    "retrievedAt": "2026-11-03",
+    "method": "Official Upwork MCP profile highlights and closed-contract reads, matched by exact title and dates to the public profile work history; client account display names supplied by matching closed contracts."
+  },
+  "profile": {
+    "snapshotDate": "2026-11-02",
+    "displayName": "Lihon G.",
+    "title": "AI Agent & Automation Developer | n8n, Claude, MCP, RAG, Voice Agent",
+    "jobSuccessPercent": 100,
+    "badge": "Top Rated",
+    "completedJobCount": 10,
+    "totalJobCount": 11,
+    "writtenReviewCount": 9
+  },
+  "completedWork": [
+    {
+      "id": "debug-502",
+      "title": "debug 502",
+      "period": "Mar 31, 2026 – Jun 22, 2026",
+      "startDate": "2026-03-31",
+      "endDate": "2026-06-22",
+      "clientName": "CLICK CLICK",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "Lihon is a boss. If you need a dev, he is your guy.",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "ai-search-engine",
+      "title": "Cloning previous AI search engine",
+      "period": "Aug 8, 2025 – Sep 3, 2025",
+      "startDate": "2025-08-08",
+      "endDate": "2025-09-03",
+      "clientName": "David Gu",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "No regrets hiring this man, will keep on using you sir",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "crypto-software-and-website",
+      "title": "Crypto mining software & 1 page website",
+      "period": "May 15, 2025 – Aug 8, 2025",
+      "startDate": "2025-05-15",
+      "endDate": "2025-08-08",
+      "clientName": "David Gu",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "wonderful person as usual",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "rag-ai-agent",
+      "title": "RAG AI Agent",
+      "period": "Jun 25, 2025 – Jul 22, 2025",
+      "startDate": "2025-06-25",
+      "endDate": "2025-07-22",
+      "clientName": "Ben Dobbs",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": null,
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "langchain-langgraph-saas",
+      "title": "AI (LangChain, LangGraph) developer for SaaS",
+      "period": "Jun 2, 2025 – Jul 14, 2025",
+      "startDate": "2025-06-02",
+      "endDate": "2025-07-14",
+      "clientName": "Wojciech Wierzchowski",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "Briliant, independent full stack dev. I highly recommend Lihon.",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "knowledge-based-rag-chatbot",
+      "title": "AI Chatbot Developer for Knowledge-Based System Using RAG",
+      "period": "Oct 1, 2024 – Apr 11, 2025",
+      "startDate": "2024-10-01",
+      "endDate": "2025-04-11",
+      "clientName": "Lancelot Studios",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "Lihon was an absolute pleasure to work with on our AI-related projects. His friendly and personable demeanor made collaboration smooth and enjoyable. Communication was excellent—Lihon kept me updated with transparency and clarity. He has a genuine passion for AI, which I appreciated seeing on the projects he helped us with. Lihon is very easy to speak with and so I wouldn't hesitate to reach out to him, even if it's just to inquire whether a particular project might be a good fit.",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
+      "feedbackExcerpt": "Lihon was an absolute pleasure to work with on our AI-related projects. His friendly and personable demeanor made collaboration smooth and enjoyable."
+    },
+    {
+      "id": "ai-agent-development",
+      "title": "AI Agent Developer",
+      "period": "Mar 15, 2025 – Mar 16, 2025",
+      "startDate": "2025-03-15",
+      "endDate": "2025-03-16",
+      "clientName": "Nsx Talent",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "Fantastic experience working with Lihon. He's professional, reliable, and delivered high-quality work on time.",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "python-integration-2025",
+      "title": "Python Developer Needed for Website Software Integration (Budget-Friendly)",
+      "period": "Jan 28, 2025 – Feb 24, 2025",
+      "startDate": "2025-01-28",
+      "endDate": "2025-02-24",
+      "clientName": "David Gu",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "this guy is the best, its not my first time using him, hes the best ever i will be working with this guy for a long time",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "python-integration-2024",
+      "title": "Python Developer Needed for Website Software Integration (Budget-Friendly)",
+      "period": "Oct 22, 2024 – Dec 29, 2024",
+      "startDate": "2024-10-22",
+      "endDate": "2024-12-29",
+      "clientName": "David Gu",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "This gentleman was so kind and polite and hard working, he will not let you down if you hire him",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    },
+    {
+      "id": "ai-engineering",
+      "title": "AI Engineer",
+      "period": "Nov 13, 2024 – Dec 24, 2024",
+      "startDate": "2024-11-13",
+      "endDate": "2024-12-24",
+      "clientName": "Nsx Talent",
+      "clientNameSource": "Upwork client account",
+      "rating": 5,
+      "ratingScale": 5,
+      "feedback": "Lihon's work as an AI Engineer was outstanding! He delivered cutting-edge solutions that have elevated our project to the next level. We’re grateful for his dedication and innovative mindset.",
+      "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
+    }
+  ]
+}

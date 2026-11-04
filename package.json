@@ -6,26 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "test": "node --test tests/*.test.mjs",
+    "assistant:export": "node scripts/export-assistant-data.mjs",
+    "resume:build": "python3 scripts/generate-resume.py"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "@google/generative-ai": "^0.17.1",
-    "@langchain/google-genai": "^0.0.26",
-    "@pinecone-database/pinecone": "^3.0.2",
-    "ai": "^3.3.20",
-    "framer-motion": "^11.0.3",
-    "next": "^14.2.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.3.0",
-    "uuid": "^10.0.0"
+    "@emailjs/browser": "5.0.3",
+    "next": "16.4.5",
+    "openai": "7.50.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest"
+    "autoprefixer": "10.6.2",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.5",
+    "postcss": "8.5.32",
+    "tailwindcss": "3.4.19"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

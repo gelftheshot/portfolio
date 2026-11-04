@@ -1,0 +1,364 @@
+{
+  "name": "Lihon Gebre",
+  "title": "AI & Backend Engineer",
+  "location": "Addis Ababa, Ethiopia",
+  "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history spans 2016 to 2025, with public Upwork completed client work extending through June 2026. His portfolio covers conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure, and workflow automation. Current employment and availability are not specified.",
+  "skills": {
+    "AI and retrieval": [
+      "Retrieval-augmented generation (RAG)",
+      "LangChain",
+      "Pinecone",
+      "Vector retrieval",
+      "Conversational AI",
+      "Multimodal AI workflows",
+      "Natural language processing",
+      "PyTorch"
+    ],
+    "Backend and APIs": [
+      "Python",
+      "Django",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Socket.io",
+      "JWT authentication"
+    ],
+    "Data and persistence": [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "Firebase"
+    ],
+    "Web development": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "HTML",
+      "CSS",
+      "Tailwind CSS"
+    ],
+    "Cloud and engineering tools": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "Nginx",
+      "Linux",
+      "Git",
+      "GitHub"
+    ],
+    "Computer science": [
+      "C",
+      "Data structures",
+      "Algorithms"
+    ]
+  },
+  "education": [
+    {
+      "institution": "Addis Ababa University",
+      "degree": "Bachelor of Science, Computer Science"
+    },
+    {
+      "institution": "ALX",
+      "degree": "Accelerated Software Engineering Program"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "Amharic",
+      "proficiency": "Native"
+    }
+  ],
+  "workPreferences": {
+    "environment": "Remote",
+    "availability": "Not specified"
+  },
+  "links": {
+    "website": "https://portfolio-one-rose-74.vercel.app/",
+    "github": "https://github.com/gelftheshot",
+    "linkedin": "https://linkedin.com/in/lihongebre",
+    "upwork": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
+    "contact": "https://portfolio-one-rose-74.vercel.app/#contact"
+  },
+  "experience": [
+    {
+      "id": "ndit-solution",
+      "company": "NDIT Solution",
+      "role": "AI, Backend & Automation Engineer",
+      "period": "2023 — 2025",
+      "startYear": "2023",
+      "endYear": "2025",
+      "description": "AI, backend, and workflow automation engineering.",
+      "responsibilities": [
+        {
+          "title": "AI integration",
+          "description": "Model-driven features connected to backend services and application data."
+        },
+        {
+          "title": "Backend systems",
+          "description": "Server-side application logic, service interfaces, and data flow."
+        },
+        {
+          "title": "Workflow automation",
+          "description": "Connected process steps, validation, and human review."
+        }
+      ],
+      "focusAreas": [
+        "AI integration",
+        "Backend engineering",
+        "Workflow automation",
+        "API integration",
+        "Data flow",
+        "Human review"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    },
+    {
+      "id": "alx-africa",
+      "company": "ALX Africa",
+      "role": "Backend Developer",
+      "period": "2022 — 2023",
+      "startYear": "2022",
+      "endYear": "2023",
+      "description": "Backend development with Python and Django, including collaboration on RESTful APIs and database optimization.",
+      "tools": "Python · Django · REST APIs",
+      "responsibilities": [
+        {
+          "title": "Backend development",
+          "description": "Python and Django server-side application development."
+        },
+        {
+          "title": "API collaboration",
+          "description": "RESTful interfaces connecting application components."
+        },
+        {
+          "title": "Database work",
+          "description": "Data access and database optimization."
+        }
+      ],
+      "focusAreas": [
+        "Python",
+        "Django",
+        "RESTful APIs",
+        "Database optimization",
+        "Backend systems",
+        "Collaboration"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    },
+    {
+      "id": "axious-tech",
+      "company": "Axious Tech",
+      "role": "Backend & Infrastructure Engineer",
+      "period": "2020 — 2023",
+      "startYear": "2020",
+      "endYear": "2023",
+      "description": "Backend development and the infrastructure supporting application services.",
+      "responsibilities": [
+        {
+          "title": "Backend services",
+          "description": "Application logic, service interfaces, and persistence."
+        },
+        {
+          "title": "Infrastructure",
+          "description": "Runtime environments, configuration, and deployment concerns."
+        },
+        {
+          "title": "Service operations",
+          "description": "Diagnostics, troubleshooting, and application maintenance."
+        }
+      ],
+      "focusAreas": [
+        "Backend architecture",
+        "Infrastructure",
+        "Deployment environments",
+        "Data persistence",
+        "Access control",
+        "Service operations"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    },
+    {
+      "id": "anbesa-tech",
+      "company": "Anbesa Tech",
+      "role": "Full Stack Developer",
+      "period": "2018 — 2020",
+      "startYear": "2018",
+      "endYear": "2020",
+      "description": "Full-stack web development across application interfaces, backend logic, and data handling.",
+      "responsibilities": [
+        {
+          "title": "Application interfaces",
+          "description": "User-facing flows, forms, and application state."
+        },
+        {
+          "title": "Frontend and backend integration",
+          "description": "Connections between browser interactions, services, and stored data."
+        },
+        {
+          "title": "Maintenance",
+          "description": "Debugging behavior across interface, service, and data layers."
+        }
+      ],
+      "focusAreas": [
+        "Full-stack development",
+        "Web interfaces",
+        "API integration",
+        "Application logic",
+        "Data handling",
+        "Integration debugging"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    },
+    {
+      "id": "freelance-backend",
+      "company": "Freelance",
+      "role": "Backend Developer",
+      "period": "2017",
+      "startYear": "2017",
+      "endYear": "2017",
+      "description": "Independent backend development for software applications.",
+      "responsibilities": [
+        {
+          "title": "Backend scope",
+          "description": "Application requirements, server-side logic, and service interfaces."
+        },
+        {
+          "title": "Data handling",
+          "description": "Persistence, input validation, and backend troubleshooting."
+        }
+      ],
+      "focusAreas": [
+        "Independent development",
+        "Backend services",
+        "Service interfaces",
+        "Data persistence",
+        "Input validation",
+        "Maintainability"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    },
+    {
+      "id": "yehulu-tech",
+      "company": "Yehulu Tech",
+      "role": "Backend Developer",
+      "period": "2016 — 2017",
+      "startYear": "2016",
+      "endYear": "2017",
+      "description": "Backend development focused on application logic and data.",
+      "responsibilities": [
+        {
+          "title": "Server-side development",
+          "description": "Request handling, application rules, and service interfaces."
+        },
+        {
+          "title": "Data and maintenance",
+          "description": "Persistence, data models, and investigation of application issues."
+        }
+      ],
+      "focusAreas": [
+        "Backend development",
+        "Server-side logic",
+        "Data models",
+        "Persistence",
+        "Application integration",
+        "Debugging"
+      ],
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+    }
+  ],
+  "expertise": [
+    {
+      "number": "01",
+      "title": "Software engineering",
+      "description": "Web applications, APIs, and the systems behind them.",
+      "tools": "React / Next.js / Python / Django"
+    },
+    {
+      "number": "02",
+      "title": "AI development",
+      "description": "Useful AI experiences connected to real-world data.",
+      "tools": "LangChain / RAG / Pinecone / PyTorch"
+    },
+    {
+      "number": "03",
+      "title": "Cloud & DevOps",
+      "description": "Infrastructure that keeps applications running.",
+      "tools": "AWS / Docker / Kubernetes / CI/CD"
+    },
+    {
+      "number": "04",
+      "title": "Workflow automation",
+      "description": "Connecting APIs, application data, and AI-assisted processes, with validation and human review at the right steps.",
+      "tools": "API integrations / Workflow orchestration / AI-assisted processes"
+    }
+  ],
+  "automationFocus": {
+    "status": "Professional focus",
+    "summary": "AI, backend, and automation engineering at NDIT Solution from 2023 to 2025 is part of Lihon's employment history. His automation focus connects systems, moves useful context between steps, and keeps people involved in decisions that need review.",
+    "focusAreas": [
+      "API integrations",
+      "Workflow orchestration",
+      "AI-assisted processes",
+      "Human review"
+    ],
+    "projectEvidence": [
+      {
+        "slug": "projuno",
+        "title": "Projuno",
+        "description": "The portfolio case study covers AI-assisted workflow orchestration, connected project records, and process automation in construction operations."
+      },
+      {
+        "slug": "only-hers",
+        "title": "Only Hers",
+        "description": "The portfolio describes automated synchronization from product catalog records to a retrieval knowledge layer for AI-assisted shopping."
+      },
+      {
+        "slug": "inventory-management",
+        "title": "Inventory Management",
+        "description": "The portfolio describes photo-based item entry and AI-assisted categorization to reduce repetitive cataloging work."
+      }
+    ]
+  },
+  "professionalFocus": [
+    "Connecting AI assistants to relevant product data and practical workflows",
+    "Search, semantic retrieval, and retrieval-augmented generation",
+    "Backend APIs, persistence, and real-time application communication",
+    "Privacy-aware information access and evidence-grounded AI",
+    "Full-stack delivery and cloud deployment",
+    "Workflow automation, API integrations, and AI-assisted processes with human review"
+  ],
+  "certifications": [
+    {
+      "name": "n8n102 - Integrations: APIs and Connected Workflows",
+      "provider": "n8n",
+      "issued": "2026-10",
+      "url": "https://badges.n8n.io/e80d3b99-1e3f-4049-8b70-41847d02805f",
+      "source": {
+        "name": "Upwork profile",
+        "url": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
+        "checkedAt": "2026-11-03"
+      },
+      "verification": "User-listed training credential; the issuer record has not been independently verified."
+    },
+    {
+      "name": "n8n101 - Essentials: Your First Workflows",
+      "provider": "n8n",
+      "issued": "2026-09",
+      "expires": "2029-09",
+      "url": "https://learn.n8n.io/certificates/0212852ff71a435dac6ede793a9e4d12",
+      "source": {
+        "name": "Upwork profile",
+        "url": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
+        "checkedAt": "2026-11-03"
+      },
+      "verification": "User-listed training credential; the issuer record has not been independently verified."
+    }
+  ]
+}

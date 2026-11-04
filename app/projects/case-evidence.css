@@ -1,0 +1,14 @@
+.case-scope { padding: 24px; border: 1px solid var(--line); background: #f3f3f3; border-radius: 3px; margin-bottom: 32px; }
+.case-scope .case-section-label { margin-bottom: 12px; }
+.case-scope h2 { font-size: 24px; margin-bottom: 14px; }
+.case-scope > p:not(.eyebrow) { font-size: 13px; line-height: 1.8; }
+.case-architecture { margin-top: 27px; }
+.case-architecture-viewport { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; background: var(--paper); overscroll-behavior-x: contain; }
+.case-architecture img { display: block; width: 100%; min-width: 680px; height: auto; }
+.case-architecture figcaption { max-width: 660px; }
+.case-architecture-link { display: inline-block; margin-top: 9px; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.case-references > p:not(.eyebrow) { margin-bottom: 15px; }
+@media (max-width: 540px) {
+  .case-scope { padding: 20px; margin-bottom: 24px; }
+  .case-scope h2 { font-size: 23px; }
+}

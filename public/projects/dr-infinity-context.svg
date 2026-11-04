@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="390" viewBox="0 0 1040 390" role="img" aria-labelledby="title description">
+  <title id="title">Dr. Infinity: documented retrieval design</title>
+  <desc id="description">Local de-identification precedes concurrent vector and medical knowledge-graph retrieval, followed by domain-adapted synthesis and verification of source-linked findings. This illustrates the supplied technical brief, not verified deployment behavior.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#686868" stroke-width="1.4"/></marker></defs>
+  <rect width="1040" height="390" fill="#fafafa"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="32" y="37" font-size="13" letter-spacing="2" fill="#686868">DR. INFINITY / DOCUMENTED DESIGN</text>
+    <g fill="#ffffff" stroke="#c8c8c8" stroke-width="1.2">
+      <rect x="32" y="148" width="190" height="112" rx="5"/>
+      <rect x="276" y="77" width="242" height="240" rx="5" fill="#eeeeee"/>
+      <rect x="295" y="119" width="204" height="74" rx="4"/>
+      <rect x="295" y="214" width="204" height="74" rx="4"/>
+      <rect x="572" y="148" width="190" height="112" rx="5"/>
+      <rect x="816" y="148" width="192" height="112" rx="5"/>
+    </g>
+    <g fill="none" stroke="#686868" stroke-width="1.4" marker-end="url(#arrow)">
+      <path d="M222 204H270"/>
+      <path d="M518 204H566"/>
+      <path d="M762 204H810"/>
+    </g>
+    <g font-size="19" font-weight="600" fill="#202020">
+      <text x="48" y="181">Local processing</text>
+      <text x="309" y="148">Vector retrieval</text>
+      <text x="309" y="243">Medical graph</text>
+      <text x="588" y="181">Synthesis</text>
+      <text x="832" y="181">Verification</text>
+    </g>
+    <g font-size="15" fill="#555555">
+      <text x="48" y="213">In-memory</text><text x="48" y="237">de-identification</text>
+      <text x="294" y="104" font-size="13" letter-spacing="1">CONCURRENT RETRIEVAL</text>
+      <text x="309" y="175">Relevant passages</text>
+      <text x="309" y="270">MeSH / SNOMED CT</text>
+      <text x="588" y="213">Retrieved evidence</text><text x="588" y="237">Domain-adapted LLM</text>
+      <text x="832" y="213">Supporting sources</text><text x="832" y="237">Citations and provenance</text>
+    </g>
+    <text x="32" y="355" font-size="13" fill="#686868">Illustrative flow from the supplied technical brief. No measured latency, clinical validation, or compliance claim is made.</text>
+    <text x="32" y="376" font-size="13" fill="#686868">Arrows summarize the documented stages; operational details and deployment behavior have not been independently verified.</text>
+  </g>
+</svg>

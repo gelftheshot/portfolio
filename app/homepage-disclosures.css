@@ -1,0 +1,44 @@
+.section-more { margin-top: 36px; }
+.section-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-block: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+.section-more > summary::-webkit-details-marker { display: none; }
+.section-more > summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+.section-more > summary .section-more-open,
+.section-more[open] > summary .section-more-closed { display: none; }
+.section-more[open] > summary .section-more-open { display: inline; }
+.section-more-symbol { margin-left: auto; font-size: 22px; font-weight: 400; line-height: 1; }
+.section-more[open] > summary .section-more-symbol,
+.section-more[open] > summary > span[aria-hidden="true"] { transform: rotate(45deg); }
+.portfolio-more > .project-grid { margin-top: 34px; }
+.project-grid.portfolio-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.portfolio-highlights .project-title { font-size: 23px; }
+.portfolio-highlights .project-meta .eyebrow { font-size: 8px; }
+.experience-more-list { padding-top: 30px; }
+.experience-more-list .experience-item:first-child { padding-top: 0; }
+.expertise-grid.expertise-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.about-more-copy { margin-top: 26px; max-width: 740px; }
+.expertise-grid.expertise-more-grid { margin-top: 26px; grid-template-columns: minmax(0, 1fr); }
+.expertise-more-grid .expertise-item { max-width: 540px; padding-left: 0; border-left: 0; }
+
+@media (max-width: 1050px) {
+  .project-grid.portfolio-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .project-grid.portfolio-highlights { grid-template-columns: minmax(0, 1fr); }
+  .expertise-grid.expertise-highlights { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 34px; padding-top: 0; }
+  .expertise-highlights .expertise-item,
+  .expertise-highlights .expertise-item:first-child,
+  .expertise-highlights .expertise-item:last-child { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+  .section-more { margin-top: 26px; }
+}

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" role="img" aria-labelledby="title description">
+  <title id="title">Projuno: conceptual product information flow</title>
+  <desc id="description">Work orders, variations, and invoices connect through project context to Juno AI assistance and commercial review. This illustrates public product capabilities, not private implementation details.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#686868" stroke-width="1.4"/></marker></defs>
+  <rect width="960" height="390" fill="#fafafa"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="32" y="37" font-size="13" letter-spacing="2" fill="#686868">PROJUNO / PRODUCT CONTEXT</text>
+    <g fill="#ffffff" stroke="#c8c8c8" stroke-width="1.2">
+      <rect x="32" y="137" width="232" height="132" rx="5"/>
+      <rect x="364" y="137" width="232" height="132" rx="5" fill="#eeeeee"/>
+      <rect x="696" y="78" width="232" height="108" rx="5"/>
+      <rect x="696" y="220" width="232" height="108" rx="5"/>
+    </g>
+    <g fill="none" stroke="#686868" stroke-width="1.4" marker-end="url(#arrow)">
+      <path d="M264 203H358"/>
+      <path d="M596 183H645V132H690"/>
+      <path d="M596 223H645V274H690"/>
+    </g>
+    <g font-size="20" font-weight="600" fill="#202020">
+      <text x="50" y="173">Project records</text>
+      <text x="382" y="173">Connected context</text>
+      <text x="714" y="112">Juno AI assistance</text>
+      <text x="714" y="254">Commercial review</text>
+    </g>
+    <g font-size="16" fill="#555555">
+      <text x="50" y="204">Work orders and dockets</text><text x="50" y="228">Variations and invoices</text><text x="50" y="252">Supporting evidence</text>
+      <text x="382" y="204">Project activity</text><text x="382" y="228">Traceable changes</text><text x="382" y="252">Shared project records</text>
+      <text x="714" y="141">Project questions and</text><text x="714" y="164">administrative workflows</text>
+      <text x="714" y="283">Financial visibility and</text><text x="714" y="306">supporting claim records</text>
+    </g>
+    <text x="32" y="368" font-size="13" fill="#686868">Illustrative relationships from public product materials. No database, model provider, or service topology is asserted.</text>
+  </g>
+</svg>

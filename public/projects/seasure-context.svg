@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="390" viewBox="0 0 960 390" role="img" aria-labelledby="title description">
+  <title id="title">SeaSure: conceptual product information flow</title>
+  <desc id="description">Vessel context and owner observations inform troubleshooting. Troubleshooting connects to maintenance records and professional service requests. This illustrates public product capabilities, not private implementation details.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1 7 4 1 7" fill="none" stroke="#686868" stroke-width="1.4"/></marker></defs>
+  <rect width="960" height="390" fill="#fafafa"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="32" y="37" font-size="13" letter-spacing="2" fill="#686868">SEASURE / PRODUCT CONTEXT</text>
+    <g fill="#ffffff" stroke="#c8c8c8" stroke-width="1.2">
+      <rect x="32" y="78" width="232" height="108" rx="5"/>
+      <rect x="32" y="220" width="232" height="108" rx="5"/>
+      <rect x="364" y="149" width="232" height="108" rx="5" fill="#eeeeee"/>
+      <rect x="696" y="78" width="232" height="108" rx="5"/>
+      <rect x="696" y="220" width="232" height="108" rx="5"/>
+    </g>
+    <g fill="none" stroke="#686868" stroke-width="1.4" marker-end="url(#arrow)">
+      <path d="M264 132H313V184H358"/>
+      <path d="M264 274H313V222H358"/>
+      <path d="M596 184H645V132H690"/>
+      <path d="M596 222H645V274H690"/>
+    </g>
+    <g font-size="20" font-weight="600" fill="#202020">
+      <text x="50" y="112">Vessel context</text>
+      <text x="50" y="254">Owner observations</text>
+      <text x="382" y="186">Troubleshooting</text>
+      <text x="714" y="112">Maintenance records</text>
+      <text x="714" y="254">Service request</text>
+    </g>
+    <g font-size="16" fill="#555555">
+      <text x="50" y="141">Equipment, manuals,</text><text x="50" y="164">and service history</text>
+      <text x="50" y="283">Text, photos, documents,</text><text x="50" y="306">audio, and video</text>
+      <text x="382" y="216">Vessel-aware guidance</text><text x="382" y="239">and relevant context</text>
+      <text x="714" y="141">Manuals, repairs,</text><text x="714" y="164">and maintenance events</text>
+      <text x="714" y="283">Boat details and</text><text x="714" y="306">diagnostic context</text>
+    </g>
+    <text x="32" y="368" font-size="13" fill="#686868">Illustrative relationships from public product materials. No private stack or production topology is asserted.</text>
+  </g>
+</svg>
