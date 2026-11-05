@@ -127,11 +127,11 @@
     {
       "id": "alx-africa",
       "company": "ALX Africa",
-      "role": "Backend Developer",
-      "period": "2022 — 2023",
-      "startYear": "2022",
-      "endYear": "2023",
-      "description": "Backend development with Python and Django, including collaboration on RESTful APIs and database optimization.",
+      "role": "Backend Developer (Internship)",
+      "period": "Mar 2023 — Nov 2024",
+      "startYear": "2023",
+      "endYear": "2024",
+      "description": "Backend development internship with Python and Django, including collaboration on RESTful APIs and database optimization.",
       "tools": "Python · Django · REST APIs",
       "responsibilities": [
         {
@@ -155,7 +155,7 @@
         "Backend systems",
         "Collaboration"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "scopeNote": "Lihon confirmed the internship classification and March 2023–November 2024 dates against his existing LinkedIn history on November 5, 2026. The listed Python, Django, REST API, and database focus areas are retained; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
         "Developed Python and Django backends with RESTful API integration.",
         "Optimized database access."

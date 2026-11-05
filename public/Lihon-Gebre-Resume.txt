@@ -18,7 +18,7 @@ NDIT Solution | AI, Backend & Automation Engineer | 2023 - 2025
 - Integrated AI functionality with backend service interfaces and application data flows.
 - Connected workflow steps with validation and human review.
 
-ALX Africa | Backend Developer | 2022 - 2023
+ALX Africa | Backend Developer (Internship) | Mar 2023 - Nov 2024
 - Developed Python and Django backends with RESTful API integration.
 - Optimized database access.
 
