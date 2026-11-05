@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import StructuredData from "@/components/StructuredData";
 import { projects } from "@/lib/projects";
+import { profile } from "@/lib/profile";
 import { absoluteUrl, contentUpdated, personId } from "@/lib/site";
 import "../project.css";
 import "../case-evidence.css";
@@ -77,7 +78,7 @@ export default async function ProjectPage({ params }) {
         name: `${project.title} — Engineering Case Study`,
         url: canonical,
         description: project.description,
-        author: { "@type": "Person", "@id": personId, name: "Lihon Gebre", url: absoluteUrl("/") },
+        author: { "@type": "Person", "@id": personId, name: profile.name, url: absoluteUrl("/") },
         inLanguage: "en",
         genre: "Software engineering case study",
         dateModified: contentUpdated,
@@ -217,7 +218,7 @@ export default async function ProjectPage({ params }) {
       </article>
 
       <footer className="case-footer section-shell">
-        <Link className="footer-name" href="/#home">lihon gebre<span>.</span></Link>
+        <Link className="footer-name" href="/#home">{profile.name.toLowerCase()}<span>.</span></Link>
         <Link className="text-link" href="/#work">Back to selected work <span aria-hidden="true">↗</span></Link>
       </footer>
     </main>

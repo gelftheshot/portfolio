@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { profile } from "@/lib/profile";
 import WorkflowMark from "./WorkflowMark";
 
 const sections = [
@@ -20,8 +21,10 @@ export default function SiteHeader() {
   const [activeSection, setActiveSection] = useState({ path: "", id: "" });
   const active = activeSection.path === pathname ? activeSection.id : "";
   const menuButton = useRef(null);
+  const adminPage = pathname === "/admin" || pathname.startsWith("/admin/");
 
   useEffect(() => {
+    if (adminPage) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +40,7 @@ export default function SiteHeader() {
       if (section) observer.observe(section);
     });
     return () => observer.disconnect();
-  }, [pathname]);
+  }, [pathname, adminPage]);
 
   function handleKeyDown(event) {
     if (event.key === "Escape" && open) {
@@ -46,12 +49,13 @@ export default function SiteHeader() {
     }
   }
 
+  if (adminPage) return null;
   return (
     <header className="site-header" onKeyDown={handleKeyDown}>
       <div className="header-inner section-shell">
-        <Link className="wordmark" href="/#home" aria-label="Lihon Gebre, home" onClick={() => setOpen(false)}>
+        <Link className="wordmark" href="/#home" aria-label={profile.name + ", home"} onClick={() => setOpen(false)}>
           <WorkflowMark className="wordmark-workflow" />
-          <span className="wordmark-text">lihon gebre<span className="wordmark-period">.</span></span>
+          <span className="wordmark-text">{profile.name.toLowerCase()}<span className="wordmark-period">.</span></span>
         </Link>
         <button
           ref={menuButton}

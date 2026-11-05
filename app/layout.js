@@ -1,16 +1,17 @@
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import { absoluteUrl, siteUrl } from "@/lib/site";
+import { profile } from "@/lib/profile";
 
-const title = "Lihon Gebre — AI & Backend Engineer";
-const description = "Lihon Gebre, AI & Backend Engineer in Addis Ababa. Explore AI agents, RAG, APIs and workflow automation, recent client feedback, case studies and a downloadable résumé. Ask his portfolio AI assistant about his work.";
+const title = profile.name + " — " + profile.title;
+const description = profile.introduction || profile.summary;
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: title, template: "%s | Lihon Gebre" },
+  title: { default: title, template: "%s | " + profile.name },
   description,
   applicationName: "Lihon Gebre Portfolio",
-  authors: [{ name: "Lihon Gebre", url: absoluteUrl("/") }],
+  authors: [{ name: profile.name, url: absoluteUrl("/") }],
   // Points AI agents at the full plain-text profile, including employment details collapsed on the page.
   alternates: { canonical: "/", types: { "text/plain": "/llms-full.txt" } },
   openGraph: {

@@ -93,6 +93,8 @@ export function GET() {
     "",
     profile.summary,
     "",
+    ...(profile.introduction ? ["Homepage introduction:", profile.introduction, ""] : []),
+    ...(profile.about ? ["About:", profile.about, ""] : []),
     ...profile.professionalFocus.map((focus) => `- ${focus}`),
     "",
     "## Skills",

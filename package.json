@@ -4,17 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run assistant:export && npm run resume:build",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "test": "node --test tests/*.test.mjs",
     "assistant:export": "node scripts/export-assistant-data.mjs",
-    "resume:build": "python3 scripts/generate-resume.py"
+    "resume:build": "node scripts/generate-resume.mjs",
+    "admin:setup": "node scripts/admin-setup.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "5.0.3",
     "next": "16.4.5",
     "openai": "7.50.0",
+    "pdf-lib": "1.17.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "sharp": "0.35.5"

@@ -12,8 +12,8 @@ export default function robots() {
 
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: "/api/" },
-      ...publicReaders.map((userAgent) => ({ userAgent, allow: "/", disallow: "/api/" })),
+      { userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] },
+      ...publicReaders.map((userAgent) => ({ userAgent, allow: "/", disallow: ["/api/", "/admin"] })),
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
   };

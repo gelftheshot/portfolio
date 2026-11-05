@@ -360,5 +360,11 @@
       },
       "verification": "User-listed training credential; the issuer record has not been independently verified."
     }
-  ]
+  ],
+  "headline": {
+    "first": "AI & backend.",
+    "second": "Built to connect."
+  },
+  "introduction": "I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.",
+  "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure."
 }

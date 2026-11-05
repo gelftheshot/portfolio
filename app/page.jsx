@@ -78,15 +78,15 @@ export default function Home() {
       <section id="home" className="hero section-shell" aria-labelledby="hero-title">
         <div className="hero-main">
           <div className="hero-copy">
-            <p className="eyebrow hero-eyebrow"><WorkflowMark /> <span>AI & BACKEND ENGINEER · AUTOMATION IN FOCUS</span></p>
-            <h1 id="hero-title">AI & backend.<br /><span>Built to connect.</span></h1>
-            <p className="hero-description">I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.</p>
+            <p className="eyebrow hero-eyebrow"><WorkflowMark /> <span>{profile.title.toUpperCase()} · AUTOMATION IN FOCUS</span></p>
+            <h1 id="hero-title">{profile.headline?.first || "AI & backend."}<br /><span>{profile.headline?.second || "Built to connect."}</span></h1>
+            <p className="hero-description">{profile.introduction || profile.summary}</p>
             <div className="hero-actions"><a className="button button-dark" href="#assistant">Ask my AI assistant <Arrow diagonal /></a><a className="text-link" href="/Lihon-Gebre-Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a></div>
             <p className="hero-assistant-note">Explore my work with the portfolio assistant, or <a href="#contact">discuss a role or project</a>.</p>
           </div>
           <figure className="hero-portrait">
-            <div className="portrait-frame"><Image src="/Lihongebre-professional-v1.png" alt="Lihon Gebre" width={1122} height={1402} priority sizes="(max-width: 540px) 120px, (max-width: 760px) 200px, (max-width: 1050px) 250px, 290px" /><span className="portrait-mark" aria-hidden="true">LG.</span></div>
-            <figcaption><span>Lihon Gebre</span><span>Addis Ababa, Ethiopia <Arrow diagonal /></span></figcaption>
+            <div className="portrait-frame"><Image src="/Lihongebre-professional-v1.png" alt={profile.name} width={1122} height={1402} priority sizes="(max-width: 540px) 120px, (max-width: 760px) 200px, (max-width: 1050px) 250px, 290px" /><span className="portrait-mark" aria-hidden="true">LG.</span></div>
+            <figcaption><span>{profile.name}</span><span>{profile.location} <Arrow diagonal /></span></figcaption>
           </figure>
         </div>
         <div className="hero-footnote"><span>AI SYSTEMS / CONNECTED APIS / WORKFLOW AUTOMATION</span><a href="#work">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
@@ -95,7 +95,7 @@ export default function Home() {
       <section id="work" className="work-section section-shell section-space" aria-labelledby="work-title">
         <div className="section-heading"><div><p className="eyebrow section-label">01 / SELECTED WORK</p><h2 id="work-title">Ideas, made real.</h2></div><p>AI systems, connected data, and useful software. <br />Explore the engineering behind the workflows.</p></div>
         <ProjectGallery />
-        <div className="work-footer"><span>More code, experiments, and things in progress.</span><a className="text-link" href="https://github.com/gelftheshot" target="_blank" rel="noreferrer">Find me on GitHub <Arrow diagonal /></a></div>
+        <div className="work-footer"><span>More code, experiments, and things in progress.</span><a className="text-link" href={profile.links.github} target="_blank" rel="noreferrer">Find me on GitHub <Arrow diagonal /></a></div>
       </section>
       <section id="experience" className="experience-section section-space" aria-labelledby="experience-title">
         <div className="section-shell split-section">
@@ -103,7 +103,7 @@ export default function Home() {
             <p className="eyebrow section-label">02 / EXPERIENCE</p>
             <h2 id="experience-title">Always building.<br /><span>Always learning.</span></h2>
             <p>Employment history from 2016 to 2025, with completed client work through June 2026. My focus spans AI, backend systems, infrastructure, and automation.</p>
-            <a className="text-link" href="https://linkedin.com/in/lihongebre" target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow diagonal /></a>
+            <a className="text-link" href={profile.links.linkedin} target="_blank" rel="noreferrer">Connect on LinkedIn <Arrow diagonal /></a>
           </div>
           <div className="experience-list">
             {experience.slice(0, 3).map((item) => <ExperienceItem item={item} key={item.id} />)}
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
       <ClientWork />
       <section id="about" className="about-section section-shell section-space" aria-labelledby="about-title">
-        <div className="about-intro"><div><p className="eyebrow section-label">04 / A LITTLE ABOUT ME</p><h2 id="about-title">Curious by nature.<br /><span>Engineer by practice.</span></h2></div><div className="about-copy"><p>I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure.</p></div></div>
+        <div className="about-intro"><div><p className="eyebrow section-label">04 / A LITTLE ABOUT ME</p><h2 id="about-title">Curious by nature.<br /><span>Engineer by practice.</span></h2></div><div className="about-copy"><p>{profile.about || profile.summary}</p></div></div>
         <div className="training-credentials" aria-labelledby="training-title">
           <h3 id="training-title"><WorkflowMark /> Automation training</h3>
           <ul>{profile.certifications.map((credential) => <li key={credential.name}><a href={credential.url} target="_blank" rel="noreferrer">{credential.name} <span aria-hidden="true">↗</span></a><span className="mono">{credential.issued}</span></li>)}</ul>
@@ -145,8 +145,8 @@ export default function Home() {
           </div>
         </details>
       </section>
-      <section id="contact" className="contact-section section-space" aria-labelledby="contact-title"><div className="section-shell split-section"><div className="contact-copy"><p className="eyebrow section-label">05 / GET IN TOUCH</p><h2 id="contact-title">Good things start<br />with a conversation<span className="contact-period">.</span></h2><p>Have an AI project, a workflow to simplify, or a role in mind? I’d love to hear what you’re building.</p><div className="contact-socials"><a className="text-link" href="https://github.com/gelftheshot" target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a><a className="text-link" href="https://linkedin.com/in/lihongebre" target="_blank" rel="noreferrer">LinkedIn <Arrow diagonal /></a></div></div><ContactForm /></div></section>
-      <footer className="site-footer section-shell"><a className="footer-name" href="#home">lihon gebre<span>.</span></a><span>© {new Date().getFullYear()} Lihon Gebre</span><a className="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+      <section id="contact" className="contact-section section-space" aria-labelledby="contact-title"><div className="section-shell split-section"><div className="contact-copy"><p className="eyebrow section-label">05 / GET IN TOUCH</p><h2 id="contact-title">Good things start<br />with a conversation<span className="contact-period">.</span></h2><p>Have an AI project, a workflow to simplify, or a role in mind? I’d love to hear what you’re building.</p><div className="contact-socials"><a className="text-link" href={profile.links.github} target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a><a className="text-link" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow diagonal /></a></div></div><ContactForm /></div></section>
+      <footer className="site-footer section-shell"><a className="footer-name" href="#home">{profile.name.toLowerCase()}<span>.</span></a><span>© {new Date().getFullYear()} {profile.name}</span><a className="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
     </main>
   );
 }

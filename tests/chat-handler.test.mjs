@@ -548,3 +548,54 @@ test("the official OpenAI SDK works end to end with a fully mocked SSE fetch", a
   ]);
   assert.doesNotMatch(JSON.stringify(result), /sk-test-placeholder/);
 });
+
+test("owner disabling the assistant prevents quota reservations and all provider work", async () => {
+  let quotaCalls = 0;
+  let providerCalls = 0;
+  const handler = handlerWithEvents(undefined, {
+    getAssistantSettings: async () => ({ enabled: false, model: DEFAULT_CHAT_MODEL, instructions: "" }),
+    rateLimit: () => { quotaCalls++; return 0; },
+    createClient: () => { providerCalls++; throw new Error("must not run"); },
+  });
+  const result = await handler(request());
+  assert.equal(result.status, 503);
+  assert.equal((await result.json()).error.code, "assistant_disabled");
+  assert.equal(quotaCalls, 0);
+  assert.equal(providerCalls, 0);
+});
+
+test("private settings failures fail closed before paid provider work without exposing backend details", async () => {
+  let providerCalls = 0;
+  const handler = handlerWithEvents(undefined, {
+    getAssistantSettings: async () => { throw new Error(`Redis private visitor email ${fakeKey}`); },
+    createClient: () => { providerCalls++; throw new Error("must not run"); },
+  });
+  const result = await handler(request());
+  assert.equal(result.status, 503);
+  const text = await result.text();
+  assert.equal(JSON.parse(text).error.code, "assistant_settings_unavailable");
+  assert.doesNotMatch(text, /Redis|private visitor|sk-test-placeholder/);
+  assert.equal(providerCalls, 0);
+});
+
+test("private model override and compatible style guidance preserve grounding and model reasoning rules", async () => {
+  for (const model of [DEFAULT_CHAT_MODEL, "gpt-custom-responses-model"]) {
+    let payload;
+    const handler = handlerWithEvents(undefined, {
+      getModel: () => "ignored-fallback-model",
+      getAssistantSettings: async () => ({ enabled: true, model, instructions: "Use a concise, warm tone." }),
+      createClient: () => ({ responses: { async create(input) {
+        payload = input;
+        return (async function* () { yield textDelta("Answer"); yield completed; })();
+      } } }),
+    });
+    await responseEvents(await handler(request()));
+    assert.equal(payload.model, model);
+    assert.match(payload.instructions, /Use a concise, warm tone/);
+    assert.match(payload.instructions, /never a replacement for the factual, privacy, scope, and safety rules/);
+    assert.match(payload.instructions, /Do not invent employment/);
+    assert.match(payload.instructions, /PORTFOLIO KNOWLEDGE/);
+    assert.equal(payload.store, false);
+    assert.deepEqual(payload.reasoning, model === DEFAULT_CHAT_MODEL ? { effort: "low" } : undefined);
+  }
+});

@@ -21,7 +21,7 @@ Open [localhost:3000](http://localhost:3000). Copy `.env.example` to the ignored
 Set `NEXT_PUBLIC_SITE_URL` to the public origin before building. The default is `https://portfolio-one-rose-74.vercel.app`. `lib/site.js` and `lib/profile.js` use that single setting for public profile links, case-study links, contact and résumé links, canonicals, structured data, social metadata, sitemap entries, and text exports. Keep build and runtime environments aligned. Changing the origin requires a rebuild and regeneration of saved résumé/data exports; those static files do not rewrite themselves at runtime.
 
 - `data/profile.json`: professional facts, six roles, skills, education, listed training credentials, and profile links.
-- `lib/projects.js`: all 11 projects, technical context, sources, and featured case-study scope notes. Preserve the distinction between product capabilities and personal contributions.
+- `data/projects.json` (exported by `lib/projects.js`): all 11 projects, technical context, sources, and featured case-study scope notes. Preserve the distinction between product capabilities and personal contributions.
 - `data/upwork.json`: public completed work and feedback. Keep exact titles, dates, ratings, client account attributions, and quotation wording; retain dated snapshots rather than claiming live statistics.
 - `lib/assistant-knowledge.js`: shared public knowledge and evidence boundaries. It does not establish missing achievements, deployment metrics, current availability, or independent credential verification.
 
@@ -41,7 +41,7 @@ The website serves `public/Lihon-Gebre-Resume.pdf` and `public/Lihon-Gebre-Resum
 npm run resume:build
 ```
 
-This runs `scripts/generate-resume.py`, which requires Python with `reportlab` in the development environment. Python and ReportLab are **not production runtime dependencies**. The script writes working copies under ignored `output/pdf/` and copies the finished PDF and text into `public/`. If using a different origin, provide the same `NEXT_PUBLIC_SITE_URL` in the shell running the export and résumé commands. Review the generated résumé before committing its public copies; the generator checks its two-page layout but cannot verify career facts.
+This runs the Node-based `scripts/generate-resume.mjs` using the shared public knowledge records. The build automatically regenerates both the assistant dataset and résumé before compiling Next.js, so admin content edits update the downloads too. Working copies go under ignored `output/pdf/`; public PDF/text go into `public/`. Current content fits two pages; longer histories add pages without dropping roles. Provide the same `NEXT_PUBLIC_SITE_URL` when overriding the origin, and review the career facts before publication. The old Python generator is retained as a legacy tool and is not required by builds.
 
 ## AI assistant configuration
 
@@ -83,3 +83,7 @@ CHAT_RATE_LIMIT_MODE=memory npm run start -- --hostname 127.0.0.1
 The memory-mode exception is only for this private loopback preview. Never set it on a public deployment. Tests use mocked OpenAI and Redis transport; they do not validate real credentials, consume API credits, or confirm live Redis/email acceptance. Run the commands and inspect their results for the current revision before release.
 
 Follow [docs/publishing.md](docs/publishing.md) for the existing Vercel deployment and production acceptance checks. Private Upwork drafts and sync notes under `docs/upwork-*drafts.*` and `docs/upwork-sync-log.md` are ignored preparation files, not public content. Keep all real credentials in local or hosting environment settings.
+
+## Private admin
+
+The `/admin` workspace manages the profile, projects, employment, reviews, AI controls and contact inbox. Public content publishes as one validated GitHub commit; private inbox messages and AI settings stay in server-only Redis storage. Owner authentication and production configuration are required; there is no default production password. Follow [docs/admin.md](docs/admin.md) for setup, drafts, publishing and data retention.
