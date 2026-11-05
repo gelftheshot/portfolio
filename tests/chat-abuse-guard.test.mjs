@@ -108,6 +108,21 @@ test("production fails closed without shared credentials and never falls back to
   assert.equal(calls, 0);
 });
 
+test("Vercel Redis integration aliases reserve a shared production quota", async () => {
+  const redis = redisTransport();
+  const env = {
+    NODE_ENV: "production", CHAT_TRUSTED_PROXY: "vercel", CHAT_DAILY_REQUEST_LIMIT: "1",
+    KV_REST_API_URL: "https://integration.example.test", KV_REST_API_TOKEN: "integration-write-fixture",
+  };
+  const first = createChatAbuseGuard({ getEnvironment: () => env, fetchImpl: redis.fetch });
+  const second = createChatAbuseGuard({ getEnvironment: () => env, fetchImpl: redis.fetch });
+  assert.equal((await first(visitor())).allowed, true);
+  assert.equal((await second(visitor("203.0.113.2"))).code, "assistant_daily_limit");
+  assert.equal(redis.calls.length, 2);
+  assert.equal(redis.calls[0].url, env.KV_REST_API_URL);
+  assert.equal(redis.calls[0].options.headers.Authorization, `Bearer ${env.KV_REST_API_TOKEN}`);
+});
+
 test("production preview memory mode is explicit and still enforces a daily quota", async () => {
   let now = Date.UTC(2026, 10, 4, 23, 59, 59);
   const guard = createChatAbuseGuard({

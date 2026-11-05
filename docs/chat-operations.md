@@ -11,6 +11,7 @@ Use these variables in the hosting provider's server environment. None should ha
 | `CHAT_RATE_LIMIT_MODE` | `shared` when `NODE_ENV=production`; `memory` otherwise | `shared` is the production mode. `memory` is an explicit exception for a private local production preview. There is no disabled or fail-open mode. |
 | `UPSTASH_REDIS_REST_URL` | Required for shared mode | HTTPS REST endpoint for a persistent Redis database supporting the Upstash command-array protocol and atomic `EVAL`. Embedded credentials, query parameters, and fragments are rejected. |
 | `UPSTASH_REDIS_REST_TOKEN` | Required for shared mode | Server-only, write-capable REST token. A read-only token cannot reserve quotas. |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | Alternative complete pair | Server-only REST endpoint and write token injected by the Vercel Upstash integration. Used when neither explicit `UPSTASH_REDIS_REST_*` variable is defined. |
 | `CHAT_TRUSTED_PROXY` | `none` | One of `none`, `vercel`, `cloudflare`, `x-real-ip`, or `x-forwarded-for`. Select only the proxy actually securing the deployment. |
 | `CHAT_CLIENT_RATE_LIMIT` | `20` | Admitted requests per client bucket in a 60-second fixed window. Integer from 1 to 120. |
 | `CHAT_DAILY_REQUEST_LIMIT` | `200` | Global admitted requests per UTC calendar day. Integer from 1 to 10,000. |
@@ -29,6 +30,8 @@ CHAT_RATE_LIMIT_NAMESPACE=portfolio-production
 ```
 
 Configure the existing server-side `OPENAI_API_KEY` and optional `OPENAI_MODEL` as well. Restart or redeploy after changing configuration. Never commit actual tokens. Provisioning a Redis database and setting hosting variables are separate operator actions; this implementation does not create external resources.
+
+When connecting Upstash through Vercel Marketplace, keep its injected `KV_REST_API_URL` and `KV_REST_API_TOKEN` pair instead of copying credentials into additional variables. Chat quotas, admin login limits, assistant settings, and the contact inbox all use the same resolver. If either explicit `UPSTASH_REDIS_REST_*` variable is defined, that pair takes precedence; both must be valid, even if a complete KV pair also exists. Blank or partial explicit settings fail closed. URLs and tokens are never mixed across pairs. `KV_REST_API_READ_ONLY_TOKEN`, `KV_URL`, and `REDIS_URL` cannot replace the REST write-token pair.
 
 ## Proxy trust
 

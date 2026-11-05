@@ -74,6 +74,25 @@ test("production always uses shared throttling and a secure host-scoped cookie",
   assert.equal(auth.getSession(privateRequest(cookie(result).replace("__Host-portfolio-admin", "portfolio-admin"))), false);
 });
 
+test("production admin login uses the Vercel integration pair through its private quota guard", async () => {
+  let calls = 0;
+  const environment = env({ NODE_ENV: "production", KV_REST_API_URL: "https://integration.example.test", KV_REST_API_TOKEN: "integration-auth-fixture" });
+  const auth = createAdminAuth({ environment, fetchImpl: async (url, options) => {
+    calls += 1;
+    assert.equal(url, environment.KV_REST_API_URL);
+    assert.equal(options.headers.Authorization, `Bearer ${environment.KV_REST_API_TOKEN}`);
+    const command = JSON.parse(options.body);
+    assert.ok(command[3].startsWith("{portfolio-admin-login}:chat:client:"));
+    return Response.json({ result: [0, 0] });
+  } });
+  assert.equal(auth.getConfiguration().protectionConfigured, true);
+  const signed = await auth.POST(signin());
+  assert.equal(signed.status, 200);
+  assert.equal(calls, 1);
+  assert.equal(auth.getSession(privateRequest(cookie(signed))), true);
+  assert.equal(createAdminAuth({ environment: { ...environment, UPSTASH_REDIS_REST_TOKEN: "" } }).getConfiguration().configured, false);
+});
+
 test("wrong passwords fail without a cookie and only generic diagnostics are returned", async () => {
   const auth = createAdminAuth({ environment: env() });
   const result = await auth.POST(signin("wrong password fixture"));

@@ -47,6 +47,7 @@ Set the following in the correct Vercel environment scope before rebuilding:
 | `CHAT_RATE_LIMIT_MODE` | `shared` for public production chat. |
 | `UPSTASH_REDIS_REST_URL` | HTTPS Redis REST endpoint supporting atomic command execution. |
 | `UPSTASH_REDIS_REST_TOKEN` | Server-only, write-capable token for that Redis endpoint. |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | Complete pair injected by Vercel's Upstash integration, used when neither explicit Upstash REST variable is defined. Partial or invalid explicit settings do not fall back. |
 | `CHAT_TRUSTED_PROXY` | `vercel` only while traffic is served through Vercel’s managed proxy. |
 | `CHAT_CLIENT_RATE_LIMIT` | Requests per client per minute; default 20. |
 | `CHAT_DAILY_REQUEST_LIMIT` | Global admitted requests per UTC day; default 200. |

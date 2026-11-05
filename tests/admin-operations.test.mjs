@@ -175,6 +175,32 @@ test("shared storage uses only fixed commands, preserves TTL on status edits and
   assert.equal(redis.calls.some((command) => command[0] === "EVAL" && command[1] === LIST_ADMIN_MESSAGES_SCRIPT), true);
 });
 
+test("Vercel integration aliases serve settings, private inbox and the contact admission guard", async () => {
+  const redis = redisFixture();
+  let admissions = 0;
+  const operations = handlers({
+    environment: environment({ NODE_ENV: "production", KV_REST_API_URL: "https://private-storage.example.test", KV_REST_API_TOKEN: "private-redis-token" }),
+    rateLimit: undefined,
+    fetchImpl: async (url, options) => {
+      const command = JSON.parse(options.body);
+      if (command[0] === "EVAL" && command[3].startsWith("{portfolio-contact}:chat:client:")) {
+        admissions += 1;
+        assert.equal(url, "https://private-storage.example.test");
+        assert.equal(options.headers.Authorization, "Bearer private-redis-token");
+        assert.deepEqual(command.slice(-3), [5, 60, 100]);
+        return Response.json({ result: [0, 0] });
+      }
+      return redis.fetchImpl(url, options);
+    },
+  });
+  assert.deepEqual(await operations.readSettings(), DEFAULT_ASSISTANT_SETTINGS);
+  assert.equal((await operations.POST(contact())).status, 201);
+  assert.equal(admissions, 1);
+  const inbox = await (await operations.GET(request())).json();
+  assert.equal(inbox.storage, "shared");
+  assert.equal(inbox.messages[0].id, UUID);
+});
+
 test("production missing/malformed storage and backend outages fail closed without disclosing secrets or PII", async () => {
   for (const env of [environment({ NODE_ENV: "production" }), shared({ UPSTASH_REDIS_REST_URL: "http://private-storage.example.test" }), shared({ UPSTASH_REDIS_REST_URL: "https://user:secret@private-storage.example.test" }), shared({ UPSTASH_REDIS_REST_TOKEN: "" })]) {
     const operations = handlers({ environment: env, fetchImpl: () => { assert.fail("No request to invalid backend"); } });

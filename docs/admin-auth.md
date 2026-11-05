@@ -26,6 +26,7 @@ Restart the local server after changing environment settings. This command does 
 | `ADMIN_SESSION_SECRET` | Generated base64url session secret containing at least 32 random bytes. |
 | `UPSTASH_REDIS_REST_URL` | Required in production: HTTPS REST endpoint for shared login limits. |
 | `UPSTASH_REDIS_REST_TOKEN` | Required in production: server-only, write-capable Redis REST token. |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | Complete Vercel Upstash integration alternative when neither explicit `UPSTASH_REDIS_REST_*` variable is defined. Blank, partial, or invalid explicit settings fail closed rather than falling back. |
 | `CHAT_TRUSTED_PROXY` | Use `vercel` only on the Vercel deployment; otherwise retain `none` or configure a genuinely trusted proxy as described in [chat-operations.md](chat-operations.md). |
 
 Paste the hash into Vercel as its literal value, without shell quotes or backslash escapes. For local dotenv files, dollar signs need escaping because Next.js performs variable expansion. The setup command handles this and supplies an escaped local-file example. Do not replace existing OpenAI, contact or other settings when adding these values.
