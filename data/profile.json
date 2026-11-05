@@ -81,11 +81,11 @@
     "availability": "Not specified"
   },
   "links": {
-    "website": "https://portfolio-one-rose-74.vercel.app/",
+    "website": "https://www.lihongebre.com/",
     "github": "https://github.com/gelftheshot",
     "linkedin": "https://linkedin.com/in/lihongebre",
     "upwork": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
-    "contact": "https://portfolio-one-rose-74.vercel.app/#contact"
+    "contact": "https://www.lihongebre.com/#contact"
   },
   "experience": [
     {
@@ -118,7 +118,11 @@
         "Data flow",
         "Human review"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Integrated AI functionality with backend service interfaces and application data flows.",
+        "Connected workflow steps with validation and human review."
+      ]
     },
     {
       "id": "alx-africa",
@@ -151,7 +155,11 @@
         "Backend systems",
         "Collaboration"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Developed Python and Django backends with RESTful API integration.",
+        "Optimized database access."
+      ]
     },
     {
       "id": "axious-tech",
@@ -183,7 +191,11 @@
         "Access control",
         "Service operations"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Developed backend application logic, service interfaces, and data persistence.",
+        "Maintained runtime configuration, deployment environments, and application diagnostics."
+      ]
     },
     {
       "id": "anbesa-tech",
@@ -215,7 +227,10 @@
         "Data handling",
         "Integration debugging"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Connected web interfaces, backend logic, and stored data across full-stack applications."
+      ]
     },
     {
       "id": "freelance-backend",
@@ -243,7 +258,10 @@
         "Input validation",
         "Maintainability"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Developed server-side logic, service interfaces, input validation, and data persistence."
+      ]
     },
     {
       "id": "yehulu-tech",
@@ -271,7 +289,10 @@
         "Application integration",
         "Debugging"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+      "resumeBullets": [
+        "Implemented request handling, application rules, and data models; debugged backend behavior."
+      ]
     }
   ],
   "expertise": [
@@ -394,5 +415,6 @@
     "second": "Built to connect."
   },
   "introduction": "I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.",
-  "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure."
+  "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure.",
+  "resumeSummary": "AI and backend engineer building conversational AI and retrieval-augmented generation (RAG) systems, backend APIs, and workflow automation."
 }

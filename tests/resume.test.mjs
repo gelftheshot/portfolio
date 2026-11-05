@@ -26,6 +26,9 @@ test("resume is a deterministic two-page PDF with live profile and case-study li
   for (const project of knowledge.projects.slice(0, 3)) assert.ok(targets.includes(project.caseStudyUrl));
   for (const credential of knowledge.profile.certifications) assert.ok(targets.includes(credential.url));
   for (const role of knowledge.profile.experience) assert.ok(first.text.includes(role.company));
+  assert.doesNotMatch(first.text, /upwork|vercel\.app|client rating|job success/i);
+  assert.ok(targets.includes("https://www.lihongebre.com/"));
+  assert.ok(targets.every((target) => !/upwork|vercel\.app/i.test(target)));
 });
 
 test("admin changes flow into the generated resume without an independently maintained fact copy", async () => {
@@ -34,6 +37,8 @@ test("admin changes flow into the generated resume without an independently main
   knowledge.profile.title = "Backend Engineer";
   knowledge.profile.updatedAt = "2026-12-01";
   knowledge.profile.links.website = "https://updated-portfolio.example/";
+  knowledge.profile.resumeSummary = "Backend engineer focused on service integrations and data systems.";
+  knowledge.profile.experience[0].resumeBullets = ["Integrated application data with service interfaces."];
   knowledge.projects[0].title = "New Featured Project";
   knowledge.projects[0].caseStudyUrl = "https://updated-portfolio.example/projects/new-project";
   const result = await generateResume(knowledge);
@@ -43,6 +48,8 @@ test("admin changes flow into the generated resume without an independently main
   assert.ok(result.text.includes("New Featured Project"));
   assert.ok(linkTargets(pdf).includes("https://updated-portfolio.example/projects/new-project"));
   assert.ok(linkTargets(pdf).includes("https://updated-portfolio.example/"));
+  assert.ok(result.text.includes(knowledge.profile.resumeSummary));
+  assert.ok(result.text.includes(knowledge.profile.experience[0].resumeBullets[0]));
 });
 
 test("longer employment history adds pages rather than silently discarding roles", async () => {

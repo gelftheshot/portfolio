@@ -85,13 +85,13 @@
       "availability": "Not specified"
     },
     "links": {
-      "website": "https://portfolio-one-rose-74.vercel.app/",
+      "website": "https://www.lihongebre.com/",
       "github": "https://github.com/gelftheshot",
       "linkedin": "https://linkedin.com/in/lihongebre",
       "upwork": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
-      "contact": "https://portfolio-one-rose-74.vercel.app/#contact",
-      "resume": "https://portfolio-one-rose-74.vercel.app/Lihon-Gebre-Resume.pdf",
-      "resumeText": "https://portfolio-one-rose-74.vercel.app/Lihon-Gebre-Resume.txt"
+      "contact": "https://www.lihongebre.com/#contact",
+      "resume": "https://www.lihongebre.com/Lihon-Gebre-Resume.pdf",
+      "resumeText": "https://www.lihongebre.com/Lihon-Gebre-Resume.txt"
     },
     "experience": [
       {
@@ -124,7 +124,11 @@
           "Data flow",
           "Human review"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Integrated AI functionality with backend service interfaces and application data flows.",
+          "Connected workflow steps with validation and human review."
+        ]
       },
       {
         "id": "alx-africa",
@@ -157,7 +161,11 @@
           "Backend systems",
           "Collaboration"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Developed Python and Django backends with RESTful API integration.",
+          "Optimized database access."
+        ]
       },
       {
         "id": "axious-tech",
@@ -189,7 +197,11 @@
           "Access control",
           "Service operations"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Developed backend application logic, service interfaces, and data persistence.",
+          "Maintained runtime configuration, deployment environments, and application diagnostics."
+        ]
       },
       {
         "id": "anbesa-tech",
@@ -221,7 +233,10 @@
           "Data handling",
           "Integration debugging"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Connected web interfaces, backend logic, and stored data across full-stack applications."
+        ]
       },
       {
         "id": "freelance-backend",
@@ -249,7 +264,10 @@
           "Input validation",
           "Maintainability"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Developed server-side logic, service interfaces, input validation, and data persistence."
+        ]
       },
       {
         "id": "yehulu-tech",
@@ -277,7 +295,10 @@
           "Application integration",
           "Debugging"
         ],
-        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here."
+        "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
+        "resumeBullets": [
+          "Implemented request handling, application rules, and data models; debugged backend behavior."
+        ]
       }
     ],
     "expertise": [
@@ -400,11 +421,12 @@
       "second": "Built to connect."
     },
     "introduction": "I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.",
-    "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure."
+    "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure.",
+    "resumeSummary": "AI and backend engineer building conversational AI and retrieval-augmented generation (RAG) systems, backend APIs, and workflow automation."
   },
   "contact": {
     "email": "lihongebre@gmail.com",
-    "sectionUrl": "https://portfolio-one-rose-74.vercel.app/#contact"
+    "sectionUrl": "https://www.lihongebre.com/#contact"
   },
   "clientWork": {
     "source": {
@@ -556,7 +578,7 @@
         "sourceUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea"
       }
     ],
-    "portfolioSectionUrl": "https://portfolio-one-rose-74.vercel.app/#client-work",
+    "portfolioSectionUrl": "https://www.lihongebre.com/#client-work",
     "sourceBoundaries": [
       "This is a dated snapshot of ten completed jobs on Lihon's public Upwork profile, imported through official Upwork MCP profile highlights and matched to the public work history. All ten have a 5 out of 5 client rating; nine have written feedback. One job has a rating without a written testimonial.",
       "Job titles, dates, ratings, and feedback are source records. Preserve review wording and spelling when quoting. A feedbackExcerpt is a shorter quotation from the full feedback, not a separate review.",
@@ -640,7 +662,7 @@
           "url": "https://play.google.com/store/apps/details?id=com.seasure.app&hl=en"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/seasure",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/seasure",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Listed role, product challenge, engineering context, and evidence scope are separate. The diagram illustrates cited material; it does not verify deployment or personal implementation.",
@@ -717,7 +739,7 @@
           "url": "https://www.projuno.com/terms-and-conditions"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/projuno",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/projuno",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Listed role, product challenge, engineering context, and evidence scope are separate. The diagram illustrates cited material; it does not verify deployment or personal implementation.",
@@ -806,7 +828,7 @@
           "url": "https://drinfinityai.com/"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/dr-infinity",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/dr-infinity",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Listed role, product challenge, engineering context, and evidence scope are separate. The diagram illustrates cited material; it does not verify deployment or personal implementation.",
@@ -893,7 +915,7 @@
           "url": "https://docs.searxng.org/"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/wandubot",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/wandubot",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Search privacy and retention statements describe the public product's stated position; they are not an independent audit or an absolute anonymity guarantee.",
@@ -944,7 +966,7 @@
           ]
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/legal-rag",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/legal-rag",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Lihon describes this as a completed legal AI and retrieval-augmented generation project. The listed role is AI & Backend Engineer.",
@@ -991,7 +1013,7 @@
           ]
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/only-hers",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/only-hers",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."
@@ -1041,7 +1063,7 @@
           "url": "https://github.com/gelftheshot/Alx-study-with-ai"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/alx-study-with-ai",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/alx-study-with-ai",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."
@@ -1093,7 +1115,7 @@
           "url": "https://github.com/gelftheshot/academic-advisor-ai"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/academic-advisor-ai",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/academic-advisor-ai",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."
@@ -1144,7 +1166,7 @@
           "url": "https://github.com/WalaEddine01/Whisper"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/whisper",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/whisper",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."
@@ -1193,7 +1215,7 @@
           "url": "https://github.com/gelftheshot/inventory-management-app"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/inventory-management",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/inventory-management",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."
@@ -1242,7 +1264,7 @@
           "url": "https://github.com/gelftheshot/ai-customer-support"
         }
       ],
-      "caseStudyUrl": "https://portfolio-one-rose-74.vercel.app/projects/ai-customer-support",
+      "caseStudyUrl": "https://www.lihongebre.com/projects/ai-customer-support",
       "sourceBoundaries": [
         "The role is the role listed in Lihon's portfolio. The case study describes the project; individual deliverables, team size, dates, and quantified results are unspecified unless explicitly stated.",
         "Use only the listed stack, features, description, technical sections, and sources. Do not invent additional implementation details or results."

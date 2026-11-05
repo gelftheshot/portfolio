@@ -4,7 +4,7 @@ A monochrome, scrolling portfolio with 11 project case studies, six employment r
 
 The application uses Next.js **16.4.5**, React **19.3.1**, and the ESLint CLI. Use Node.js **24**, as recorded in `.nvmrc`, and the committed npm lockfile.
 
-The existing project origin is [portfolio-one-rose-74.vercel.app](https://portfolio-one-rose-74.vercel.app). That address identifies the deployment target; it does not mean the latest local changes have been deployed or accepted.
+The public portfolio origin is [www.lihongebre.com](https://www.lihongebre.com). The existing Vercel project hosts this custom domain; deployment status still needs verification for each release.
 
 ## Local development
 
@@ -18,7 +18,7 @@ Open [localhost:3000](http://localhost:3000). Copy `.env.example` to the ignored
 
 ## Site origin and public content
 
-Set `NEXT_PUBLIC_SITE_URL` to the public origin before building. The default is `https://portfolio-one-rose-74.vercel.app`. `lib/site.js` and `lib/profile.js` use that single setting for public profile links, case-study links, contact and résumé links, canonicals, structured data, social metadata, sitemap entries, and text exports. Keep build and runtime environments aligned. Changing the origin requires a rebuild and regeneration of saved résumé/data exports; those static files do not rewrite themselves at runtime.
+Set `NEXT_PUBLIC_SITE_URL` to the public origin before building. The default is `https://www.lihongebre.com`. `lib/site.js` and `lib/profile.js` use that single setting for public profile links, case-study links, contact and résumé links, canonicals, structured data, social metadata, sitemap entries, and text exports. Keep build and runtime environments aligned. Changing the origin requires a rebuild and regeneration of saved résumé/data exports; those static files do not rewrite themselves at runtime.
 
 - `data/profile.json`: professional facts, six roles, skills, education, listed training credentials, and profile links.
 - `data/projects.json` (exported by `lib/projects.js`): all 11 projects, technical context, sources, and featured case-study scope notes. Preserve the distinction between product capabilities and personal contributions.

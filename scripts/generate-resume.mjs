@@ -11,12 +11,10 @@ import { buildAssistantKnowledge } from "../lib/assistant-knowledge.js";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const STEM = "Lihon-Gebre-Resume";
 const A4 = [595.28, 841.89];
-const MARGIN = 43;
-const BOTTOM = 49;
+const MARGIN = 50;
+const BOTTOM = 48;
 const INK = rgb(0.08, 0.08, 0.08);
 const MUTED = rgb(0.27, 0.27, 0.27);
-const RULE = rgb(0.76, 0.76, 0.76);
-const SELECTED_JOBS = ["debug-502", "langchain-langgraph-saas", "knowledge-based-rag-chatbot", "ai-agent-development"];
 
 // Standard Helvetica supports selectable Latin text. Keep punctuation simple and
 // give a clear error for content that needs an additional embedded font, rather
@@ -46,13 +44,6 @@ function monthYear(value) {
   }).format(date);
 }
 
-function snapshotDate(value) {
-  const date = new Date(`${String(value).slice(0, 10)}T00:00:00Z`);
-  return Number.isNaN(date.valueOf()) ? plain(value) : new Intl.DateTimeFormat("en-US", {
-    month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
-  }).format(date);
-}
-
 function fixedDate(value) {
   const result = new Date(`${String(value || "").slice(0, 10)}T00:00:00.000Z`);
   return Number.isNaN(result.valueOf()) ? new Date("1970-01-01T00:00:00.000Z") : result;
@@ -68,7 +59,7 @@ function safeUrl(value) {
 
 /** Returns a PDF and its plain-text companion without changing any files. */
 export async function generateResume(knowledge) {
-  const { profile, clientWork, contact } = knowledge;
+  const { profile, contact } = knowledge;
   const projects = knowledge.projects.slice(0, 3);
   const pdf = await PDFDocument.create();
   const normal = await pdf.embedFont(StandardFonts.Helvetica);
@@ -83,15 +74,16 @@ export async function generateResume(knowledge) {
   pdf.setModificationDate(updated);
 
   const styles = {
-    name: { size: 25, leading: 29, bold: true, after: 3 },
-    position: { size: 11.5, leading: 15, after: 7 },
-    contact: { size: 8.7, leading: 12, color: MUTED },
-    section: { size: 10, leading: 13, bold: true, before: 13, after: 7 },
-    body: { size: 9.4, leading: 13, after: 4 },
-    compact: { size: 8.9, leading: 12, after: 4 },
-    role: { size: 9.5, leading: 13, bold: true, after: 3 },
-    small: { size: 8.2, leading: 11, color: MUTED },
-    continued: { size: 16, leading: 20, bold: true, after: 5 },
+    name: { size: 28, leading: 32, bold: true, after: 4 },
+    position: { size: 12.5, leading: 17, after: 7 },
+    contact: { size: 10.5, leading: 14, color: MUTED },
+    section: { size: 11, leading: 15, bold: true, before: 14, after: 7 },
+    body: { size: 11, leading: 15.5, after: 5 },
+    compact: { size: 11, leading: 15, after: 4 },
+    role: { size: 11, leading: 15.5, after: 5 },
+    project: { size: 11.5, leading: 16, bold: true, after: 4 },
+    small: { size: 10.5, leading: 14, color: MUTED, after: 4 },
+    continued: { size: 11, leading: 15, bold: true, after: 2 },
   };
   const text = [];
   const width = A4[0] - MARGIN * 2;
@@ -106,10 +98,10 @@ export async function generateResume(knowledge) {
 
   function newPage(continuation = true) {
     page = pdf.addPage(A4);
-    y = A4[1] - 36;
+    y = A4[1] - MARGIN;
     if (continuation) {
       paragraph(profile.name, "continued", { includeText: false });
-      paragraph(position, "contact", { includeText: false });
+      spacer(5);
     }
   }
 
@@ -117,7 +109,7 @@ export async function generateResume(knowledge) {
     if (y - height < BOTTOM) newPage();
   }
 
-  function wrapRuns(runs, style) {
+  function wrapRuns(runs, style, availableWidth = width) {
     const lines = [[]];
     let used = 0;
     for (const run of runs) {
@@ -128,12 +120,12 @@ export async function generateResume(knowledge) {
         if (piece === "\n") { lines.push([]); used = 0; continue; }
         if (!used && /^\s+$/.test(piece)) continue;
         const pieceWidth = measure(piece, font, style.size);
-        if (used + pieceWidth > width && used > 0) { lines.push([]); used = 0; }
+        if (used + pieceWidth > availableWidth && used > 0) { lines.push([]); used = 0; }
         if (!used && /^\s+$/.test(piece)) continue;
         // Very long URLs/identifiers still fit the text area without clipping.
         let part = "";
         for (const character of piece) {
-          if (measure(part + character, font, style.size) + used > width && part) {
+          if (measure(part + character, font, style.size) + used > availableWidth && part) {
             lines.at(-1).push({ ...run, text: part, font });
             lines.push([]);
             used = 0;
@@ -163,19 +155,19 @@ export async function generateResume(knowledge) {
   function paragraph(value, styleName = "body", options = {}) {
     const style = styles[styleName];
     const runs = Array.isArray(value) ? value : [{ text: value }];
-    const lines = wrapRuns(runs, style);
+    const indent = options.indent || 0;
+    const lines = wrapRuns(runs, style, width - indent);
     ensureSpace((style.before || 0) + Math.min(lines.length, 2) * style.leading + (style.after || 0));
     y -= style.before || 0;
     for (const line of lines) {
       ensureSpace(style.leading);
       y -= style.leading;
-      let x = MARGIN;
+      let x = MARGIN + indent;
       for (const run of line) {
         const runWidth = measure(run.text, run.font, style.size);
         page.drawText(run.text, { x, y, size: style.size, font: run.font, color: style.color || INK });
         if (run.url && safeUrl(run.url)) {
           linkAnnotation(run.url, x, y, runWidth, style.size);
-          if (run.text.trim()) page.drawLine({ start: { x, y: y - 1.4 }, end: { x: x + runWidth, y: y - 1.4 }, thickness: 0.35, color: MUTED });
         }
         x += runWidth;
       }
@@ -205,72 +197,64 @@ export async function generateResume(knowledge) {
   paragraph([{ text: `${profile.location} | ` }, { text: contact.email, url: `mailto:${contact.email}` }], "contact");
   const links = profile.links;
   const websiteLabel = new URL(links.website).host;
-  const githubLabel = new URL(links.github).pathname.replace(/^\//, "");
-  const linkedInLabel = new URL(links.linkedin).pathname.replace(/^\/in\//, "").replace(/\/$/, "");
+  const githubLabel = new URL(links.github).host + new URL(links.github).pathname.replace(/\/$/, "");
+  const linkedInLabel = new URL(links.linkedin).host + new URL(links.linkedin).pathname.replace(/\/$/, "");
   paragraph([
     { text: "Portfolio: " }, { text: websiteLabel, url: links.website },
-    { text: "  |  GitHub: " }, { text: githubLabel, url: links.github },
-    { text: "  |  LinkedIn: " }, { text: linkedInLabel, url: links.linkedin },
-  ], "contact", { text: `Portfolio: ${links.website}\nGitHub: ${links.github}\nLinkedIn: ${links.linkedin}` });
-  const upworkUrl = clientWork.source.profileUrl;
-  paragraph([{ text: "Upwork: " }, { text: clientWork.profile.displayName, url: upworkUrl }], "contact", { text: `Upwork: ${upworkUrl}` });
+  ], "contact", { text: `Portfolio: ${links.website}` });
+  paragraph([
+    { text: githubLabel, url: links.github },
+    { text: "  |  " }, { text: linkedInLabel, url: links.linkedin },
+  ], "contact", { text: `GitHub: ${links.github}\nLinkedIn: ${links.linkedin}` });
   spacer(9);
   page.drawLine({ start: { x: MARGIN, y }, end: { x: A4[0] - MARGIN, y }, color: INK, thickness: 0.7 });
 
-  section("Professional profile");
-  paragraph(firstSentences(profile.summary, 2));
+  section("Summary");
+  paragraph(profile.resumeSummary || firstSentences(profile.introduction || profile.about || "", 2));
   section("Technical skills");
-  for (const [category, skills] of Object.entries(profile.skills)) {
-    paragraph([{ text: `${category}: `, bold: true }, { text: skills.join(", ") }], "compact");
-  }
-  const automation = profile.automationFocus?.focusAreas || [];
-  if (automation.length) paragraph([{ text: "Automation: ", bold: true }, { text: automation.join(", ") }], "compact");
+  const subset = (category, names) => (profile.skills[category] || []).filter((skill) => names.includes(skill));
+  const ai = subset("AI and retrieval", ["Retrieval-augmented generation (RAG)", "LangChain", "Pinecone", "Vector retrieval", "Conversational AI"])
+    .map((skill) => skill === "Retrieval-augmented generation (RAG)" ? "RAG" : skill);
+  if (profile.certifications?.some((item) => /^n8n$/i.test(item.provider))) ai.push("n8n");
+  const skillGroups = [
+    ["AI & automation", ai],
+    ["Backend", subset("Backend and APIs", ["Python", "Django", "Node.js", "Express.js", "REST APIs"])],
+    ["Data", subset("Data and persistence", ["PostgreSQL", "MySQL", "MongoDB", "Redis"])],
+    ["Cloud & delivery", subset("Cloud and engineering tools", ["AWS", "Docker", "Kubernetes", "CI/CD", "Linux", "Nginx"])],
+    ["Web", subset("Web development", ["JavaScript", "TypeScript", "React", "Next.js"])],
+  ];
+  for (const [category, skills] of skillGroups) if (skills.length) paragraph([{ text: `${category}: `, bold: true }, { text: skills.join(", ") }], "compact");
 
-  section("Employment history");
+  section("Professional experience");
   for (const item of profile.experience) {
     const title = `${item.company} | ${item.role} | ${item.period}`;
-    const description = firstSentences(item.description);
-    const focus = `Focus: ${(item.focusAreas || []).slice(0, 4).join(", ")}`;
-    keepTogether([[title, "role"], [description, "compact"], [focus, "small"]], 8);
+    const bullets = item.resumeBullets?.length ? item.resumeBullets : [firstSentences(item.description), ...(item.responsibilities || []).slice(0, 1).map((area) => area.description)];
+    keepTogether([[title, "role"], ...bullets.map((bullet) => [`- ${bullet}`, "body"])], 7);
     text.push("");
-    paragraph(title, "role"); paragraph(description, "compact"); paragraph(focus, "small"); spacer(8);
+    paragraph([{ text: item.company, bold: true }, { text: ` | ${item.role} | ${item.period}` }], "role");
+    for (const bullet of bullets) paragraph(`- ${bullet}`, "body", { indent: 8 });
+    spacer(7);
   }
 
   newPage();
-  const jobs = clientWork.completedWork || [];
-  if (jobs.length) {
-    const years = jobs.flatMap((job) => [job.startDate.slice(0, 4), job.endDate.slice(0, 4)]).sort();
-    section(`Selected client work - Upwork | ${years[0]}-${years.at(-1)}`);
-    const snapshot = clientWork.profile.snapshotDate || clientWork.source.retrievedAt;
-    paragraph(`${clientWork.profile.completedJobCount} public completed jobs; ${clientWork.profile.writtenReviewCount} written reviews. ${clientWork.profile.badge}; ${clientWork.profile.jobSuccessPercent}% Job Success (profile snapshot: ${snapshotDate(snapshot)}).`, "compact");
-    paragraph([{ text: "Source: " }, { text: "Public Upwork profile and completed work", url: upworkUrl }], "small", { text: `Source: ${upworkUrl}` });
-    spacer(4);
-    const priority = SELECTED_JOBS.map((id) => jobs.find((job) => job.id === id)).filter(Boolean);
-    const selected = [...priority, ...jobs.filter((job) => !SELECTED_JOBS.includes(job.id))].slice(0, 4);
-    selected.sort((a, b) => b.endDate.localeCompare(a.endDate));
-    for (const job of selected) {
-      const period = `${monthYear(job.startDate)} - ${monthYear(job.endDate)}`;
-      const client = job.clientName ? `Client account: ${job.clientName}` : "Upwork client";
-      const detail = `${period} | ${client} | Client rating: ${job.rating}/${job.ratingScale}`;
-      keepTogether([[job.title, "role"], [detail, "compact"]], 4);
-      text.push(""); paragraph(job.title, "role"); paragraph(detail, "compact"); spacer(4);
-    }
-  }
 
-  section("Featured portfolio projects");
+  section("Selected projects");
   for (const project of projects) {
     const caseUrl = project.caseStudyUrl || `${links.website.replace(/\/$/, "")}/projects/${project.slug}`;
-    const role = `Role: ${project.role || profile.title}`;
-    keepTogether([[project.title, "role"], [role, "small"], [project.description, "body"], ["Read engineering case study", "small"]], 6);
-    text.push(""); paragraph([{ text: project.title, url: caseUrl }], "role");
-    paragraph(role, "small"); paragraph(project.description);
-    paragraph([{ text: "Read engineering case study", url: caseUrl }], "small", { text: `Case study: ${caseUrl}` });
-    spacer(6);
+    const title = `${project.title} | ${project.role || profile.title}`;
+    const focus = (project.tags || []).slice(0, 4).join(", ");
+    const caseLabel = new URL(caseUrl).host + new URL(caseUrl).pathname.replace(/\/$/, "");
+    keepTogether([[title, "project"], [project.description, "body"], ...(focus ? [[`Focus: ${focus}`, "small"]] : []), [caseLabel, "small"]], 10);
+    text.push(""); paragraph(title, "project"); paragraph(project.description);
+    if (focus) paragraph(`Focus: ${focus}`, "small");
+    paragraph([{ text: caseLabel, url: caseUrl }], "small", { text: `Case study: ${caseUrl}` });
+    spacer(10);
   }
 
-  const certifications = profile.certifications || [];
+  const certifications = [...(profile.certifications || [])]
+    .sort((a, b) => String(b.issued || "").localeCompare(String(a.issued || "")));
   if (certifications.length) {
-    section("Training and credentials");
+    section("Certifications & training");
     for (const credential of certifications) {
       const title = credential.name || credential.title;
       if (!title) continue;
@@ -290,10 +274,8 @@ export async function generateResume(knowledge) {
 
   const pages = pdf.getPages();
   pages.forEach((item, index) => {
-    item.drawLine({ start: { x: MARGIN, y: 30 }, end: { x: A4[0] - MARGIN, y: 30 }, color: RULE, thickness: 0.4 });
-    item.drawText(plain(profile.name), { x: MARGIN, y: 18, size: 7.5, font: normal, color: MUTED });
     const number = `${index + 1} / ${pages.length}`;
-    item.drawText(number, { x: A4[0] - MARGIN - normal.widthOfTextAtSize(number, 7.5), y: 18, size: 7.5, font: normal, color: MUTED });
+    item.drawText(number, { x: A4[0] - MARGIN - normal.widthOfTextAtSize(number, 9), y: 23, size: 9, font: normal, color: MUTED });
   });
   return {
     pdfBytes: await pdf.save({ useObjectStreams: false, addDefaultPage: false }),

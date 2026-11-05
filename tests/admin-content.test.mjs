@@ -86,6 +86,42 @@ test("optional presentation copy is validated while older profiles remain suppor
   assert.doesNotThrow(() => validateContentBundle(content, { now: now() }));
 });
 
+test("optional résumé copy preserves highlights and supports profiles without overrides", () => {
+  const content = bundle();
+  content.profile.resumeSummary = "Backend and AI engineering with connected data and workflow automation.";
+  content.profile.experience[0].resumeBullets = ["Connected AI features to backend application data."];
+  const checked = validateContentBundle(content, { now: now() });
+  assert.equal(checked.profile.resumeSummary, content.profile.resumeSummary);
+  assert.deepEqual(checked.profile.experience[0].resumeBullets, content.profile.experience[0].resumeBullets);
+  const original = JSON.stringify(content);
+  validateContentBundle(content, { now: now() });
+  assert.equal(JSON.stringify(content), original);
+  content.profile.resumeSummary = "a".repeat(1200);
+  content.profile.experience[0].resumeBullets = Array.from({ length: 6 }, () => "a".repeat(500));
+  assert.doesNotThrow(() => validateContentBundle(content, { now: now() }));
+  delete content.profile.resumeSummary;
+  for (const role of content.profile.experience) delete role.resumeBullets;
+  assert.doesNotThrow(() => validateContentBundle(content, { now: now() }));
+});
+
+test("résumé overrides reject invalid types, empty text, and excessive length or bullet counts", async (t) => {
+  const mutations = [
+    ["summary type", (p) => { p.resumeSummary = {}; }],
+    ["summary blank", (p) => { p.resumeSummary = " "; }],
+    ["summary length", (p) => { p.resumeSummary = "a".repeat(1201); }],
+    ["highlights type", (p) => { p.experience[0].resumeBullets = "A highlight"; }],
+    ["empty highlights", (p) => { p.experience[0].resumeBullets = []; }],
+    ["too many highlights", (p) => { p.experience[0].resumeBullets = Array(7).fill("A highlight"); }],
+    ["highlight type", (p) => { p.experience[0].resumeBullets = [123]; }],
+    ["highlight blank", (p) => { p.experience[0].resumeBullets = [" "]; }],
+    ["highlight length", (p) => { p.experience[0].resumeBullets = ["a".repeat(501)]; }],
+  ];
+  for (const [name, mutate] of mutations) await t.test(name, () => {
+    const content = bundle(); mutate(content.profile);
+    assert.throws(() => validateContentBundle(content, { now: now() }), (error) => error instanceof AdminContentError && error.status === 400);
+  });
+});
+
 test("training credential IDs preserve the source identifier and reject invalid values", async (t) => {
   const content = bundle();
   content.profile.certifications[0].credentialId = "R8YYMZNSACZ4";

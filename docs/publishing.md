@@ -1,6 +1,6 @@
 # Publishing the portfolio
 
-Use the existing Vercel project whose public origin is `https://portfolio-one-rose-74.vercel.app`. This guide documents the release process; it does not record a completed deployment, passing checks, or live service acceptance.
+Use the existing Vercel project serving the public portfolio at `https://www.lihongebre.com`. This guide documents the release process; it does not record a completed deployment, passing checks, or live service acceptance.
 
 ## 1. Prepare the release
 
@@ -41,7 +41,7 @@ Set the following in the correct Vercel environment scope before rebuilding:
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Set to `https://portfolio-one-rose-74.vercel.app` until a replacement domain is working and intentionally adopted. |
+| `NEXT_PUBLIC_SITE_URL` | Set to the adopted public origin, `https://www.lihongebre.com`. |
 | `OPENAI_API_KEY` | Server-only key for the portfolio assistant. Leave unset if launching without paid chat. |
 | `OPENAI_MODEL` | Optional Responses-compatible model override. |
 | `CHAT_RATE_LIMIT_MODE` | `shared` for public production chat. |

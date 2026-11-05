@@ -1,85 +1,64 @@
 Lihon Gebre
 AI & Backend Engineer | Workflow Automation
 Addis Ababa, Ethiopia | lihongebre@gmail.com
-Portfolio: https://portfolio-one-rose-74.vercel.app/
+Portfolio: https://www.lihongebre.com/
 GitHub: https://github.com/gelftheshot
 LinkedIn: https://linkedin.com/in/lihongebre
-Upwork: https://www.upwork.com/freelancers/~01dd5cefb217b3cbea
-PROFESSIONAL PROFILE
-Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history spans 2016 to 2025, with public Upwork completed client work extending through June 2026.
+SUMMARY
+AI and backend engineer building conversational AI and retrieval-augmented generation (RAG) systems, backend APIs, and workflow automation.
 TECHNICAL SKILLS
-AI and retrieval: Retrieval-augmented generation (RAG), LangChain, Pinecone, Vector retrieval, Conversational AI, Multimodal AI workflows, Natural language processing, PyTorch
-Backend and APIs: Python, Django, Node.js, Express.js, REST APIs, Socket.io, JWT authentication
-Data and persistence: PostgreSQL, MongoDB, MySQL, Redis, Firebase
-Web development: JavaScript, TypeScript, React, Next.js, HTML, CSS, Tailwind CSS
-Cloud and engineering tools: AWS, Docker, Kubernetes, CI/CD, Nginx, Linux, Git, GitHub
-Computer science: C, Data structures, Algorithms
-Automation: API integrations, Workflow orchestration, AI-assisted processes, Human review
-EMPLOYMENT HISTORY
+AI & automation: RAG, LangChain, Pinecone, Vector retrieval, Conversational AI, n8n
+Backend: Python, Django, Node.js, Express.js, REST APIs
+Data: PostgreSQL, MongoDB, MySQL, Redis
+Cloud & delivery: AWS, Docker, Kubernetes, CI/CD, Nginx, Linux
+Web: JavaScript, TypeScript, React, Next.js
+PROFESSIONAL EXPERIENCE
 
 NDIT Solution | AI, Backend & Automation Engineer | 2023 - 2025
-AI, backend, and workflow automation engineering.
-Focus: AI integration, Backend engineering, Workflow automation, API integration
+- Integrated AI functionality with backend service interfaces and application data flows.
+- Connected workflow steps with validation and human review.
 
 ALX Africa | Backend Developer | 2022 - 2023
-Backend development with Python and Django, including collaboration on RESTful APIs and database optimization.
-Focus: Python, Django, RESTful APIs, Database optimization
+- Developed Python and Django backends with RESTful API integration.
+- Optimized database access.
 
 Axious Tech | Backend & Infrastructure Engineer | 2020 - 2023
-Backend development and the infrastructure supporting application services.
-Focus: Backend architecture, Infrastructure, Deployment environments, Data persistence
+- Developed backend application logic, service interfaces, and data persistence.
+- Maintained runtime configuration, deployment environments, and application diagnostics.
 
 Anbesa Tech | Full Stack Developer | 2018 - 2020
-Full-stack web development across application interfaces, backend logic, and data handling.
-Focus: Full-stack development, Web interfaces, API integration, Application logic
+- Connected web interfaces, backend logic, and stored data across full-stack applications.
 
 Freelance | Backend Developer | 2017
-Independent backend development for software applications.
-Focus: Independent development, Backend services, Service interfaces, Data persistence
+- Developed server-side logic, service interfaces, input validation, and data persistence.
 
 Yehulu Tech | Backend Developer | 2016 - 2017
-Backend development focused on application logic and data.
-Focus: Backend development, Server-side logic, Data models, Persistence
-SELECTED CLIENT WORK - UPWORK | 2024-2026
-10 public completed jobs; 9 written reviews. Top Rated; 100% Job Success (profile snapshot: Nov 2, 2026).
-Source: https://www.upwork.com/freelancers/~01dd5cefb217b3cbea
+- Implemented request handling, application rules, and data models; debugged backend behavior.
+SELECTED PROJECTS
 
-debug 502
-Mar 2026 - Jun 2026 | Client account: CLICK CLICK | Client rating: 5/5
-
-AI (LangChain, LangGraph) developer for SaaS
-Jun 2025 - Jul 2025 | Client account: Wojciech Wierzchowski | Client rating: 5/5
-
-AI Chatbot Developer for Knowledge-Based System Using RAG
-Oct 2024 - Apr 2025 | Client account: Lancelot Studios | Client rating: 5/5
-
-AI Agent Developer
-Mar 2025 - Mar 2025 | Client account: Nsx Talent | Client rating: 5/5
-FEATURED PORTFOLIO PROJECTS
-
-SeaSure
-Role: AI & Backend Engineer
+SeaSure | AI & Backend Engineer
 Boat-specific AI troubleshooting, multimodal guidance, maintenance records, and contextual handoffs to marine service professionals.
-Case study: https://portfolio-one-rose-74.vercel.app/projects/seasure
+Focus: Multimodal AI, Context engineering, Vessel intelligence, Knowledge retrieval
+Case study: https://www.lihongebre.com/projects/seasure
 
-Projuno
-Role: AI & Backend Engineer
+Projuno | AI & Backend Engineer
 AI-powered construction operations connecting project workflows, financial visibility, change traceability, and compliance records.
-Case study: https://portfolio-one-rose-74.vercel.app/projects/projuno
+Focus: Workflow orchestration, Conversational AI, Data traceability, Process automation
+Case study: https://www.lihongebre.com/projects/projuno
 
-Dr. Infinity
-Role: AI & Backend Engineer
+Dr. Infinity | AI & Backend Engineer
 Clinical knowledge AI combining medical knowledge graphs, concurrent vector retrieval, evidence grounding, and privacy-aware ingestion.
-Case study: https://portfolio-one-rose-74.vercel.app/projects/dr-infinity
-TRAINING AND CREDENTIALS
+Focus: Hybrid RAG, Knowledge graphs, SNOMED CT, MeSH
+Case study: https://www.lihongebre.com/projects/dr-infinity
+CERTIFICATIONS & TRAINING
 n8n102 - Integrations: APIs and Connected Workflows | n8n | Oct 2026
 Credential: https://badges.n8n.io/e80d3b99-1e3f-4049-8b70-41847d02805f
+n8n101 - Essentials: Your First Workflows | n8n | Sep 2026
+Credential: https://badges.n8n.io/f4b913d8-8d0b-4d42-b3e3-29eda02115f2
 AWS Cloud Practitioner Essentials | Amazon Web Services (AWS) | Sep 2024
 Credential: https://www.coursera.org/account/accomplishments/verify/R8YYMZNSACZ4
 ALX Software Engineering - Backend Specialization | ALX | Jul 2024
 Credential: https://intranet.alxswe.com/certificates/6Be8EZ2YPm
-n8n101 - Essentials: Your First Workflows | n8n | Sep 2026
-Credential: https://badges.n8n.io/f4b913d8-8d0b-4d42-b3e3-29eda02115f2
 EDUCATION
 Bachelor of Science, Computer Science | Addis Ababa University
 Accelerated Software Engineering Program | ALX
