@@ -244,7 +244,7 @@ export async function generateResume(knowledge) {
     const snapshot = clientWork.profile.snapshotDate || clientWork.source.retrievedAt;
     paragraph(`${clientWork.profile.completedJobCount} public completed jobs; ${clientWork.profile.writtenReviewCount} written reviews. ${clientWork.profile.badge}; ${clientWork.profile.jobSuccessPercent}% Job Success (profile snapshot: ${snapshotDate(snapshot)}).`, "compact");
     paragraph([{ text: "Source: " }, { text: "Public Upwork profile and completed work", url: upworkUrl }], "small", { text: `Source: ${upworkUrl}` });
-    spacer(8);
+    spacer(4);
     const priority = SELECTED_JOBS.map((id) => jobs.find((job) => job.id === id)).filter(Boolean);
     const selected = [...priority, ...jobs.filter((job) => !SELECTED_JOBS.includes(job.id))].slice(0, 4);
     selected.sort((a, b) => b.endDate.localeCompare(a.endDate));
@@ -252,8 +252,8 @@ export async function generateResume(knowledge) {
       const period = `${monthYear(job.startDate)} - ${monthYear(job.endDate)}`;
       const client = job.clientName ? `Client account: ${job.clientName}` : "Upwork client";
       const detail = `${period} | ${client} | Client rating: ${job.rating}/${job.ratingScale}`;
-      keepTogether([[job.title, "role"], [detail, "compact"]], 7);
-      text.push(""); paragraph(job.title, "role"); paragraph(detail, "compact"); spacer(7);
+      keepTogether([[job.title, "role"], [detail, "compact"]], 4);
+      text.push(""); paragraph(job.title, "role"); paragraph(detail, "compact"); spacer(4);
     }
   }
 
@@ -261,11 +261,11 @@ export async function generateResume(knowledge) {
   for (const project of projects) {
     const caseUrl = project.caseStudyUrl || `${links.website.replace(/\/$/, "")}/projects/${project.slug}`;
     const role = `Role: ${project.role || profile.title}`;
-    keepTogether([[project.title, "role"], [role, "small"], [project.description, "body"], ["Read engineering case study", "small"]], 10);
+    keepTogether([[project.title, "role"], [role, "small"], [project.description, "body"], ["Read engineering case study", "small"]], 6);
     text.push(""); paragraph([{ text: project.title, url: caseUrl }], "role");
     paragraph(role, "small"); paragraph(project.description);
     paragraph([{ text: "Read engineering case study", url: caseUrl }], "small", { text: `Case study: ${caseUrl}` });
-    spacer(10);
+    spacer(6);
   }
 
   const certifications = profile.certifications || [];

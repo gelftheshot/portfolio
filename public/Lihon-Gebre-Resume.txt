@@ -74,8 +74,12 @@ Case study: https://portfolio-one-rose-74.vercel.app/projects/dr-infinity
 TRAINING AND CREDENTIALS
 n8n102 - Integrations: APIs and Connected Workflows | n8n | Oct 2026
 Credential: https://badges.n8n.io/e80d3b99-1e3f-4049-8b70-41847d02805f
+AWS Cloud Practitioner Essentials | Amazon Web Services (AWS) | Sep 2024
+Credential: https://www.coursera.org/account/accomplishments/verify/R8YYMZNSACZ4
+ALX Software Engineering - Backend Specialization | ALX | Jul 2024
+Credential: https://intranet.alxswe.com/certificates/6Be8EZ2YPm
 n8n101 - Essentials: Your First Workflows | n8n | Sep 2026
-Credential: https://learn.n8n.io/certificates/0212852ff71a435dac6ede793a9e4d12
+Credential: https://badges.n8n.io/f4b913d8-8d0b-4d42-b3e3-29eda02115f2
 EDUCATION
 Bachelor of Science, Computer Science | Addis Ababa University
 Accelerated Software Engineering Program | ALX

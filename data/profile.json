@@ -1,5 +1,6 @@
 {
   "name": "Lihon Gebre",
+  "updatedAt": "2026-11-05",
   "title": "AI & Backend Engineer",
   "location": "Addis Ababa, Ethiopia",
   "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history spans 2016 to 2025, with public Upwork completed client work extending through June 2026. His portfolio covers conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure, and workflow automation. Current employment and availability are not specified.",
@@ -339,26 +340,53 @@
       "name": "n8n102 - Integrations: APIs and Connected Workflows",
       "provider": "n8n",
       "issued": "2026-10",
+      "credentialId": "22414866",
       "url": "https://badges.n8n.io/e80d3b99-1e3f-4049-8b70-41847d02805f",
       "source": {
-        "name": "Upwork profile",
-        "url": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
-        "checkedAt": "2026-11-03"
+        "name": "LinkedIn certifications",
+        "url": "https://www.linkedin.com/in/lihongebre/details/certifications/",
+        "checkedAt": "2026-11-05"
       },
-      "verification": "User-listed training credential; the issuer record has not been independently verified."
+      "verification": "Listed on Lihon's LinkedIn profile. The public n8n issuer record was checked on November 5, 2026: issued October 5, 2026 to the account Talentsgelf and does not expire. This is completion of the n8n Integrations training course, not proof of employer-specific deliverables."
+    },
+    {
+      "name": "AWS Cloud Practitioner Essentials",
+      "provider": "Amazon Web Services (AWS)",
+      "issued": "2024-09",
+      "credentialId": "R8YYMZNSACZ4",
+      "url": "https://www.coursera.org/account/accomplishments/verify/R8YYMZNSACZ4",
+      "source": {
+        "name": "LinkedIn certifications",
+        "url": "https://www.linkedin.com/in/lihongebre/details/certifications/",
+        "checkedAt": "2026-11-05"
+      },
+      "verification": "The Coursera credential record, checked on November 5, 2026, names Lihon Gebre and dates course completion to September 13, 2024. This issuer date takes precedence over the June 2024 date in the LinkedIn listing. This is an AWS Cloud Practitioner Essentials course completion, not evidence of passing the AWS Certified Cloud Practitioner certification exam."
+    },
+    {
+      "name": "ALX Software Engineering — Backend Specialization",
+      "provider": "ALX",
+      "issued": "2024-07",
+      "credentialId": "6Be8EZ2YPm",
+      "url": "https://intranet.alxswe.com/certificates/6Be8EZ2YPm",
+      "source": {
+        "name": "LinkedIn education",
+        "url": "https://www.linkedin.com/in/lihongebre/details/education/",
+        "checkedAt": "2026-11-05"
+      },
+      "verification": "The certificate image attached to LinkedIn's ALX education entry names Lihon Gebre and confirms completion of a 12-month ALX Software Engineering Programme with a Back-end specialization. It lists program completion on July 12, 2024 and issue on July 15, 2024. The public ALX verification link was checked on November 5, 2026 and confirms the holder and issue date; its curriculum label is Short Specializations. This is a training completion credential, separate from employment history."
     },
     {
       "name": "n8n101 - Essentials: Your First Workflows",
       "provider": "n8n",
       "issued": "2026-09",
-      "expires": "2029-09",
-      "url": "https://learn.n8n.io/certificates/0212852ff71a435dac6ede793a9e4d12",
+      "credentialId": "22255240",
+      "url": "https://badges.n8n.io/f4b913d8-8d0b-4d42-b3e3-29eda02115f2",
       "source": {
-        "name": "Upwork profile",
-        "url": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
-        "checkedAt": "2026-11-03"
+        "name": "LinkedIn certifications",
+        "url": "https://www.linkedin.com/in/lihongebre/details/certifications/",
+        "checkedAt": "2026-11-05"
       },
-      "verification": "User-listed training credential; the issuer record has not been independently verified."
+      "verification": "Listed on Lihon's LinkedIn profile. The public n8n issuer record was checked on November 5, 2026: issued September 28, 2026 to the account Talentsgelf and does not expire. This current badge replaces the previous course link and its unverified expiry. This is completion of the n8n Essentials training course."
     }
   ],
   "headline": {

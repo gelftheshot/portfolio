@@ -68,6 +68,49 @@ function ExpertiseItem({ item, position }) {
   );
 }
 
+function credentialDate(value) {
+  return new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" })
+    .format(new Date(`${value}-01T00:00:00Z`));
+}
+
+function CertificationItem({ credential }) {
+  return (
+    <li className="training-credential">
+      <div className="training-credential-copy">
+        <a href={credential.url} target="_blank" rel="noreferrer">{credential.name} <span aria-hidden="true">↗</span></a>
+        <p>{credential.provider}</p>
+      </div>
+      <div className="training-credential-dates mono">
+        <span>Issued <time dateTime={credential.issued}>{credentialDate(credential.issued)}</time></span>
+        {credential.expires && <span>Expires <time dateTime={credential.expires}>{credentialDate(credential.expires)}</time></span>}
+      </div>
+    </li>
+  );
+}
+
+function Certifications({ credentials }) {
+  if (!credentials.length) return null;
+  const sources = Array.from(new Map(credentials.map((credential) => [credential.source.url, credential.source])).values());
+  const item = (credential) => <CertificationItem credential={credential} key={`${credential.name}:${credential.url}`} />;
+  return (
+    <section id="certifications" className="training-credentials" aria-labelledby="training-title">
+      <h3 id="training-title"><WorkflowMark /> Certifications &amp; training</h3>
+      <ul aria-label="Featured certifications and training">{credentials.slice(0, 3).map(item)}</ul>
+      {credentials.length > 3 && (
+        <details className="section-more training-more">
+          <summary>
+            <span className="section-more-closed">Read more certifications</span>
+            <span className="section-more-open">Show fewer certifications</span>
+            <span className="section-more-symbol" aria-hidden="true">+</span>
+          </summary>
+          <ul aria-label="More certifications and training">{credentials.slice(3).map(item)}</ul>
+        </details>
+      )}
+      <p>Profile sources: {sources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a href={source.url} target="_blank" rel="noreferrer">{source.name}</a></span>)}. Follow a credential link to view its record.</p>
+    </section>
+  );
+}
+
 export default function Home() {
   const featuredExpertise = expertise.filter((item) => ["01", "02", "04"].includes(item.number));
   const moreExpertise = expertise.filter((item) => !["01", "02", "04"].includes(item.number));
@@ -125,11 +168,7 @@ export default function Home() {
       <ClientWork />
       <section id="about" className="about-section section-shell section-space" aria-labelledby="about-title">
         <div className="about-intro"><div><p className="eyebrow section-label">04 / A LITTLE ABOUT ME</p><h2 id="about-title">Curious by nature.<br /><span>Engineer by practice.</span></h2></div><div className="about-copy"><p>{profile.about || profile.summary}</p></div></div>
-        <div className="training-credentials" aria-labelledby="training-title">
-          <h3 id="training-title"><WorkflowMark /> Automation training</h3>
-          <ul>{profile.certifications.map((credential) => <li key={credential.name}><a href={credential.url} target="_blank" rel="noreferrer">{credential.name} <span aria-hidden="true">↗</span></a><span className="mono">{credential.issued}</span></li>)}</ul>
-          <p>Training credentials listed on my <a href={profile.links.upwork} target="_blank" rel="noreferrer">Upwork profile</a>. Follow a credential to view its issuer record.</p>
-        </div>
+        <Certifications credentials={profile.certifications} />
         <div className="expertise-grid expertise-highlights">
           {featuredExpertise.map((item, index) => <ExpertiseItem item={item} position={index + 1} key={item.number} />)}
         </div>

@@ -28,6 +28,14 @@ export function HomeStructuredData() {
             homeLocation: { "@type": "Place", name: profile.location },
             sameAs: [profile.links.github, profile.links.linkedin, upwork.source.profileUrl],
             knowsAbout: ["AI engineering", "Backend engineering", "Infrastructure", "Full-stack development", "Workflow automation", "Retrieval-augmented generation", "APIs", "Python", "Next.js", "PostgreSQL"],
+            hasCredential: profile.certifications.map((credential) => ({
+              "@type": "EducationalOccupationalCredential",
+              name: credential.name,
+              url: credential.url,
+              credentialCategory: "Training completion",
+              publisher: { "@type": "Organization", name: credential.provider },
+              ...(credential.credentialId ? { identifier: credential.credentialId } : {}),
+            })),
             hasOccupation: profile.experience.map((item) => ({
               "@type": "Role",
               "@id": absoluteUrl(`/#${item.id}`),

@@ -423,11 +423,22 @@ textarea.form-input { resize: vertical; min-height: 115px; }
 .training-credentials { margin: 34px 0 40px; padding: 22px 0; border-block: 1px solid var(--line); }
 .training-credentials h3 { display: flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: -.02em; }
 .training-credentials .workflow-mark { width: 20px; height: 20px; }
-.training-credentials ul { list-style: none; padding: 0; margin: 15px 0 0; display: grid; gap: 10px; }
-.training-credentials li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; font-size: 12px; }
+.training-credentials ul { list-style: none; padding: 0; margin: 17px 0 0; display: grid; gap: 0; }
+.training-credentials li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 8px 24px; padding: 13px 0; font-size: 12px; }
+.training-credentials li + li { border-top: 1px solid var(--line); }
+.training-credential-copy { min-width: 0; }
+.training-credential-copy a { overflow-wrap: anywhere; }
+.training-credential-copy p { margin-top: 5px; font-size: 11px; color: var(--muted); }
+.training-credential-dates { display: grid; gap: 5px; text-align: right; }
 .training-credentials a { text-decoration: underline; text-underline-offset: 3px; }
 .training-credentials li .mono, .training-credentials > p { font-size: 10px; color: var(--muted); }
-.training-credentials > p { margin-top: 14px; }
+.training-credentials > p { margin-top: 14px; line-height: 1.8; }
+.training-credentials .training-more { margin-top: 8px; }
+.training-credentials .training-more > summary { padding-block: 16px; font-size: 12px; }
+@media (max-width: 540px) {
+  .training-credentials li { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .training-credential-dates { display: flex; flex-wrap: wrap; gap: 5px 15px; text-align: left; }
+}
 .assistant-data-note { font-size: 10px; line-height: 1.7; color: var(--muted); margin-top: 14px; }
 .assistant-section { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 48px; margin-top: 64px; padding: 38px; background: #f3f3f3; }
 .assistant-section-header { align-self: start; padding-top: 7px; }

@@ -86,6 +86,19 @@ test("optional presentation copy is validated while older profiles remain suppor
   assert.doesNotThrow(() => validateContentBundle(content, { now: now() }));
 });
 
+test("training credential IDs preserve the source identifier and reject invalid values", async (t) => {
+  const content = bundle();
+  content.profile.certifications[0].credentialId = "R8YYMZNSACZ4";
+  assert.equal(validateContentBundle(content, { now: now() }).profile.certifications[0].credentialId, "R8YYMZNSACZ4");
+  for (const value of ["", " ", "a".repeat(301), 123, {}]) {
+    await t.test(JSON.stringify(value).slice(0, 35), () => {
+      const invalid = bundle();
+      invalid.profile.certifications[0].credentialId = value;
+      assert.throws(() => validateContentBundle(invalid, { now: now() }), (error) => error instanceof AdminContentError && error.status === 400);
+    });
+  }
+});
+
 test("presentation fields reject excess length, wrong types and unsupported nested fields", async (t) => {
   const mutations = [
     ["long introduction", (p) => { p.introduction = "a".repeat(801); }],

@@ -24,6 +24,7 @@ test("resume is a deterministic two-page PDF with live profile and case-study li
   assert.ok(targets.includes(knowledge.profile.links.website));
   assert.ok(targets.includes(`mailto:${knowledge.contact.email}`));
   for (const project of knowledge.projects.slice(0, 3)) assert.ok(targets.includes(project.caseStudyUrl));
+  for (const credential of knowledge.profile.certifications) assert.ok(targets.includes(credential.url));
   for (const role of knowledge.profile.experience) assert.ok(first.text.includes(role.company));
 });
 
