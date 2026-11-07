@@ -5,6 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import ClientWork from "@/components/ClientWork";
 import AssistantPanel from "@/components/AssistantPanel";
 import WorkflowMark from "@/components/WorkflowMark";
+import FooterTrail from "@/components/FooterTrail";
 import { experience, expertise, profile } from "@/lib/profile";
 import "./employment-details.css";
 import "./homepage-disclosures.css";
@@ -185,7 +186,12 @@ export default function Home() {
         </details>
       </section>
       <section id="contact" className="contact-section section-space" aria-labelledby="contact-title"><div className="section-shell split-section"><div className="contact-copy"><p className="eyebrow section-label">05 / GET IN TOUCH</p><h2 id="contact-title">Good things start<br />with a conversation<span className="contact-period">.</span></h2><p>Have an AI project, a workflow to simplify, or a role in mind? I’d love to hear what you’re building.</p><div className="contact-socials"><a className="text-link" href={profile.links.github} target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a><a className="text-link" href={profile.links.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow diagonal /></a></div></div><ContactForm /></div></section>
-      <footer className="site-footer section-shell"><a className="footer-name" href="#home">{profile.name.toLowerCase()}<span>.</span></a><span>© {new Date().getFullYear()} {profile.name}</span><a className="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+      <footer className="site-footer">
+        <div className="section-shell">
+          <FooterTrail />
+          <div className="footer-meta"><a className="footer-name" href="#home">{profile.name.toLowerCase()}<span>.</span></a><span>© {new Date().getFullYear()} {profile.name}</span><a className="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></div>
+        </div>
+      </footer>
     </main>
   );
 }

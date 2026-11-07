@@ -228,9 +228,13 @@ textarea.form-input { resize: vertical; min-height: 115px; }
 .contact-email-link { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
 .contact-email-link:hover { color: #555; }
 .contact-email-note { color: var(--muted); font-size: 11px; line-height: 1.7; margin-top: 8px; max-width: 390px; }
-.site-footer { min-height: 115px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-footer { padding-top: 30px; background: var(--ink); color: var(--paper); }
+.site-footer :focus-visible { outline-color: var(--paper); }
+.footer-trail { position: relative; height: 240px; overflow: hidden; background-image: radial-gradient(circle, #3c3c3c 1px, transparent 1px); background-size: 24px 24px; }
+.footer-trail canvas { display: block; width: 100%; height: 100%; pointer-events: none; }
+.footer-meta { min-height: 105px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid #373737; }
 .footer-name { font-size: 20px; }
-.site-footer > span { font-size: 10px; color: var(--muted); }
+.footer-meta > span { font-size: 10px; color: #aaa; }
 .back-top { display: flex; align-items: center; gap: 20px; font-size: 11px; }
 .back-top span { font-size: 17px; }
 .project-dialog { background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 4px; padding: 0; max-width: 900px; width: calc(100% - 48px); max-height: calc(100dvh - 64px); margin: auto; overscroll-behavior: contain; }
@@ -391,9 +395,11 @@ textarea.form-input { resize: vertical; min-height: 115px; }
   .contact-form { grid-template-columns: 1fr; row-gap: 22px; }
   .form-field:nth-child(3), .form-footer { grid-column: auto; }
   .form-input { font-size: 16px; }
-  .site-footer { flex-wrap: wrap; gap: 15px; padding-block: 30px; min-height: 120px; }
+  .site-footer { padding-top: 20px; }
+  .footer-trail { height: 144px; }
+  .footer-meta { flex-wrap: wrap; gap: 15px; padding-block: 25px; min-height: 110px; }
   .footer-name { flex: 1; }
-  .site-footer > span { order: 3; width: 100%; font-size: 9px; }
+  .footer-meta > span { order: 3; width: 100%; font-size: 9px; }
   .back-top { font-size: 10px; }
   .project-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); }
   .dialog-inner { padding: 20px; }
@@ -406,6 +412,7 @@ textarea.form-input { resize: vertical; min-height: 115px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .footer-trail canvas { display: none; }
 }
 
 .project-case-link { margin-top: 17px; font-size: 12px; }
