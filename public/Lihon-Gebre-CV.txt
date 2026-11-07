@@ -1,0 +1,41 @@
+Lihon Gebre
+AI & Backend Engineer | Workflow Automation
+Addis Ababa, Ethiopia | lihongebre@gmail.com
+www.lihongebre.com | github.com/gelftheshot | linkedin.com/in/lihongebre
+Top Rated on Upwork | 15 jobs | 12 client feedback entries | CS, Addis Ababa University
+AI and backend engineer with completed client work in knowledge-based AI, AI agents, and full-stack SaaS development.
+SELECTED EXPERIENCE
+Independent AI & Backend Projects | Upwork | Selected engagements, 2024 - 2026
+- Completed contracts in knowledge-based AI, AI agent development, and AI SaaS work.
+- Received 5/5 client ratings on the listed knowledge-base chatbot and AI SaaS contracts.
+- Client feedback highlights clear communication and independent full-stack work.
+
+AI, Backend & Automation Engineer | NDIT Solution | 2023 - 2025
+- Role focus: AI integration, backend services, and workflow automation.
+- Service interfaces, application data flows, and connected process steps.
+- Validation and human review within AI-assisted workflows.
+
+Backend Developer (Internship) | ALX Africa | Mar 2023 - Nov 2024
+- Backend development with Python and Django.
+- Collaboration on RESTful APIs and database access.
+- Database optimization and application component integration.
+
+Backend & Infrastructure Engineer | AxonTech | 2020 - 2023
+- Role focus: backend development and infrastructure supporting application services.
+- Application logic, service interfaces, and data persistence.
+- Runtime configuration, deployment environments, diagnostics, and maintenance.
+SELECTED PROJECTS
+
+Knowledge-base AI chatbot (RAG) | Oct 2024 - Apr 2025
+Completed knowledge-based AI contract with a 5/5 rating; client feedback highlights clear communication and collaboration.
+
+Academic Advisor AI | Public source
+Academic planning assistant for professor search, course planning, and major advice, using retrieval to connect relevant academic information.
+github.com/gelftheshot/academic-advisor-ai
+
+AI development for SaaS | Jun 2025 - Jul 2025
+Completed a LangChain/LangGraph AI-development engagement with a 5/5 rating; client feedback describes independent full-stack work.
+EDUCATION & TRAINING
+Bachelor of Science, Computer Science - Addis Ababa University | Accelerated Software Engineering Program - ALX
+n8n101 Essentials (Sep 2026) | n8n102 Integrations (Oct 2026)
+AWS Cloud Practitioner Essentials course (Sep 2024) | ALX Backend program (Jul 2024)

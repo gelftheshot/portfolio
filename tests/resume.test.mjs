@@ -1,8 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { PDFDocument, PDFName } from "pdf-lib";
 import { buildAssistantKnowledge } from "../lib/assistant-knowledge.js";
-import { generateResume } from "../scripts/generate-resume.mjs";
+import { generateResume, writeResume } from "../scripts/generate-resume.mjs";
 
 function linkTargets(document) {
   return document.getPages().flatMap((page) => (page.node.Annots()?.asArray() || []).map((reference) => {
@@ -11,27 +14,29 @@ function linkTargets(document) {
   }));
 }
 
-test("resume is a deterministic two-page PDF with live profile and case-study links", async () => {
+test("selected CV is deterministic, one page, and links to its source evidence", async () => {
   const knowledge = buildAssistantKnowledge();
   const first = await generateResume(knowledge);
   const second = await generateResume(knowledge);
   assert.deepEqual(first.pdfBytes, second.pdfBytes);
   const pdf = await PDFDocument.load(first.pdfBytes);
-  assert.equal(first.pageCount, 2);
-  assert.equal(pdf.getPageCount(), 2);
+  assert.equal(first.pageCount, 1);
+  assert.equal(pdf.getPageCount(), 1);
   assert.equal(pdf.getAuthor(), knowledge.profile.name);
   const targets = linkTargets(pdf);
-  assert.ok(targets.includes(knowledge.profile.links.website));
-  assert.ok(targets.includes(`mailto:${knowledge.contact.email}`));
-  for (const project of knowledge.projects.slice(0, 3)) assert.ok(targets.includes(project.caseStudyUrl));
-  for (const credential of knowledge.profile.certifications) assert.ok(targets.includes(credential.url));
-  for (const role of knowledge.profile.experience) assert.ok(first.text.includes(role.company));
-  assert.doesNotMatch(first.text, /upwork|vercel\.app|client rating|job success/i);
-  assert.ok(targets.includes("https://www.lihongebre.com/"));
-  assert.ok(targets.every((target) => !/upwork|vercel\.app/i.test(target)));
+  for (const url of [knowledge.profile.links.website, knowledge.profile.links.github, knowledge.profile.links.linkedin,
+    `mailto:${knowledge.contact.email}`, knowledge.clientWork.source.profileUrl,
+    "https://github.com/gelftheshot/academic-advisor-ai"]) assert.ok(targets.includes(url));
+  assert.match(first.text, /AI & Backend Engineer \| Workflow Automation/);
+  assert.match(first.text, /Selected engagements, 2024 - 2026/);
+  assert.match(first.text, /AxonTech/);
+  assert.match(first.text, /Mar 2023 - Nov 2024/);
+  assert.match(first.text, /15 jobs \| 12 client feedback entries/);
+  assert.match(first.text, /Cloud Practitioner Essentials course/);
+  assert.doesNotMatch(first.text, /Axious|CONFIRM|DRAFT|vercel\.app|100%|12 written reviews|2024 - present/i);
 });
 
-test("admin changes flow into the generated resume without an independently maintained fact copy", async () => {
+test("selected employer content, identity, and dated proof stay connected to shared records", async () => {
   const knowledge = structuredClone(buildAssistantKnowledge());
   knowledge.profile.name = "Updated Portfolio Owner";
   knowledge.profile.title = "Backend Engineer";
@@ -39,27 +44,38 @@ test("admin changes flow into the generated resume without an independently main
   knowledge.profile.links.website = "https://updated-portfolio.example/";
   knowledge.profile.resumeSummary = "Backend engineer focused on service integrations and data systems.";
   knowledge.profile.experience[0].resumeBullets = ["Integrated application data with service interfaces."];
-  knowledge.projects[0].title = "New Featured Project";
-  knowledge.projects[0].caseStudyUrl = "https://updated-portfolio.example/projects/new-project";
+  knowledge.profile.experience.find((role) => role.id === "axious-tech").company = "Updated Employer";
+  knowledge.clientWork.profile.totalJobCount = 16;
+  knowledge.clientWork.profile.feedbackEntryCount = 13;
+  knowledge.projects.find((project) => project.slug === "academic-advisor-ai").github = "https://github.com/example/updated-advisor";
   const result = await generateResume(knowledge);
   const pdf = await PDFDocument.load(result.pdfBytes, { updateMetadata: false });
   assert.equal(pdf.getAuthor(), "Updated Portfolio Owner");
   assert.equal(pdf.getModificationDate().toISOString(), "2026-12-01T00:00:00.000Z");
-  assert.ok(result.text.includes("New Featured Project"));
-  assert.ok(linkTargets(pdf).includes("https://updated-portfolio.example/projects/new-project"));
   assert.ok(linkTargets(pdf).includes("https://updated-portfolio.example/"));
+  assert.ok(linkTargets(pdf).includes("https://github.com/example/updated-advisor"));
   assert.ok(result.text.includes(knowledge.profile.resumeSummary));
   assert.ok(result.text.includes(knowledge.profile.experience[0].resumeBullets[0]));
+  assert.ok(result.text.includes("Updated Employer"));
+  assert.ok(result.text.includes("16 jobs | 13 client feedback entries"));
 });
 
-test("longer employment history adds pages rather than silently discarding roles", async () => {
+test("CV curation stays concise and missing selected source records fail explicitly", async () => {
   const knowledge = structuredClone(buildAssistantKnowledge());
-  const example = knowledge.profile.experience[0];
-  knowledge.profile.experience = Array.from({ length: 30 }, (_, index) => ({
-    ...example, id: `role-${index}`, company: `Company ${index + 1}`,
-  }));
-  const result = await generateResume(knowledge);
-  assert.ok(result.pageCount > 2);
-  assert.equal((await PDFDocument.load(result.pdfBytes)).getPageCount(), result.pageCount);
-  for (let index = 1; index <= 30; index++) assert.ok(result.text.includes(`Company ${index} |`));
+  knowledge.profile.experience.push({ ...knowledge.profile.experience[0], id: "additional-role", company: "Additional Employer" });
+  assert.ok(!(await generateResume(knowledge)).text.includes("Additional Employer"));
+  knowledge.profile.experience = knowledge.profile.experience.filter((item) => item.id !== "alx-africa");
+  await assert.rejects(generateResume(knowledge), /Selected CV experience is missing: alx-africa/);
+});
+
+test("prebuild writes the selected CV and preserves previous download URLs as identical aliases", async () => {
+  const root = await mkdtemp(join(tmpdir(), "portfolio-cv-"));
+  try {
+    await writeResume(buildAssistantKnowledge(), root);
+    for (const extension of ["pdf", "txt"]) {
+      const current = await readFile(join(root, "public", `Lihon-Gebre-CV.${extension}`));
+      assert.deepEqual(await readFile(join(root, "public", `Lihon-Gebre-Resume.${extension}`)), current);
+      assert.deepEqual(await readFile(join(root, "output", "pdf", `Lihon-Gebre-CV.${extension}`)), current);
+    }
+  } finally { await rm(root, { recursive: true, force: true }); }
 });

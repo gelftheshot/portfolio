@@ -55,15 +55,18 @@ export default function ClientWork() {
           <h2 id="client-work-title">What clients say.</h2>
         </div>
         <div className="client-work-summary">
-          <ul className="client-work-highlights" aria-label="Upwork profile snapshot">
-            <li><strong>{profile.completedJobCount}</strong> completed jobs</li>
+          <ul className="client-work-highlights" aria-label="Dated Upwork profile indicators">
             <li className="client-work-badge"><strong>{profile.badge}</strong></li>
-            <li><strong>{profile.jobSuccessPercent}%</strong> Job Success</li>
+            <li><strong>{profile.totalJobCount}</strong> jobs</li>
+            {profile.feedbackEntryCount != null && <li><strong>{profile.feedbackEntryCount}</strong> client feedback entries</li>}
           </ul>
           <p className="client-work-source">
-            <a href={source.profileUrl} target="_blank" rel="noreferrer">Upwork profile</a>
-            {" · work updated "}<time dateTime={source.retrievedAt}>{updatedLabel}</time>
-            {profileSnapshotLabel && <>{" · profile indicators "}<time dateTime={profile.snapshotDate}>{profileSnapshotLabel}</time></>}
+            {profileSnapshotLabel && <>Profile indicators checked <time dateTime={profile.snapshotDate}>{profileSnapshotLabel}</time>{" · "}</>}
+            <a href={source.profileUrl} target="_blank" rel="noreferrer">View current Upwork profile</a>
+          </p>
+          <p className="client-work-source">
+            {profile.completedJobCount} selected completed jobs · {profile.writtenReviewCount} written client reviews
+            {" · checked "}<time dateTime={source.retrievedAt}>{updatedLabel}</time>
           </p>
         </div>
       </div>

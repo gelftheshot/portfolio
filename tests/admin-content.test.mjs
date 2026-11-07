@@ -182,6 +182,8 @@ test("current roles can omit an end year and review counts follow stored source 
   assert.equal(Object.hasOwn(checked.profile.experience[0], "endYear"), false);
   assert.equal(checked.upwork.profile.completedJobCount, 10);
   assert.equal(checked.upwork.profile.writtenReviewCount, 9);
+  assert.equal(checked.upwork.profile.totalJobCount, upwork.profile.totalJobCount);
+  assert.equal(checked.upwork.profile.feedbackEntryCount, upwork.profile.feedbackEntryCount);
 });
 
 test("authenticated local snapshot remains readable without publishing credentials and never writes", async () => {

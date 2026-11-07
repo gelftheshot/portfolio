@@ -35,13 +35,13 @@ This writes `embeding/data.json`. The legacy Python embedding scripts are not us
 
 ## Résumé downloads
 
-The website serves `public/Lihon-Gebre-Resume.pdf` and `public/Lihon-Gebre-Resume.txt`. Both are generated from the shared public knowledge records:
+The website serves the selected one-page CV at `public/Lihon-Gebre-CV.pdf` and `public/Lihon-Gebre-CV.txt`. The previous `Lihon-Gebre-Resume` download paths remain identical aliases. Generate all downloads from the shared public knowledge records:
 
 ```sh
 npm run resume:build
 ```
 
-This runs the Node-based `scripts/generate-resume.mjs` using the shared public knowledge records. The build automatically regenerates both the assistant dataset and résumé before compiling Next.js, so admin content edits update the downloads too. Working copies go under ignored `output/pdf/`; public PDF/text go into `public/`. Current content fits two pages; longer histories add pages without dropping roles. Provide the same `NEXT_PUBLIC_SITE_URL` when overriding the origin, and review the career facts before publication. The old Python generator is retained as a legacy tool and is not required by builds.
+This runs the Node-based `scripts/generate-resume.mjs` using the shared public knowledge records. The build automatically regenerates both the assistant dataset and résumé before compiling Next.js, so admin content edits update the downloads too. Working copies go under ignored `output/pdf/`; public PDF/text go into `public/`. The curated selection in `data/resume.json` includes three employer records, selected completed client engagements, and three projects. Identity, employer names/dates/bullets, public profile indicators, links, and credentials come from shared records. Current content fits one page; longer edits paginate rather than clip. Provide the same `NEXT_PUBLIC_SITE_URL` when overriding the origin, and review the career facts before publication. The old Python generator is retained as a legacy tool and is not required by builds.
 
 ## AI assistant configuration
 

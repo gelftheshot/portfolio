@@ -7,12 +7,15 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PDFDocument, StandardFonts, PDFString, rgb } from "pdf-lib";
 import { buildAssistantKnowledge } from "../lib/assistant-knowledge.js";
+import selection from "../data/resume.json" with { type: "json" };
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const STEM = "Lihon-Gebre-Resume";
+const STEM = "Lihon-Gebre-CV";
+const LEGACY_STEM = "Lihon-Gebre-Resume";
 const A4 = [595.28, 841.89];
-const MARGIN = 50;
-const BOTTOM = 48;
+const MARGIN = 42;
+const TOP = 34;
+const BOTTOM = 31;
 const INK = rgb(0.08, 0.08, 0.08);
 const MUTED = rgb(0.27, 0.27, 0.27);
 
@@ -30,10 +33,6 @@ export function plain(value = "") {
     .replace(/\r\n?/g, "\n")
     .normalize("NFKD")
     .replace(/\p{Mark}/gu, "");
-}
-
-function firstSentences(value, count = 1) {
-  return plain(value).split(/(?<=[.!?])\s+(?=[A-Z])/).slice(0, count).join(" ");
 }
 
 function monthYear(value) {
@@ -59,13 +58,24 @@ function safeUrl(value) {
 
 /** Returns a PDF and its plain-text companion without changing any files. */
 export async function generateResume(knowledge) {
-  const { profile, contact } = knowledge;
-  const projects = knowledge.projects.slice(0, 3);
+  const { profile, contact, clientWork } = knowledge;
+  const experience = selection.experienceIds.map((id) => {
+    const record = profile.experience.find((item) => item.id === id);
+    if (!record) throw new Error(`Selected CV experience is missing: ${id}`);
+    return record;
+  });
+  const projects = selection.projects.map((item) => {
+    const record = item.workId
+      ? clientWork.completedWork.find((work) => work.id === item.workId)
+      : knowledge.projects.find((project) => project.slug === item.slug);
+    if (!record) throw new Error(`Selected CV project source is missing: ${item.workId || item.slug}`);
+    return { ...record, ...item };
+  });
   const pdf = await PDFDocument.create();
   const normal = await pdf.embedFont(StandardFonts.Helvetica);
   const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
   const updated = fixedDate(profile.updatedAt || knowledge.contentUpdated);
-  pdf.setTitle(`${plain(profile.name)} - Resume`);
+  pdf.setTitle(`${plain(profile.name)} - CV - ${plain(profile.title)}`);
   pdf.setAuthor(plain(profile.name));
   pdf.setSubject("AI, backend, and automation engineering resume");
   pdf.setCreator("Portfolio shared-data resume generator");
@@ -74,20 +84,19 @@ export async function generateResume(knowledge) {
   pdf.setModificationDate(updated);
 
   const styles = {
-    name: { size: 28, leading: 32, bold: true, after: 4 },
-    position: { size: 12.5, leading: 17, after: 7 },
-    contact: { size: 10.5, leading: 14, color: MUTED },
-    section: { size: 11, leading: 15, bold: true, before: 14, after: 7 },
-    body: { size: 11, leading: 15.5, after: 5 },
-    compact: { size: 11, leading: 15, after: 4 },
-    role: { size: 11, leading: 15.5, after: 5 },
-    project: { size: 11.5, leading: 16, bold: true, after: 4 },
-    small: { size: 10.5, leading: 14, color: MUTED, after: 4 },
+    name: { size: 24, leading: 26, bold: true, after: 3 },
+    position: { size: 11.5, leading: 14, bold: true, after: 4 },
+    contact: { size: 10.5, leading: 13, color: MUTED, after: 1 },
+    proof: { size: 10.5, leading: 13, bold: true, before: 4, after: 4 },
+    section: { size: 11, leading: 14, bold: true, before: 8, after: 4 },
+    body: { size: 11, leading: 14, after: 2 },
+    bullet: { size: 11, leading: 14, after: 1.5 },
+    role: { size: 11, leading: 14, bold: true, before: 4, after: 2 },
+    project: { size: 11, leading: 14, bold: true, before: 3, after: 1 },
     continued: { size: 11, leading: 15, bold: true, after: 2 },
   };
   const text = [];
   const width = A4[0] - MARGIN * 2;
-  const position = /automation/i.test(profile.title) ? profile.title : `${profile.title} | Workflow Automation`;
   let page;
   let y;
 
@@ -98,7 +107,7 @@ export async function generateResume(knowledge) {
 
   function newPage(continuation = true) {
     page = pdf.addPage(A4);
-    y = A4[1] - MARGIN;
+    y = A4[1] - TOP;
     if (continuation) {
       paragraph(profile.name, "continued", { includeText: false });
       spacer(5);
@@ -193,84 +202,61 @@ export async function generateResume(knowledge) {
 
   newPage(false);
   paragraph(profile.name, "name");
-  paragraph(position, "position");
+  paragraph(/automation/i.test(profile.title) ? profile.title : `${profile.title} | Workflow Automation`, "position");
   paragraph([{ text: `${profile.location} | ` }, { text: contact.email, url: `mailto:${contact.email}` }], "contact");
   const links = profile.links;
-  const websiteLabel = new URL(links.website).host;
-  const githubLabel = new URL(links.github).host + new URL(links.github).pathname.replace(/\/$/, "");
-  const linkedInLabel = new URL(links.linkedin).host + new URL(links.linkedin).pathname.replace(/\/$/, "");
+  const linkLabel = (value) => new URL(value).host + new URL(value).pathname.replace(/\/$/, "");
   paragraph([
-    { text: "Portfolio: " }, { text: websiteLabel, url: links.website },
-  ], "contact", { text: `Portfolio: ${links.website}` });
+    { text: linkLabel(links.website), url: links.website },
+    { text: " | " }, { text: linkLabel(links.github), url: links.github },
+    { text: " | " }, { text: linkLabel(links.linkedin), url: links.linkedin },
+  ], "contact");
   paragraph([
-    { text: githubLabel, url: links.github },
-    { text: "  |  " }, { text: linkedInLabel, url: links.linkedin },
-  ], "contact", { text: `GitHub: ${links.github}\nLinkedIn: ${links.linkedin}` });
-  spacer(9);
-  page.drawLine({ start: { x: MARGIN, y }, end: { x: A4[0] - MARGIN, y }, color: INK, thickness: 0.7 });
+    { text: `${clientWork.profile.badge} on Upwork`, url: clientWork.source.profileUrl },
+    { text: ` | ${clientWork.profile.totalJobCount} jobs | ${clientWork.profile.feedbackEntryCount} client feedback entries | CS, Addis Ababa University` },
+  ], "proof");
+  paragraph(profile.resumeSummary);
 
-  section("Summary");
-  paragraph(profile.resumeSummary || firstSentences(profile.introduction || profile.about || "", 2));
-  section("Technical skills");
-  const subset = (category, names) => (profile.skills[category] || []).filter((skill) => names.includes(skill));
-  const ai = subset("AI and retrieval", ["Retrieval-augmented generation (RAG)", "LangChain", "Pinecone", "Vector retrieval", "Conversational AI"])
-    .map((skill) => skill === "Retrieval-augmented generation (RAG)" ? "RAG" : skill);
-  if (profile.certifications?.some((item) => /^n8n$/i.test(item.provider))) ai.push("n8n");
-  const skillGroups = [
-    ["AI & automation", ai],
-    ["Backend", subset("Backend and APIs", ["Python", "Django", "Node.js", "Express.js", "REST APIs"])],
-    ["Data", subset("Data and persistence", ["PostgreSQL", "MySQL", "MongoDB", "Redis"])],
-    ["Cloud & delivery", subset("Cloud and engineering tools", ["AWS", "Docker", "Kubernetes", "CI/CD", "Linux", "Nginx"])],
-    ["Web", subset("Web development", ["JavaScript", "TypeScript", "React", "Next.js"])],
-  ];
-  for (const [category, skills] of skillGroups) if (skills.length) paragraph([{ text: `${category}: `, bold: true }, { text: skills.join(", ") }], "compact");
-
-  section("Professional experience");
-  for (const item of profile.experience) {
-    const title = `${item.company} | ${item.role} | ${item.period}`;
-    const bullets = item.resumeBullets?.length ? item.resumeBullets : [firstSentences(item.description), ...(item.responsibilities || []).slice(0, 1).map((area) => area.description)];
-    keepTogether([[title, "role"], ...bullets.map((bullet) => [`- ${bullet}`, "body"])], 7);
+  section("Selected experience");
+  const workYears = clientWork.completedWork.flatMap((work) => [work.startDate.slice(0, 4), work.endDate.slice(0, 4)]).sort();
+  paragraph(`${selection.clientWork.title} | Upwork | Selected engagements, ${workYears[0]} - ${workYears.at(-1)}`, "role");
+  for (const bullet of selection.clientWork.bullets) paragraph(`- ${bullet}`, "bullet", { indent: 9 });
+  for (const item of experience) {
+    const title = `${item.role} | ${item.company} | ${item.period}`;
+    const bullets = item.resumeBullets?.length ? item.resumeBullets : [item.description];
+    keepTogether([[title, "role"], ...bullets.map((bullet) => [`- ${bullet}`, "bullet"])], 4);
     text.push("");
-    paragraph([{ text: item.company, bold: true }, { text: ` | ${item.role} | ${item.period}` }], "role");
-    for (const bullet of bullets) paragraph(`- ${bullet}`, "body", { indent: 8 });
-    spacer(7);
+    paragraph(title, "role");
+    for (const bullet of bullets) paragraph(`- ${bullet}`, "bullet", { indent: 9 });
   }
-
-  newPage();
 
   section("Selected projects");
   for (const project of projects) {
-    const caseUrl = project.caseStudyUrl || `${links.website.replace(/\/$/, "")}/projects/${project.slug}`;
-    const title = `${project.title} | ${project.role || profile.title}`;
-    const focus = (project.tags || []).slice(0, 4).join(", ");
-    const caseLabel = new URL(caseUrl).host + new URL(caseUrl).pathname.replace(/\/$/, "");
-    keepTogether([[title, "project"], [project.description, "body"], ...(focus ? [[`Focus: ${focus}`, "small"]] : []), [caseLabel, "small"]], 10);
-    text.push(""); paragraph(title, "project"); paragraph(project.description);
-    if (focus) paragraph(`Focus: ${focus}`, "small");
-    paragraph([{ text: caseLabel, url: caseUrl }], "small", { text: `Case study: ${caseUrl}` });
-    spacer(10);
+    const period = project.workId
+      ? `${monthYear(project.startDate)} - ${monthYear(project.endDate)}`
+      : "Public source";
+    const title = `${project.title} | ${period}`;
+    keepTogether([[title, "project"], [project.description, "body"]], 4);
+    text.push("");
+    paragraph(title, "project");
+    paragraph(project.description);
+    if (project.github) paragraph([{ text: linkLabel(project.github), url: project.github }], "contact");
   }
 
-  const certifications = [...(profile.certifications || [])]
-    .sort((a, b) => String(b.issued || "").localeCompare(String(a.issued || "")));
-  if (certifications.length) {
-    section("Certifications & training");
-    for (const credential of certifications) {
-      const title = credential.name || credential.title;
-      if (!title) continue;
-      const metadata = [credential.provider || credential.issuer, credential.issued ? monthYear(credential.issued) : null].filter(Boolean);
-      paragraph([{ text: title, url: credential.url }, { text: metadata.length ? ` | ${metadata.join(" | ")}` : "" }], "compact");
-      if (credential.url) text.push(`Credential: ${credential.url}`);
-    }
-  }
-  if (profile.education.length) {
-    section("Education");
-    for (const item of profile.education) paragraph(`${item.degree} | ${item.institution}`, "compact");
-  }
-  if (profile.languages.length) {
-    section("Languages");
-    paragraph(profile.languages.map((item) => `${item.language}: ${item.proficiency}`).join(" | "), "compact");
-  }
+  section("Education & training");
+  const education = profile.education.map((item) => `${item.degree} - ${item.institution}`).join(" | ");
+  paragraph(education);
+  const credentials = profile.certifications || [];
+  const credential = (pattern) => credentials.find((item) => pattern.test(item.name));
+  const essentials = credential(/^n8n101/);
+  const integrations = credential(/^n8n102/);
+  const aws = credential(/^AWS Cloud Practitioner Essentials/);
+  const alx = credential(/^ALX Software Engineering/);
+  const training = (item, label) => item ? `${label} (${monthYear(item.issued)})` : null;
+  const n8nLine = [training(essentials, "n8n101 Essentials"), training(integrations, "n8n102 Integrations")].filter(Boolean);
+  const otherLine = [training(aws, "AWS Cloud Practitioner Essentials course"), training(alx, "ALX Backend program")].filter(Boolean);
+  if (n8nLine.length) paragraph(n8nLine.join(" | "));
+  if (otherLine.length) paragraph(otherLine.join(" | "));
 
   const pages = pdf.getPages();
   pages.forEach((item, index) => {
@@ -290,8 +276,10 @@ export async function writeResume(knowledge = buildAssistantKnowledge(), root = 
   const publicDirectory = resolve(root, "public");
   await Promise.all([mkdir(master, { recursive: true }), mkdir(publicDirectory, { recursive: true })]);
   for (const destination of [master, publicDirectory]) {
-    await writeFile(resolve(destination, `${STEM}.pdf`), result.pdfBytes);
-    await writeFile(resolve(destination, `${STEM}.txt`), result.text, "utf8");
+    for (const stem of [STEM, LEGACY_STEM]) {
+      await writeFile(resolve(destination, `${stem}.pdf`), result.pdfBytes);
+      await writeFile(resolve(destination, `${stem}.txt`), result.text, "utf8");
+    }
   }
   return result;
 }

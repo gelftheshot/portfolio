@@ -23,7 +23,7 @@ npm run assistant:export
 npm run resume:build
 ```
 
-`resume:build` runs `scripts/generate-resume.mjs`. The Node generator runs automatically before production builds; Python and ReportLab are not required. Review `public/Lihon-Gebre-Resume.pdf` and `public/Lihon-Gebre-Resume.txt`, including career dates, listed credentials, and links. Provide the same `NEXT_PUBLIC_SITE_URL` in the export shell when overriding the default origin.
+`resume:build` runs `scripts/generate-resume.mjs`. The Node generator runs automatically before production builds; Python and ReportLab are not required. Review the one-page `public/Lihon-Gebre-CV.pdf` and `public/Lihon-Gebre-CV.txt` (the previous Resume paths are aliases), including career dates, listed credentials, and links. Provide the same `NEXT_PUBLIC_SITE_URL` in the export shell when overriding the default origin.
 
 For a private production preview only:
 

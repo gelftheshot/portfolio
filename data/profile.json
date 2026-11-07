@@ -1,6 +1,6 @@
 {
   "name": "Lihon Gebre",
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-07",
   "title": "AI & Backend Engineer",
   "location": "Addis Ababa, Ethiopia",
   "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history spans 2016 to 2025, with public Upwork completed client work extending through June 2026. His portfolio covers conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure, and workflow automation. Current employment and availability are not specified.",
@@ -120,8 +120,9 @@
       ],
       "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Integrated AI functionality with backend service interfaces and application data flows.",
-        "Connected workflow steps with validation and human review."
+        "Role focus: AI integration, backend services, and workflow automation.",
+        "Service interfaces, application data flows, and connected process steps.",
+        "Validation and human review within AI-assisted workflows."
       ]
     },
     {
@@ -157,13 +158,14 @@
       ],
       "scopeNote": "Lihon confirmed the internship classification and March 2023–November 2024 dates against his existing LinkedIn history on November 5, 2026. The listed Python, Django, REST API, and database focus areas are retained; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Developed Python and Django backends with RESTful API integration.",
-        "Optimized database access."
+        "Backend development with Python and Django.",
+        "Collaboration on RESTful APIs and database access.",
+        "Database optimization and application component integration."
       ]
     },
     {
       "id": "axious-tech",
-      "company": "Axious Tech",
+      "company": "AxonTech",
       "role": "Backend & Infrastructure Engineer",
       "period": "2020 — 2023",
       "startYear": "2020",
@@ -193,8 +195,9 @@
       ],
       "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Developed backend application logic, service interfaces, and data persistence.",
-        "Maintained runtime configuration, deployment environments, and application diagnostics."
+        "Role focus: backend development and infrastructure supporting application services.",
+        "Application logic, service interfaces, and data persistence.",
+        "Runtime configuration, deployment environments, diagnostics, and maintenance."
       ]
     },
     {
@@ -416,5 +419,5 @@
   },
   "introduction": "I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.",
   "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure.",
-  "resumeSummary": "AI and backend engineer building conversational AI and retrieval-augmented generation (RAG) systems, backend APIs, and workflow automation."
+  "resumeSummary": "AI and backend engineer with completed client work in knowledge-based AI, AI agents, and full-stack SaaS development."
 }

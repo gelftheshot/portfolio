@@ -124,7 +124,7 @@ export default function Home() {
             <p className="eyebrow hero-eyebrow"><WorkflowMark /> <span>{profile.title.toUpperCase()} · AUTOMATION IN FOCUS</span></p>
             <h1 id="hero-title">{profile.headline?.first || "AI & backend."}<br /><span>{profile.headline?.second || "Built to connect."}</span></h1>
             <p className="hero-description">{profile.introduction || profile.summary}</p>
-            <div className="hero-actions"><a className="button button-dark" href="#assistant">Ask my AI assistant <Arrow diagonal /></a><a className="text-link" href="/Lihon-Gebre-Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a></div>
+            <div className="hero-actions"><a className="button button-dark" href="#assistant">Ask my AI assistant <Arrow diagonal /></a><a className="text-link" href="/Lihon-Gebre-CV.pdf" download>Download résumé <span aria-hidden="true">↓</span></a></div>
             <p className="hero-assistant-note">Explore my work with the portfolio assistant, or <a href="#contact">discuss a role or project</a>.</p>
           </div>
           <figure className="hero-portrait">

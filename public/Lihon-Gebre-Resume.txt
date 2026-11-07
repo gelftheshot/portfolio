@@ -1,66 +1,41 @@
 Lihon Gebre
 AI & Backend Engineer | Workflow Automation
 Addis Ababa, Ethiopia | lihongebre@gmail.com
-Portfolio: https://www.lihongebre.com/
-GitHub: https://github.com/gelftheshot
-LinkedIn: https://linkedin.com/in/lihongebre
-SUMMARY
-AI and backend engineer building conversational AI and retrieval-augmented generation (RAG) systems, backend APIs, and workflow automation.
-TECHNICAL SKILLS
-AI & automation: RAG, LangChain, Pinecone, Vector retrieval, Conversational AI, n8n
-Backend: Python, Django, Node.js, Express.js, REST APIs
-Data: PostgreSQL, MongoDB, MySQL, Redis
-Cloud & delivery: AWS, Docker, Kubernetes, CI/CD, Nginx, Linux
-Web: JavaScript, TypeScript, React, Next.js
-PROFESSIONAL EXPERIENCE
+www.lihongebre.com | github.com/gelftheshot | linkedin.com/in/lihongebre
+Top Rated on Upwork | 15 jobs | 12 client feedback entries | CS, Addis Ababa University
+AI and backend engineer with completed client work in knowledge-based AI, AI agents, and full-stack SaaS development.
+SELECTED EXPERIENCE
+Independent AI & Backend Projects | Upwork | Selected engagements, 2024 - 2026
+- Completed contracts in knowledge-based AI, AI agent development, and AI SaaS work.
+- Received 5/5 client ratings on the listed knowledge-base chatbot and AI SaaS contracts.
+- Client feedback highlights clear communication and independent full-stack work.
 
-NDIT Solution | AI, Backend & Automation Engineer | 2023 - 2025
-- Integrated AI functionality with backend service interfaces and application data flows.
-- Connected workflow steps with validation and human review.
+AI, Backend & Automation Engineer | NDIT Solution | 2023 - 2025
+- Role focus: AI integration, backend services, and workflow automation.
+- Service interfaces, application data flows, and connected process steps.
+- Validation and human review within AI-assisted workflows.
 
-ALX Africa | Backend Developer (Internship) | Mar 2023 - Nov 2024
-- Developed Python and Django backends with RESTful API integration.
-- Optimized database access.
+Backend Developer (Internship) | ALX Africa | Mar 2023 - Nov 2024
+- Backend development with Python and Django.
+- Collaboration on RESTful APIs and database access.
+- Database optimization and application component integration.
 
-Axious Tech | Backend & Infrastructure Engineer | 2020 - 2023
-- Developed backend application logic, service interfaces, and data persistence.
-- Maintained runtime configuration, deployment environments, and application diagnostics.
-
-Anbesa Tech | Full Stack Developer | 2018 - 2020
-- Connected web interfaces, backend logic, and stored data across full-stack applications.
-
-Freelance | Backend Developer | 2017
-- Developed server-side logic, service interfaces, input validation, and data persistence.
-
-Yehulu Tech | Backend Developer | 2016 - 2017
-- Implemented request handling, application rules, and data models; debugged backend behavior.
+Backend & Infrastructure Engineer | AxonTech | 2020 - 2023
+- Role focus: backend development and infrastructure supporting application services.
+- Application logic, service interfaces, and data persistence.
+- Runtime configuration, deployment environments, diagnostics, and maintenance.
 SELECTED PROJECTS
 
-SeaSure | AI & Backend Engineer
-Boat-specific AI troubleshooting, multimodal guidance, maintenance records, and contextual handoffs to marine service professionals.
-Focus: Multimodal AI, Context engineering, Vessel intelligence, Knowledge retrieval
-Case study: https://www.lihongebre.com/projects/seasure
+Knowledge-base AI chatbot (RAG) | Oct 2024 - Apr 2025
+Completed knowledge-based AI contract with a 5/5 rating; client feedback highlights clear communication and collaboration.
 
-Projuno | AI & Backend Engineer
-AI-powered construction operations connecting project workflows, financial visibility, change traceability, and compliance records.
-Focus: Workflow orchestration, Conversational AI, Data traceability, Process automation
-Case study: https://www.lihongebre.com/projects/projuno
+Academic Advisor AI | Public source
+Academic planning assistant for professor search, course planning, and major advice, using retrieval to connect relevant academic information.
+github.com/gelftheshot/academic-advisor-ai
 
-Dr. Infinity | AI & Backend Engineer
-Clinical knowledge AI combining medical knowledge graphs, concurrent vector retrieval, evidence grounding, and privacy-aware ingestion.
-Focus: Hybrid RAG, Knowledge graphs, SNOMED CT, MeSH
-Case study: https://www.lihongebre.com/projects/dr-infinity
-CERTIFICATIONS & TRAINING
-n8n102 - Integrations: APIs and Connected Workflows | n8n | Oct 2026
-Credential: https://badges.n8n.io/e80d3b99-1e3f-4049-8b70-41847d02805f
-n8n101 - Essentials: Your First Workflows | n8n | Sep 2026
-Credential: https://badges.n8n.io/f4b913d8-8d0b-4d42-b3e3-29eda02115f2
-AWS Cloud Practitioner Essentials | Amazon Web Services (AWS) | Sep 2024
-Credential: https://www.coursera.org/account/accomplishments/verify/R8YYMZNSACZ4
-ALX Software Engineering - Backend Specialization | ALX | Jul 2024
-Credential: https://intranet.alxswe.com/certificates/6Be8EZ2YPm
-EDUCATION
-Bachelor of Science, Computer Science | Addis Ababa University
-Accelerated Software Engineering Program | ALX
-LANGUAGES
-English: Fluent | Amharic: Native
+AI development for SaaS | Jun 2025 - Jul 2025
+Completed a LangChain/LangGraph AI-development engagement with a 5/5 rating; client feedback describes independent full-stack work.
+EDUCATION & TRAINING
+Bachelor of Science, Computer Science - Addis Ababa University | Accelerated Software Engineering Program - ALX
+n8n101 Essentials (Sep 2026) | n8n102 Integrations (Oct 2026)
+AWS Cloud Practitioner Essentials course (Sep 2024) | ALX Backend program (Jul 2024)

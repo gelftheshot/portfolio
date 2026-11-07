@@ -1,0 +1,27 @@
+{
+  "experienceIds": ["ndit-solution", "alx-africa", "axious-tech"],
+  "clientWork": {
+    "title": "Independent AI & Backend Projects",
+    "bullets": [
+      "Completed contracts in knowledge-based AI, AI agent development, and AI SaaS work.",
+      "Received 5/5 client ratings on the listed knowledge-base chatbot and AI SaaS contracts.",
+      "Client feedback highlights clear communication and independent full-stack work."
+    ]
+  },
+  "projects": [
+    {
+      "workId": "knowledge-based-rag-chatbot",
+      "title": "Knowledge-base AI chatbot (RAG)",
+      "description": "Completed knowledge-based AI contract with a 5/5 rating; client feedback highlights clear communication and collaboration."
+    },
+    {
+      "slug": "academic-advisor-ai",
+      "description": "Academic planning assistant for professor search, course planning, and major advice, using retrieval to connect relevant academic information."
+    },
+    {
+      "workId": "langchain-langgraph-saas",
+      "title": "AI development for SaaS",
+      "description": "Completed a LangChain/LangGraph AI-development engagement with a 5/5 rating; client feedback describes independent full-stack work."
+    }
+  ]
+}
