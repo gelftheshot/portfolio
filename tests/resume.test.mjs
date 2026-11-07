@@ -31,9 +31,9 @@ test("selected CV is deterministic, one page, and links to its source evidence",
   assert.match(first.text, /Selected engagements, 2024 - 2026/);
   assert.match(first.text, /AxonTech/);
   assert.match(first.text, /Mar 2023 - Nov 2024/);
-  assert.match(first.text, /15 jobs \| 12 client feedback entries/);
+  assert.match(first.text, /10 completed jobs \| 9 written client reviews/);
   assert.match(first.text, /Cloud Practitioner Essentials course/);
-  assert.doesNotMatch(first.text, /Axious|CONFIRM|DRAFT|vercel\.app|100%|12 written reviews|2024 - present/i);
+  assert.doesNotMatch(first.text, /Axious|CONFIRM|DRAFT|vercel\.app|100%|15 jobs|12 client feedback entries|undefined|2024 - present/i);
 });
 
 test("selected employer content, identity, and dated proof stay connected to shared records", async () => {
@@ -45,8 +45,9 @@ test("selected employer content, identity, and dated proof stay connected to sha
   knowledge.profile.resumeSummary = "Backend engineer focused on service integrations and data systems.";
   knowledge.profile.experience[0].resumeBullets = ["Integrated application data with service interfaces."];
   knowledge.profile.experience.find((role) => role.id === "axious-tech").company = "Updated Employer";
-  knowledge.clientWork.profile.totalJobCount = 16;
-  knowledge.clientWork.profile.feedbackEntryCount = 13;
+  knowledge.clientWork.profile.totalJobCount = 12;
+  knowledge.clientWork.profile.completedJobCount = 11;
+  knowledge.clientWork.profile.writtenReviewCount = 10;
   knowledge.projects.find((project) => project.slug === "academic-advisor-ai").github = "https://github.com/example/updated-advisor";
   const result = await generateResume(knowledge);
   const pdf = await PDFDocument.load(result.pdfBytes, { updateMetadata: false });
@@ -57,7 +58,7 @@ test("selected employer content, identity, and dated proof stay connected to sha
   assert.ok(result.text.includes(knowledge.profile.resumeSummary));
   assert.ok(result.text.includes(knowledge.profile.experience[0].resumeBullets[0]));
   assert.ok(result.text.includes("Updated Employer"));
-  assert.ok(result.text.includes("16 jobs | 13 client feedback entries"));
+  assert.ok(result.text.includes("11 completed jobs | 10 written client reviews"));
 });
 
 test("CV curation stays concise and missing selected source records fail explicitly", async () => {

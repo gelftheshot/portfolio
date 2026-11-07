@@ -3,17 +3,16 @@
     "name": "Upwork",
     "profileUrl": "https://www.upwork.com/freelancers/~01dd5cefb217b3cbea",
     "retrievedAt": "2026-11-03",
-    "method": "Official Upwork MCP profile highlights and closed-contract reads, matched by exact title and dates to the public profile work history; client account display names supplied by matching closed contracts. Aggregate profile indicators (Top Rated, 15 total jobs, 12 feedback entries) checked separately through the official Upwork connector on November 6, 2026. Total jobs combines six fixed-price and nine hourly jobs because the upstream total field was missing or inconsistent; feedback entries are not necessarily written reviews. The ten completed records below remain a selected collection checked on November 3, 2026."
+    "method": "Official Upwork MCP closed-contract reads, matched by exact title and dates to the public profile work history; client account display names supplied by matching closed contracts. The public Upwork profile was reloaded and checked on November 7, 2026: Top Rated, 11 total jobs, 10 completed jobs, and 1 in-progress job. Public profile totals take precedence over conflicting connector component counts. The ten completed records and nine written reviews below remain the selected collection checked on November 3, 2026."
   },
   "profile": {
-    "snapshotDate": "2026-11-06",
+    "snapshotDate": "2026-11-07",
     "displayName": "Lihon G.",
     "title": "AI Agent & Automation Developer | n8n, Claude, MCP, RAG, Voice Agent",
     "badge": "Top Rated",
     "completedJobCount": 10,
-    "totalJobCount": 15,
-    "writtenReviewCount": 9,
-    "feedbackEntryCount": 12
+    "totalJobCount": 11,
+    "writtenReviewCount": 9
   },
   "completedWork": [
     {

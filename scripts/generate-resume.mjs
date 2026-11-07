@@ -213,7 +213,7 @@ export async function generateResume(knowledge) {
   ], "contact");
   paragraph([
     { text: `${clientWork.profile.badge} on Upwork`, url: clientWork.source.profileUrl },
-    { text: ` | ${clientWork.profile.totalJobCount} jobs | ${clientWork.profile.feedbackEntryCount} client feedback entries | CS, Addis Ababa University` },
+    { text: ` | ${clientWork.profile.completedJobCount} completed jobs | ${clientWork.profile.writtenReviewCount} written client reviews | CS, Addis Ababa University` },
   ], "proof");
   paragraph(profile.resumeSummary);
 

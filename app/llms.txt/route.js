@@ -46,7 +46,7 @@ export function GET() {
     `[Client work and reviews](${absoluteUrl("/#client-work")})`,
     `Source: [Upwork profile](${upwork.source.profileUrl}); snapshot retrieved ${upwork.source.retrievedAt}.`,
     `Selected collection: ${upwork.profile.completedJobCount} completed jobs and ${upwork.profile.writtenReviewCount} written client reviews, checked ${upwork.source.retrievedAt}.`,
-    `Aggregate profile indicators checked ${upwork.profile.snapshotDate}: ${upwork.profile.badge}, ${upwork.profile.totalJobCount} jobs, ${upwork.profile.feedbackEntryCount} client feedback entries. Feedback entries are not necessarily written reviews.`,
+    `Public Upwork profile indicators checked ${upwork.profile.snapshotDate}: ${upwork.profile.badge}, ${upwork.profile.totalJobCount} total jobs, ${upwork.profile.completedJobCount} completed jobs. The ${upwork.profile.writtenReviewCount} written reviews belong to the selected collection below.`,
     "",
     ...upwork.completedWork.flatMap((job) => [
       `### ${job.title}`,

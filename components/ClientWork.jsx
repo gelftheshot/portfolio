@@ -57,8 +57,8 @@ export default function ClientWork() {
         <div className="client-work-summary">
           <ul className="client-work-highlights" aria-label="Dated Upwork profile indicators">
             <li className="client-work-badge"><strong>{profile.badge}</strong></li>
-            <li><strong>{profile.totalJobCount}</strong> jobs</li>
-            {profile.feedbackEntryCount != null && <li><strong>{profile.feedbackEntryCount}</strong> client feedback entries</li>}
+            <li><strong>{profile.totalJobCount}</strong> total jobs</li>
+            <li><strong>{profile.completedJobCount}</strong> completed jobs</li>
           </ul>
           <p className="client-work-source">
             {profileSnapshotLabel && <>Profile indicators checked <time dateTime={profile.snapshotDate}>{profileSnapshotLabel}</time>{" · "}</>}
