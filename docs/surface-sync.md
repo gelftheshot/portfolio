@@ -37,3 +37,8 @@ Newest row first. Use ISO dates (YYYY-MM-DD).
 
 | Date | Fact or field | Website | LinkedIn | Upwork | GitHub | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-07 | Skills | `profile.skills` unchanged | pending: add Docker, Kubernetes, CI/CD, React.js, PyTorch and others; remove five zero-endorsement duplicates | Added LangGraph, Next.js, PostgreSQL, Docker (20 of 20) | Topics added on academic-advisor-ai, ai-customer-support, inventory-management-app, portfolio | LinkedIn steps are in `tmp/linkedin/linkedin-updates-2026-11-07.md` |
+| 2026-11-07 | Role descriptions, About, availability | `profile.experience`, `about`, `summary`, `workPreferences` rewritten (commit 7737e43) | pending: About and six Experience descriptions | pending: overview and six employment descriptions (connector confirm was denied) | n/a | Paste-ready text: `tmp/upwork/upwork-updates-2026-11-07.md` and the LinkedIn file above |
+| 2026-11-07 | Project descriptions and case-study links | `data/projects.json` rewritten, per-project `updatedAt`, `sourceNote` | pending: Projects, Featured closers, Projuno and WanduBot entries | pending: 11 portfolio descriptions and lihongebre.com links (web editor only) | Pinned READMEs rewritten; portfolio repo homepage and description set | Dr. Infinity, ALX Study and Whisper claims left unchanged by request |
+| 2026-11-07 | Credentials | unchanged | n/a | pending: n8n101 ID and badge link without expiry; ALX intranet link; AWS provider label | n/a | Web editor only |
+| 2026-11-07 | Location, website, hireable | unchanged | pending: Contact info websites | n/a | pending: needs `gh auth refresh -s user` | GitHub token lacks the user scope |
