@@ -81,16 +81,18 @@ export default function ProjectGallery() {
       <div className="project-grid portfolio-highlights">
         {projects.slice(0, 3).map(renderProjectCard)}
       </div>
-      <details className="section-more portfolio-more">
-        <summary>
-          <span className="section-more-closed">Read more portfolio</span>
-          <span className="section-more-open">Show less portfolio</span>
-          <span className="section-more-symbol" aria-hidden="true">+</span>
-        </summary>
-        <div className="project-grid">
-          {projects.slice(3).map((project, index) => renderProjectCard(project, index + 3))}
-        </div>
-      </details>
+      {projects.length > 3 && (
+        <details className="section-more portfolio-more">
+          <summary>
+            <span className="section-more-closed">Show {projects.length - 3} more {projects.length - 3 === 1 ? "project" : "projects"}</span>
+            <span className="section-more-open">Show fewer projects</span>
+            <span className="section-more-symbol" aria-hidden="true">+</span>
+          </summary>
+          <div className="project-grid">
+            {projects.slice(3).map((project, index) => renderProjectCard(project, index + 3))}
+          </div>
+        </details>
+      )}
 
       <dialog ref={dialogRef} className="project-dialog" aria-labelledby="project-dialog-title" onClose={handleDialogClose} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current.close(); }}>
         {selectedProject && (

@@ -82,7 +82,7 @@ h1 > span { color: #7b7b7b; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; margin-bottom: 48px; }
 .section-heading > p { font-size: 13px; line-height: 1.75; color: var(--muted); padding-bottom: 4px; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; row-gap: 55px; }
-.project-preview { width: 100%; aspect-ratio: 1.72; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; background: #ececec; border: 1px solid #e5e5e5; border-radius: 3px; padding: 34px 28px; }
+.project-preview { width: 100%; aspect-ratio: 16 / 9; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; background: #ececec; border: 1px solid #e5e5e5; border-radius: 3px; padding: 34px 28px; }
 .project-card:nth-child(2n) .project-preview { background: #e4e4e4; }
 .project-preview .project-screenshot { width: 100%; height: 100%; object-fit: contain; filter: grayscale(1); box-shadow: 0 12px 26px -17px #0005; transition: transform .45s ease; }
 .project-card-portrait .project-screenshot { box-shadow: none; }
@@ -209,6 +209,13 @@ h1 > span { color: #7b7b7b; }
 .chat-message-user .chat-author { text-align: right; }
 .chat-bubble { padding: 15px 20px; border: 1px solid var(--line); background: #f1f1f1; border-radius: 3px; font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .chat-message-user .chat-bubble { background: #e5e5e5; }
+.faq-section { border-top: 1px solid var(--line); }
+.faq-item { padding: 30px 0; border-top: 1px solid #d4d4d4; }
+.faq-item:first-child { padding-top: 0; border-top: none; }
+.faq-item:last-child { padding-bottom: 0; }
+.faq-item h3 { font-size: 20px; letter-spacing: -.035em; line-height: 1.4; }
+.faq-item p { margin-top: 10px; max-width: 560px; color: var(--muted); font-size: 13px; line-height: 1.85; }
+.faq-item p + p { margin-top: 12px; }
 .contact-section { background: #ededed; border-block: 1px solid var(--line); }
 .contact-copy h2 { font-size: clamp(35px, 3.45vw, 44px); }
 .contact-copy > p:not(.eyebrow) { margin-top: 28px; color: var(--muted); max-width: 330px; font-size: 14px; line-height: 1.85; }
@@ -306,7 +313,7 @@ textarea.form-input { resize: vertical; min-height: 115px; }
   .section-heading > p { font-size: 12px; max-width: 230px; }
   .section-label { margin-bottom: 18px; font-size: 9px; }
   .project-grid { gap: 40px 22px; }
-  .project-preview { aspect-ratio: 1.4; padding: 18px 12px; }
+  .project-preview { aspect-ratio: 16 / 9; padding: 18px 12px; }
   .project-title { font-size: 21px; }
   .project-meta .eyebrow { font-size: 8px; }
   .project-description { font-size: 12px; }
@@ -366,6 +373,9 @@ textarea.form-input { resize: vertical; min-height: 115px; }
   .experience-topline { flex-direction: column; gap: 5px; }
   .experience-topline .mono { font-size: 9px; }
   .experience-item { padding-block: 30px; }
+  .faq-item { padding-block: 26px; }
+  .faq-item h3 { font-size: 18px; }
+  .faq-item p { font-size: 12px; }
   .client-work-card { padding: 22px; }
   .client-work-card h3 { font-size: 17px; }
   .client-work-quote > p { font-size: 13px; }
@@ -426,8 +436,7 @@ textarea.form-input { resize: vertical; min-height: 115px; }
 
 .hero-assistant-note { font-size: 11px; line-height: 1.8; color: var(--muted); margin-top: 17px; max-width: 390px; }
 .hero-assistant-note a { text-decoration: underline; text-underline-offset: 3px; }
-.experience-scope-note { margin-top: 18px; font-size: 11px; line-height: 1.7; color: var(--muted); }
-.training-credentials { margin: 34px 0 40px; padding: 22px 0; border-block: 1px solid var(--line); }
+.training-credentials { margin: 34px 0 40px; padding: 22px 0 0; border-block: 1px solid var(--line); }
 .training-credentials h3 { display: flex; align-items: center; gap: 10px; font-size: 14px; letter-spacing: -.02em; }
 .training-credentials .workflow-mark { width: 20px; height: 20px; }
 .training-credentials ul { list-style: none; padding: 0; margin: 17px 0 0; display: grid; gap: 0; }
@@ -438,10 +447,10 @@ textarea.form-input { resize: vertical; min-height: 115px; }
 .training-credential-copy p { margin-top: 5px; font-size: 11px; color: var(--muted); }
 .training-credential-dates { display: grid; gap: 5px; text-align: right; }
 .training-credentials a { text-decoration: underline; text-underline-offset: 3px; }
-.training-credentials li .mono, .training-credentials > p { font-size: 10px; color: var(--muted); }
-.training-credentials > p { margin-top: 14px; line-height: 1.8; }
+.training-credentials li .mono { font-size: 10px; color: var(--muted); }
 .training-credentials .training-more { margin-top: 8px; }
 .training-credentials .training-more > summary { padding-block: 16px; font-size: 12px; }
+.training-credentials > .training-more:last-child:not([open]) > summary { border-bottom: 0; }
 @media (max-width: 540px) {
   .training-credentials li { grid-template-columns: minmax(0, 1fr); gap: 7px; }
   .training-credential-dates { display: flex; flex-wrap: wrap; gap: 5px 15px; text-align: left; }

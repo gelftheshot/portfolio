@@ -42,31 +42,26 @@ export default function ClientWork() {
     year: "numeric",
     timeZone: "UTC",
   });
-  const updatedLabel = dateFormatter.format(new Date(source.retrievedAt));
-  const profileSnapshotLabel = profile.snapshotDate
-    ? dateFormatter.format(new Date(profile.snapshotDate))
-    : null;
+  const figuresDate = profile.snapshotDate || source.retrievedAt;
+  const figuresDateLabel = figuresDate ? dateFormatter.format(new Date(figuresDate)) : null;
 
   return (
     <section id="client-work" className="client-work-section section-shell section-space" aria-labelledby="client-work-title">
       <div className="section-heading client-work-heading">
         <div>
-          <p className="eyebrow section-label">03 / CLIENT WORK & REVIEWS</p>
-          <h2 id="client-work-title">What clients say.</h2>
+          <p className="eyebrow section-label">03 / CLIENT WORK</p>
+          <h2 id="client-work-title">Client reviews <span>on Upwork</span></h2>
         </div>
         <div className="client-work-summary">
-          <ul className="client-work-highlights" aria-label="Dated Upwork profile indicators">
-            <li className="client-work-badge"><strong>{profile.badge}</strong></li>
-            <li><strong>{profile.totalJobCount}</strong> total jobs</li>
-            <li><strong>{profile.completedJobCount}</strong> completed jobs</li>
+          <ul className="client-work-highlights" aria-label="Upwork profile figures">
+            {profile.badge && <li className="client-work-badge"><strong>{profile.badge}</strong></li>}
+            {profile.totalJobCount != null && <li><strong>{profile.totalJobCount}</strong> total jobs</li>}
+            {profile.completedJobCount != null && <li><strong>{profile.completedJobCount}</strong> completed jobs</li>}
+            {profile.writtenReviewCount != null && <li><strong>{profile.writtenReviewCount}</strong> written reviews</li>}
           </ul>
           <p className="client-work-source">
-            {profileSnapshotLabel && <>Profile indicators checked <time dateTime={profile.snapshotDate}>{profileSnapshotLabel}</time>{" · "}</>}
+            {figuresDateLabel && <>As of <time dateTime={figuresDate}>{figuresDateLabel}</time>{" · "}</>}
             <a href={source.profileUrl} target="_blank" rel="noreferrer">View current Upwork profile</a>
-          </p>
-          <p className="client-work-source">
-            {profile.completedJobCount} selected completed jobs · {profile.writtenReviewCount} written client reviews
-            {" · checked "}<time dateTime={source.retrievedAt}>{updatedLabel}</time>
           </p>
         </div>
       </div>
@@ -89,7 +84,7 @@ export default function ClientWork() {
                   <p>{feedback}</p>
                 </blockquote>
               ) : (
-                <p className="client-work-no-feedback">Client rating provided without written feedback.</p>
+                <p className="client-work-no-feedback">Rated without a written review.</p>
               )}
               <footer className="client-work-footer">
                 <div className="client-work-byline">

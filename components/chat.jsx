@@ -214,7 +214,7 @@ export default function Chat() {
         {chatMessages.length === 0 ? (
           <div className="chat-empty">
             <p>What would you like to know?</p>
-            <p>Explore the thinking behind my AI systems, backend architecture, and projects.</p>
+            <p>Pick a suggested question or type your own.</p>
           </div>
         ) : (
           chatMessages.map((message) =>

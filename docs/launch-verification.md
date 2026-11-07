@@ -10,7 +10,7 @@ Verified locally on the `codex/portfolio-launch` branch:
 - Homepage JSON-LD parsed successfully. Canonicals matched the configured origin. Robots, sitemap, both public text endpoints, social image, résumé PDF/text and the three explanatory diagrams returned HTTP 200.
 - The configured origin override remained aligned across the profile, assistant case-study links and résumé links.
 - Chrome checks covered desktop, 390px phone layouts for all case studies, a 320px homepage, the mobile menu, project dialog, disclosures and review scrolling/pause. A case-study grid sizing issue was corrected so diagrams scroll within their own container.
-- The two-page résumé was rendered and visually inspected after regeneration.
+- The résumé PDF was rendered and visually inspected after regeneration. The CV has since been cut to one page; see [resume.md](resume.md).
 - One real OpenAI question completed through the local browser interface. A contact-form test was accepted by EmailJS and its matching message was verified in the configured Gmail inbox.
 - The Git release excludes real environment files, the legacy Python virtual environment, Python bytecode, Finder metadata and private Upwork preparation notes. Local copies are retained. A redacted staged-source check found only intentional dummy credential fixtures.
 

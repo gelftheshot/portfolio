@@ -1,27 +1,27 @@
 {
-  "experienceIds": ["ndit-solution", "alx-africa", "axious-tech"],
+  "experienceIds": ["ndit-solution", "alx-africa", "axontech"],
   "clientWork": {
     "title": "Independent AI & Backend Projects",
     "bullets": [
-      "Completed contracts in knowledge-based AI, AI agent development, and AI SaaS work.",
-      "Received 5/5 client ratings on the listed knowledge-base chatbot and AI SaaS contracts.",
-      "Client feedback highlights clear communication and independent full-stack work."
+      "Rated 5/5 on every contract completed between October 2024 and June 2026.",
+      "Hired four times by the same client account, most recently to clone an earlier AI search engine.",
+      "Built a RAG AI agent for another client in June and July 2025."
     ]
   },
   "projects": [
     {
       "workId": "knowledge-based-rag-chatbot",
       "title": "Knowledge-base AI chatbot (RAG)",
-      "description": "Completed knowledge-based AI contract with a 5/5 rating; client feedback highlights clear communication and collaboration."
+      "description": "Chatbot for a client's knowledge-based system, built with retrieval-augmented generation. The client's review praises clear and transparent updates."
     },
     {
       "slug": "academic-advisor-ai",
-      "description": "Academic planning assistant for professor search, course planning, and major advice, using retrieval to connect relevant academic information."
+      "description": "Next.js planning assistant that pulls academic information from a Pinecone index so Google Generative AI can recommend courses and majors."
     },
     {
       "workId": "langchain-langgraph-saas",
       "title": "AI development for SaaS",
-      "description": "Completed a LangChain/LangGraph AI-development engagement with a 5/5 rating; client feedback describes independent full-stack work."
+      "description": "LangChain and LangGraph development for a SaaS product. The client recommends Lihon as an independent full-stack developer."
     }
   ]
 }

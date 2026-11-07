@@ -3,7 +3,7 @@
     "slug": "seasure",
     "title": "SeaSure",
     "category": "Marine technology · AI platform",
-    "description": "Brings vessel documentation, maintenance history, and troubleshooting context together before a professional service handoff.",
+    "description": "Boat owners describe a problem with text or photos, and SeaSure’s answer takes that boat’s equipment and service records into account. Repairs that need a professional go out as a service request.",
     "detail": "SeaSure organizes vessel knowledge around a boat’s systems, installed equipment, manuals, service history, and current issues. Its AI assistance connects that context to troubleshooting and maintenance workflows, helping owners understand a problem and carry useful diagnostic information into professional service.",
     "role": "AI & Backend Engineer",
     "tags": [
@@ -20,11 +20,12 @@
     "visualType": "concept",
     "visualAlt": "SeaSure marine intelligence concept illustration",
     "website": "https://seasure.ai/",
+    "sourceNote": "Source code is private.",
     "caseStudy": {
-      "roleContext": "Lihon’s listed role is AI & Backend Engineer. This overview describes the wider product; individual deliverables and ownership boundaries are not documented here.",
+      "roleContext": "Lihon’s role on SeaSure was AI & Backend Engineer. The overview below describes the product as a whole.",
       "challenge": "Boat troubleshooting depends on the specific vessel, installed equipment, documentation, and service history. The product challenge is to keep that information connected as an owner describes an issue and seeks maintenance or professional help.",
-      "engineeringContext": "The public product materials describe vessel-aware assistance, multiple input formats, persistent records, and service handoffs. The diagram maps those product relationships without asserting a private service architecture or implementation stack.",
-      "evidenceSummary": "The official website and app listing support the product capabilities described below. They do not establish Lihon’s individual implementation scope, delivery dates, or measured outcomes.",
+      "engineeringContext": "The public product materials describe vessel-aware assistance, multiple input formats, persistent records, and service handoffs. The diagram maps how those parts relate.",
+      "evidenceSummary": "The official website and app listing describe the features covered on this page.",
       "architecture": {
         "src": "/projects/seasure-context.svg",
         "alt": "Conceptual SeaSure flow: vessel context and owner observations inform troubleshooting, with connections to maintenance records and professional service requests.",
@@ -43,7 +44,7 @@
         "title": "Multimodal troubleshooting",
         "body": [
           "The public product supports text, photos, documents, audio, video, and live video in its marine assistance experience. The app listing describes specialized AI guidance across engines, electrical systems, hull, navigation, plumbing, and safety.",
-          "The engineering focus is multimodal input handling and context continuity: observations, supporting media, vessel details, and documentation need to remain connected through the troubleshooting flow."
+          "Whatever the owner sends should stay tied to the same vessel and its documents until the problem is solved."
         ]
       },
       {
@@ -54,28 +55,29 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "From question to service request",
         "body": [
-          "Keeping the vessel’s records and the troubleshooting conversation together can make a service handoff easier to follow. The expected benefit is continuity between the owner’s initial question and the information a marine professional needs to assess it."
+          "The owner’s troubleshooting conversation and the boat’s records sit in the same product. A marine professional who takes the job gets that context with the request, so the owner should not need to explain the problem twice."
         ]
       }
     ],
     "sources": [
       {
-        "title": "SeaSure — marine intelligence platform",
+        "title": "SeaSure: marine intelligence platform",
         "url": "https://seasure.ai/"
       },
       {
-        "title": "SeaSure — official app listing and capabilities",
+        "title": "SeaSure: official app listing and capabilities",
         "url": "https://play.google.com/store/apps/details?id=com.seasure.app&hl=en"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "projuno",
     "title": "Projuno",
     "category": "Construction technology · AI platform",
-    "description": "Connects construction project activity, changes, invoices, and supporting records in one workspace for commercial review.",
+    "description": "Commercial fit-out teams keep variations and invoices in Projuno, with a record of who changed each item and why. Juno AI answers questions about that project data.",
     "detail": "Projuno brings work orders, variations, invoices, project financials, and compliance information into a connected workspace for commercial fit-out teams. Juno AI supports project questions and workflow automation, while traceable records preserve the context behind changes, claims, and project activity.",
     "role": "AI & Backend Engineer",
     "tags": [
@@ -92,11 +94,12 @@
     "visualType": "concept",
     "visualAlt": "Projuno construction intelligence concept illustration",
     "website": "https://www.projuno.com/",
+    "sourceNote": "Source code is private.",
     "caseStudy": {
-      "roleContext": "Lihon’s listed role is AI & Backend Engineer. This overview describes the wider product; individual deliverables and ownership boundaries are not documented here.",
+      "roleContext": "Lihon worked on Projuno as AI & Backend Engineer. This page covers the wider product.",
       "challenge": "Construction teams need to follow work, changes, invoices, and supporting evidence across a project. The product challenge is to connect those records so administrative assistance and commercial review use consistent project context.",
-      "engineeringContext": "The public product describes connected project operations, Juno AI, financial views, and traceable changes. The diagram organizes these documented capabilities; it does not imply a particular database, model provider, or service topology.",
-      "evidenceSummary": "The official product site and service terms support the capabilities discussed here. They are product references, not proof of individual code ownership, delivery dates, or financial improvements.",
+      "engineeringContext": "The public product describes connected project operations, Juno AI, financial views, and traceable changes. The diagram groups those capabilities.",
+      "evidenceSummary": "The official product site and service terms describe the features covered here.",
       "architecture": {
         "src": "/projects/projuno-context.svg",
         "alt": "Conceptual Projuno flow: work orders, variations, and invoices connect through project context to Juno AI assistance and commercial review.",
@@ -114,7 +117,7 @@
         "title": "AI-assisted workflow orchestration",
         "body": [
           "Juno AI answers questions about project information and supports customized administrative workflows. The official product also describes an AI caller for collecting updates from teams and suppliers.",
-          "The engineering focus is preserving useful context as information moves between people, project records, and automated actions."
+          "Context should not get lost when information moves from a person into a project record or into an automated step."
         ]
       },
       {
@@ -127,26 +130,27 @@
         "title": "Financial visibility and integration boundaries",
         "body": [
           "Project financial views connect scope progress with variations, invoices, budgets, and margins. The public offering also lists Xero and MYOB integrations and multi-company management, extending the operational workflow beyond a single project workspace.",
-          "The backend engineering focus is domain coherence: project scope, commercial records, team updates, and traceable changes need consistent context across each workflow."
+          "On the backend, that means every workflow reads the same version of a project’s scope and commercial records."
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Less back-and-forth on changes",
         "body": [
-          "Keeping work orders, variations, invoices, and their supporting evidence connected can reduce fragmented administrative follow-up. The expected benefit is a clearer view of what changed, why it changed, and how the change relates to project finances."
+          "Projuno keeps variations, invoices and their supporting evidence in one place. The intent is fewer follow-up questions when someone asks what changed and what it cost."
         ]
       }
     ],
     "sources": [
       {
-        "title": "Projuno — commercial construction AI platform",
+        "title": "Projuno: commercial construction AI platform",
         "url": "https://www.projuno.com/"
       },
       {
-        "title": "Projuno — service scope and business operations capabilities",
+        "title": "Projuno: service scope and business operations capabilities",
         "url": "https://www.projuno.com/terms-and-conditions"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "dr-infinity",
@@ -235,13 +239,14 @@
         "title": "Dr. Infinity — project website",
         "url": "https://drinfinityai.com/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "wandubot",
     "title": "WanduBot",
     "category": "Private search · Conversational AI",
-    "description": "Pairs configurable web search with a separate AI chat experience and user controls for search sources and query exposure.",
+    "description": "WanduBot’s private search runs on SearXNG and lets users pick the upstream engines and privacy settings. A separate chat interface, WanduGPT, is part of the same product.",
     "detail": "WanduBot brings privacy-focused web search and a dedicated WanduGPT chat experience into one product ecosystem. Its SearXNG-backed metasearch interface makes retrieval configurable across general web results and specialist information sources, while exposing practical controls for search privacy, languages, and upstream engines.",
     "role": "AI & Backend Engineer",
     "tags": [
@@ -286,7 +291,7 @@
         "title": "Language-aware retrieval and relevance controls",
         "body": [
           "Language detection, multilingual search preferences, SafeSearch, autocomplete configuration, and category selection let users adapt retrieval to their research context. A technical question, a scientific reference search, and an image lookup can use different categories and source preferences.",
-          "The engineering focus combines retrieval configuration, upstream-source selection, consistent query handling, and an interface that keeps privacy choices understandable."
+          "Queries are handled the same way whichever engines a user picks, and each privacy option is easy to understand."
         ]
       },
       {
@@ -297,36 +302,37 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Limits of the privacy settings",
         "body": [
-          "Search-engine selection, POST queries, image-proxy preferences, and tracker-parameter cleanup give users choices about how searches are requested and displayed. The expected benefit is greater control over the search experience and some forms of query exposure; these settings do not establish anonymity or an untracked AI service."
+          "With these settings, users decide which upstream engines receive a search and how much of the query shows up in browser history and page titles. That gives control over some kinds of exposure, but it is not anonymity."
         ]
       }
     ],
     "sources": [
       {
-        "title": "WanduBot — product and search privacy positioning",
+        "title": "WanduBot: product and search privacy positioning",
         "url": "https://wandubot.com/"
       },
       {
-        "title": "WanduBot search preferences — engines, categories, and privacy controls",
+        "title": "WanduBot search preferences: engines, categories, and privacy controls",
         "url": "https://wandubot.com/preferences"
       },
       {
-        "title": "WanduGPT — conversational AI interface",
+        "title": "WanduGPT: conversational AI interface",
         "url": "https://ai.wandubot.com/"
       },
       {
-        "title": "SearXNG — underlying metasearch documentation",
+        "title": "SearXNG: underlying metasearch documentation",
         "url": "https://docs.searxng.org/"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "legal-rag",
     "title": "Legal RAG",
     "category": "Legal research · Retrieval-augmented AI",
-    "description": "Connects legal questions, retrieved case context, and follow-up conversations within an organized research workflow.",
+    "description": "Researchers ask a legal question in plain language and get an answer built from retrieved cases. Follow-up questions and case folders keep each line of research together.",
     "detail": "Legal RAG applies retrieval-augmented generation to legal research. The experience brings together natural-language questions, relevant-case exploration, recent research conversations, and case folders. Its engineering focus is connecting retrieved case context to useful answers while keeping follow-up questions and research material organized.",
     "role": "AI & Backend Engineer",
     "status": "Completed",
@@ -343,41 +349,41 @@
     ],
     "visualType": "concept",
     "visualAlt": "Legal research retrieval-augmented generation concept illustration",
+    "sourceNote": "Source code is private.",
     "technicalSections": [
       {
         "title": "Questions to retrieved case context",
         "body": [
-          "The research workflow starts with a natural-language legal question and explores relevant cases. Retrieval-augmented generation connects the question with retrieved case context to support a grounded answer.",
-          "The engineering focus is the path from a research question to useful context and then to a response that stays connected to that material."
+          "The research workflow starts with a natural-language legal question and explores relevant cases. Retrieval-augmented generation connects the question with retrieved case context to support a grounded answer."
         ]
       },
       {
         "title": "Conversational research and follow-ups",
         "body": [
           "Conversational context supports follow-up questions within a research session. Recent conversations and search help researchers return to earlier lines of inquiry and continue exploring a topic.",
-          "The focus is maintaining the relationship between the current question, prior discussion, and relevant case context as the conversation develops."
+          "As the conversation grows, a new question is read together with the earlier discussion and the cases already found."
         ]
       },
       {
         "title": "Organizing cases and research conversations",
         "body": [
-          "Case folders and research conversations provide a way to organize related material around a line of inquiry. Relevant-case exploration and recent research activity remain connected within the research experience.",
-          "The engineering focus combines retrieval, conversation continuity, and organization so research can continue beyond a single question and answer."
+          "Case folders and research conversations provide a way to organize related material around a line of inquiry. Relevant-case exploration and recent research activity remain connected within the research experience."
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Reviewing a research thread",
         "body": [
-          "Keeping retrieved cases, follow-up questions, and saved research together can make an investigation easier to resume and review. The expected benefit is continuity in legal research."
+          "A saved thread can be reopened later with its retrieved cases still next to the answers. That makes it easier to check what an answer was based on."
         ]
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "only-hers",
     "title": "Only Hers",
     "category": "E-commerce · AI engineering",
-    "description": "Connects shopping questions and recommendations to catalog records through an updated product-knowledge layer.",
+    "description": "Shoppers on the Only Hers storefront can ask an AI assistant about products. Its answers draw on catalog records that sync automatically from PostgreSQL into a vector database.",
     "detail": "Only Hers combines an e-commerce storefront with an AI shopping assistant. Product information from PostgreSQL is synchronized into a vector-based knowledge layer so conversational recommendations can stay connected to the catalog rather than relying only on static model knowledge.",
     "role": "AI Engineer",
     "tags": [
@@ -397,6 +403,7 @@
     ],
     "visualType": "concept",
     "visualAlt": "Only Hers product-aware AI shopping concept illustration",
+    "sourceNote": "Source code is private.",
     "technicalSections": [
       {
         "title": "Catalog-to-knowledge synchronization",
@@ -411,18 +418,19 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Answers about what the store sells",
         "body": [
-          "Retrieving catalog information can help the assistant answer product-specific questions using the store’s available records. The expected benefit is more relevant product discovery and less reliance on generic model knowledge."
+          "When a shopper asks about a product, the assistant answers from the store’s own catalog, so a newly added item can appear in recommendations once it syncs."
         ]
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "alx-study-with-ai",
     "title": "ALX Study with AI",
     "category": "Education · Open source",
-    "description": "Turns study material into notes, flashcards, and practice questions within one revision workflow.",
+    "description": "A Next.js app that uses Llama 3.1 8B to turn study material into revision notes and flashcards, then quizzes the student with generated questions.",
     "detail": "ALX Study with AI uses a Next.js application and Llama 3.1 8B to help students work with learning material. The experience connects compact study notes, revision flashcards, and generated questions in one study workflow.",
     "role": "Software & AI Engineer",
     "tags": [
@@ -456,24 +464,25 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "From reading to self-testing",
         "body": [
-          "Generating notes, flashcards, and practice questions from the same material can reduce repetitive revision-material preparation. The expected benefit is a shorter path from reading to self-testing."
+          "Every study format is generated from the same material, so a student can go from reading to self-testing without making revision cards by hand."
         ]
       }
     ],
     "sources": [
       {
-        "title": "ALX Study with AI — source repository",
+        "title": "ALX Study with AI: source repository",
         "url": "https://github.com/gelftheshot/Alx-study-with-ai"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "academic-advisor-ai",
     "title": "Academic Advisor AI",
     "category": "Education · Retrieval-augmented AI",
-    "description": "Connects professor search, course planning, and major advice with retrieved academic information.",
+    "description": "Students search for professors and get advice on choosing a major. Google Generative AI writes the replies from academic information retrieved through Pinecone.",
     "detail": "Academic Advisor AI brings professor search, major advice, and course planning into a Next.js application. Google Generative AI works with Pinecone retrieval to ground personalized recommendations in relevant academic information.",
     "role": "Software & AI Engineer",
     "tags": [
@@ -485,15 +494,14 @@
     ],
     "stack": "Next.js, Google Generative AI, Pinecone, retrieval-augmented generation",
     "images": [
-      "/projects/academic-advisor-ai-cover.png",
-      "/academy1.png",
       "/academy2.png",
+      "/academy1.png",
       "/academy3.png",
       "/academy4.png",
       "/academy5.png"
     ],
-    "visualType": "concept",
-    "visualAlt": "Academic Advisor AI course planning and knowledge retrieval concept illustration",
+    "visualType": "screenshot",
+    "visualAlt": "Academic Advisor AI home page with cards for Find a Professor, Major Advisor and Course Planner",
     "github": "https://github.com/gelftheshot/academic-advisor-ai",
     "technicalSections": [
       {
@@ -509,24 +517,25 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Retrieval at small scale",
         "body": [
-          "Bringing relevant academic information into related planning questions can make guidance easier to find and compare. The expected benefit is a more connected exploration workflow."
+          "The Pinecone index behind professor search holds about 9 KB of professor records, a demo-sized dataset that shows the retrieval step."
         ]
       }
     ],
     "sources": [
       {
-        "title": "Academic Advisor AI — source repository",
+        "title": "Academic Advisor AI: source repository",
         "url": "https://github.com/gelftheshot/academic-advisor-ai"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "whisper",
     "title": "Whisper",
     "category": "Communication · Full stack",
-    "description": "Combines authenticated accounts, live conversations, and stored message history in one messaging workflow.",
+    "description": "A MERN chat app where Socket.io delivers messages live and MongoDB keeps the history.",
     "detail": "Whisper is a full-stack chat application built with MongoDB, Express, React, and Node.js. Socket.io supports real-time message delivery, while JWT-based authentication and database-backed accounts organize access to the messaging experience.",
     "role": "Full Stack Developer",
     "tags": [
@@ -561,24 +570,25 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Picking up a conversation later",
         "body": [
-          "Combining live updates and stored message history lets a conversation continue beyond a single active session. The expected benefit is continuity between real-time communication and later review."
+          "Because messages are both sent live and stored, a conversation can be picked up again in a later session."
         ]
       }
     ],
     "sources": [
       {
-        "title": "Whisper — source repository",
+        "title": "Whisper: source repository",
         "url": "https://github.com/WalaEddine01/Whisper"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "inventory-management",
     "title": "Inventory Management",
     "category": "Business tools · AI-assisted workflows",
-    "description": "Connects photo-based item entry and AI-assisted categorization with organized stock records.",
+    "description": "Items can be added to stock from a photo. Google Generative AI suggests the category, and Firebase stores the inventory.",
     "detail": "Inventory Management combines a Next.js and React interface with Firebase for stock organization and real-time application data. Google Generative AI supports photo-based item entry and automatic categorization to reduce repetitive cataloging work.",
     "role": "Full Stack & AI Developer",
     "tags": [
@@ -590,12 +600,11 @@
     ],
     "stack": "Next.js, React, Material UI, Firebase, Google Generative AI",
     "images": [
-      "/projects/inventory-management-cover.png",
       "/inventory2.png",
       "/inventory3.png"
     ],
-    "visualType": "concept",
-    "visualAlt": "Inventory Management photo capture and stock categorization concept illustration",
+    "visualType": "screenshot",
+    "visualAlt": "Inventory Tracker dashboard with a category sidebar and buttons to add an item or upload a photo",
     "github": "https://github.com/gelftheshot/inventory-management-app",
     "technicalSections": [
       {
@@ -611,24 +620,25 @@
         ]
       },
       {
-        "title": "Expected practical benefit",
+        "title": "Less typing at intake",
         "body": [
-          "Photo-based entry and category suggestions can reduce repetitive item-entry steps while keeping stock information organized. The expected benefit is a simpler intake workflow."
+          "Fewer fields are typed by hand when the category comes from the photo."
         ]
       }
     ],
     "sources": [
       {
-        "title": "Inventory Management — source repository",
+        "title": "Inventory Management: source repository",
         "url": "https://github.com/gelftheshot/inventory-management-app"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   },
   {
     "slug": "ai-customer-support",
     "title": "AI Customer Support",
     "category": "Customer experience · Conversational AI",
-    "description": "Connects customer questions with generated replies and saved conversation context in a web support interface.",
+    "description": "Customers type a question into a web chat and get a generated reply. The Next.js app saves each conversation in Firebase.",
     "detail": "AI Customer Support is a Next.js application combining generated responses with stored conversation records in a Firebase-backed web interface.",
     "role": "Software & AI Engineer",
     "tags": [
@@ -640,12 +650,12 @@
     ],
     "stack": "Next.js, JavaScript, Tailwind CSS, Firebase, AI",
     "images": [
-      "/projects/ai-customer-support-cover.png",
       "/customer1.png",
       "/customer2.png"
     ],
-    "visualType": "concept",
-    "visualAlt": "AI Customer Support questions context and response workflow concept illustration",
+    "visualType": "screenshot",
+    "visualAlt": "AI Customer Support home page, titled AI Conversation Hub, with a chat list and a Start New Conversation button",
+    "website": "https://ai-customer-support-topaz.vercel.app",
     "github": "https://github.com/gelftheshot/ai-customer-support",
     "technicalSections": [
       {
@@ -659,19 +669,14 @@
         "body": [
           "Next.js and JavaScript connect the support interface with the application’s AI interaction. Firebase supports the application data layer, with Tailwind CSS used for the interface."
         ]
-      },
-      {
-        "title": "Expected practical benefit",
-        "body": [
-          "Saved conversation context can keep follow-up questions connected to earlier exchanges. The expected benefit is a more continuous support conversation."
-        ]
       }
     ],
     "sources": [
       {
-        "title": "AI Customer Support — source repository",
+        "title": "AI Customer Support: source repository",
         "url": "https://github.com/gelftheshot/ai-customer-support"
       }
-    ]
+    ],
+    "updatedAt": "2026-11-07"
   }
 ]

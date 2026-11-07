@@ -3,7 +3,7 @@
   "updatedAt": "2026-11-07",
   "title": "AI & Backend Engineer",
   "location": "Addis Ababa, Ethiopia",
-  "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history spans 2016 to 2025, with public Upwork completed client work extending through June 2026. His portfolio covers conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure, and workflow automation. Current employment and availability are not specified.",
+  "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history covers 2016 to 2025, and his completed Upwork contracts run through June 2026. Projects in his portfolio cover conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure and workflow automation. He is seeking a salaried engineering role, remote or in Addis Ababa.",
   "skills": {
     "AI and retrieval": [
       "Retrieval-augmented generation (RAG)",
@@ -78,7 +78,7 @@
   ],
   "workPreferences": {
     "environment": "Remote",
-    "availability": "Not specified"
+    "availability": "Seeking a salaried engineering role, remote or in Addis Ababa, Ethiopia"
   },
   "links": {
     "website": "https://www.lihongebre.com/",
@@ -92,147 +92,125 @@
       "id": "ndit-solution",
       "company": "NDIT Solution",
       "role": "AI, Backend & Automation Engineer",
-      "period": "2023 — 2025",
+      "period": "2023–2025",
       "startYear": "2023",
       "endYear": "2025",
-      "description": "AI, backend, and workflow automation engineering.",
+      "description": "Brought model-driven AI features into NDIT Solution's backend services and automated the workflows around them.",
       "responsibilities": [
         {
-          "title": "AI integration",
-          "description": "Model-driven features connected to backend services and application data."
-        },
-        {
           "title": "Backend systems",
-          "description": "Server-side application logic, service interfaces, and data flow."
+          "description": "Wrote server-side logic and service interfaces, and handled the data flow between them."
         },
         {
           "title": "Workflow automation",
-          "description": "Connected process steps, validation, and human review."
+          "description": "Linked process steps into automated workflows with validation and a human review step."
         }
       ],
       "focusAreas": [
         "AI integration",
-        "Backend engineering",
         "Workflow automation",
+        "Backend services",
         "API integration",
         "Data flow",
         "Human review"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Role focus: AI integration, backend services, and workflow automation.",
-        "Service interfaces, application data flows, and connected process steps.",
-        "Validation and human review within AI-assisted workflows."
+        "Integrated model-driven features with backend services and application data.",
+        "Built server-side logic, service interfaces and data flows.",
+        "Automated multi-step workflows with validation and human review."
       ]
     },
     {
       "id": "alx-africa",
       "company": "ALX Africa",
       "role": "Backend Developer (Internship)",
-      "period": "Mar 2023 — Nov 2024",
+      "period": "Mar 2023–Nov 2024",
       "startYear": "2023",
       "endYear": "2024",
-      "description": "Backend development internship with Python and Django, including collaboration on RESTful APIs and database optimization.",
+      "description": "Built server-side features in Python and Django as a backend intern.",
       "tools": "Python · Django · REST APIs",
       "responsibilities": [
         {
-          "title": "Backend development",
-          "description": "Python and Django server-side application development."
-        },
-        {
           "title": "API collaboration",
-          "description": "RESTful interfaces connecting application components."
+          "description": "Collaborated on REST APIs that connected application components."
         },
         {
           "title": "Database work",
-          "description": "Data access and database optimization."
+          "description": "Worked on data access and database optimization."
         }
       ],
       "focusAreas": [
         "Python",
         "Django",
-        "RESTful APIs",
+        "REST APIs",
         "Database optimization",
-        "Backend systems",
+        "Data access",
         "Collaboration"
       ],
-      "scopeNote": "Lihon confirmed the internship classification and March 2023–November 2024 dates against his existing LinkedIn history on November 5, 2026. The listed Python, Django, REST API, and database focus areas are retained; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Backend development with Python and Django.",
-        "Collaboration on RESTful APIs and database access.",
-        "Database optimization and application component integration."
+        "Developed backend features in Python and Django and collaborated on their REST APIs.",
+        "Took part in data access and database optimization work."
       ]
     },
     {
-      "id": "axious-tech",
+      "id": "axontech",
       "company": "AxonTech",
       "role": "Backend & Infrastructure Engineer",
-      "period": "2020 — 2023",
+      "period": "2020–2023",
       "startYear": "2020",
       "endYear": "2023",
-      "description": "Backend development and the infrastructure supporting application services.",
+      "description": "Wrote backend services and looked after the environments they ran in.",
       "responsibilities": [
         {
-          "title": "Backend services",
-          "description": "Application logic, service interfaces, and persistence."
-        },
-        {
           "title": "Infrastructure",
-          "description": "Runtime environments, configuration, and deployment concerns."
+          "description": "Managed runtime environments, configuration and deployment settings for application services."
         },
         {
-          "title": "Service operations",
-          "description": "Diagnostics, troubleshooting, and application maintenance."
+          "title": "Troubleshooting",
+          "description": "Diagnosed and fixed service problems, and maintained the applications."
         }
       ],
       "focusAreas": [
-        "Backend architecture",
+        "Backend services",
         "Infrastructure",
         "Deployment environments",
-        "Data persistence",
+        "Runtime configuration",
         "Access control",
-        "Service operations"
+        "Troubleshooting"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Role focus: backend development and infrastructure supporting application services.",
-        "Application logic, service interfaces, and data persistence.",
-        "Runtime configuration, deployment environments, diagnostics, and maintenance."
+        "Wrote backend logic and service interfaces over persistent data stores.",
+        "Configured runtime and deployment environments for application services.",
+        "Diagnosed service problems and kept applications maintained."
       ]
     },
     {
       "id": "anbesa-tech",
       "company": "Anbesa Tech",
       "role": "Full Stack Developer",
-      "period": "2018 — 2020",
+      "period": "2018–2020",
       "startYear": "2018",
       "endYear": "2020",
-      "description": "Full-stack web development across application interfaces, backend logic, and data handling.",
+      "description": "Built web application features in the browser and on the server.",
       "responsibilities": [
         {
-          "title": "Application interfaces",
-          "description": "User-facing flows, forms, and application state."
+          "title": "Forms and user flows",
+          "description": "Built user-facing flows, forms and application state."
         },
         {
-          "title": "Frontend and backend integration",
-          "description": "Connections between browser interactions, services, and stored data."
-        },
-        {
-          "title": "Maintenance",
-          "description": "Debugging behavior across interface, service, and data layers."
+          "title": "Integration and debugging",
+          "description": "Connected browser interactions to services and stored data, and debugged behavior across those layers."
         }
       ],
       "focusAreas": [
         "Full-stack development",
-        "Web interfaces",
+        "Forms and user flows",
         "API integration",
-        "Application logic",
         "Data handling",
-        "Integration debugging"
+        "Debugging"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Connected web interfaces, backend logic, and stored data across full-stack applications."
+        "Joined web interfaces to backend logic and stored data in full-stack applications."
       ]
     },
     {
@@ -242,59 +220,50 @@
       "period": "2017",
       "startYear": "2017",
       "endYear": "2017",
-      "description": "Independent backend development for software applications.",
+      "description": "Turned application requirements into server-side logic and service interfaces as an independent backend developer.",
       "responsibilities": [
         {
-          "title": "Backend scope",
-          "description": "Application requirements, server-side logic, and service interfaces."
-        },
-        {
           "title": "Data handling",
-          "description": "Persistence, input validation, and backend troubleshooting."
+          "description": "Handled data persistence and input validation, and troubleshot backend issues."
         }
       ],
       "focusAreas": [
         "Independent development",
+        "Requirements",
         "Backend services",
-        "Service interfaces",
-        "Data persistence",
         "Input validation",
-        "Maintainability"
+        "Data persistence"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Developed server-side logic, service interfaces, input validation, and data persistence."
+        "Wrote backend services with input checks and data persistence."
       ]
     },
     {
       "id": "yehulu-tech",
       "company": "Yehulu Tech",
       "role": "Backend Developer",
-      "period": "2016 — 2017",
+      "period": "2016–2017",
       "startYear": "2016",
       "endYear": "2017",
-      "description": "Backend development focused on application logic and data.",
+      "description": "Wrote request handlers that applied application rules and read or updated stored records.",
       "responsibilities": [
         {
-          "title": "Server-side development",
-          "description": "Request handling, application rules, and service interfaces."
+          "title": "Data models",
+          "description": "Built the data models those handlers used."
         },
         {
-          "title": "Data and maintenance",
-          "description": "Persistence, data models, and investigation of application issues."
+          "title": "Debugging",
+          "description": "Investigated application issues across server-side logic and stored data."
         }
       ],
       "focusAreas": [
-        "Backend development",
-        "Server-side logic",
+        "Request handling",
+        "Business rules",
         "Data models",
-        "Persistence",
-        "Application integration",
         "Debugging"
       ],
-      "scopeNote": "These focus areas summarize the listed role; specific employer projects and measured outcomes are not documented here.",
       "resumeBullets": [
-        "Implemented request handling, application rules, and data models; debugged backend behavior."
+        "Handled backend requests and data models, and investigated application issues."
       ]
     }
   ],
@@ -302,31 +271,31 @@
     {
       "number": "01",
       "title": "Software engineering",
-      "description": "Web applications, APIs, and the systems behind them.",
+      "description": "For web apps I pair React or Next.js with a Django or Express back end.",
       "tools": "React / Next.js / Python / Django"
     },
     {
       "number": "02",
       "title": "AI development",
-      "description": "Useful AI experiences connected to real-world data.",
+      "description": "I ground model answers in retrieved data, such as a Pinecone index for Academic Advisor AI or a product catalog synced from PostgreSQL.",
       "tools": "LangChain / RAG / Pinecone / PyTorch"
     },
     {
       "number": "03",
       "title": "Cloud & DevOps",
-      "description": "Infrastructure that keeps applications running.",
+      "description": "I set up runtime configuration and deployment environments for backend services, and completed AWS Cloud Practitioner Essentials in September 2024.",
       "tools": "AWS / Docker / Kubernetes / CI/CD"
     },
     {
       "number": "04",
       "title": "Workflow automation",
-      "description": "Connecting APIs, application data, and AI-assisted processes, with validation and human review at the right steps.",
+      "description": "My automations check the data passed between API calls before the next step runs.",
       "tools": "API integrations / Workflow orchestration / AI-assisted processes"
     }
   ],
   "automationFocus": {
     "status": "Professional focus",
-    "summary": "AI, backend, and automation engineering at NDIT Solution from 2023 to 2025 is part of Lihon's employment history. His automation focus connects systems, moves useful context between steps, and keeps people involved in decisions that need review.",
+    "summary": "Lihon was AI, Backend & Automation Engineer at NDIT Solution from 2023 to 2025. His automation work moves data between APIs. He completed n8n's Essentials course in September 2026 and its Integrations course in October 2026.",
     "focusAreas": [
       "API integrations",
       "Workflow orchestration",
@@ -337,27 +306,27 @@
       {
         "slug": "projuno",
         "title": "Projuno",
-        "description": "The portfolio case study covers AI-assisted workflow orchestration, connected project records, and process automation in construction operations."
+        "description": "Projuno keeps work orders and invoices for commercial fit-out teams in one workspace, where Juno AI answers project questions and automates workflow steps."
       },
       {
         "slug": "only-hers",
         "title": "Only Hers",
-        "description": "The portfolio describes automated synchronization from product catalog records to a retrieval knowledge layer for AI-assisted shopping."
+        "description": "Product records in PostgreSQL sync into a vector knowledge layer, so the shopping assistant recommends items from the current catalog."
       },
       {
         "slug": "inventory-management",
         "title": "Inventory Management",
-        "description": "The portfolio describes photo-based item entry and AI-assisted categorization to reduce repetitive cataloging work."
+        "description": "Users add stock items from a photo, and Google Generative AI assigns a category to reduce repetitive cataloging."
       }
     ]
   },
   "professionalFocus": [
-    "Connecting AI assistants to relevant product data and practical workflows",
-    "Search, semantic retrieval, and retrieval-augmented generation",
-    "Backend APIs, persistence, and real-time application communication",
-    "Privacy-aware information access and evidence-grounded AI",
-    "Full-stack delivery and cloud deployment",
-    "Workflow automation, API integrations, and AI-assisted processes with human review"
+    "Grounding AI assistants in a client's own product data or documents",
+    "Building search and retrieval-augmented generation (RAG) pipelines",
+    "REST APIs in Django or Express, including JWT authentication",
+    "Privacy-aware search, and AI answers grounded in retrieved evidence",
+    "Full-stack delivery, from the React interface to the deployed backend",
+    "Multi-step automations across APIs"
   ],
   "certifications": [
     {
@@ -417,7 +386,25 @@
     "first": "AI & backend.",
     "second": "Built to connect."
   },
-  "introduction": "I’m Lihon Gebre. I build AI agents, retrieval systems, and backend APIs, with workflow automation that connects tools and data.",
-  "about": "I’m a software engineer based in Addis Ababa, Ethiopia, working at the intersection of web development, AI, and infrastructure.",
-  "resumeSummary": "AI and backend engineer with completed client work in knowledge-based AI, AI agents, and full-stack SaaS development."
+  "introduction": "I build RAG chatbots and AI agents for clients, and I write backend APIs in Python and Node.js. I work from Addis Ababa, Ethiopia.",
+  "about": "I started as a backend developer at Yehulu Tech in 2016. My most recent employer was NDIT Solution, where I was AI, Backend & Automation Engineer from 2023 to 2025. On Upwork, my longest completed contract ran from October 2024 to April 2025: a knowledge-base chatbot built with retrieval-augmented generation. The assistant on this site streams its answers through the OpenAI Responses API and reads the same profile data you see here.",
+  "resumeSummary": "AI and backend engineer who builds RAG chatbots and AI agents, with engineering roles from 2016 to 2025 and Upwork client work from October 2024.",
+  "faq": [
+    {
+      "question": "What does Lihon Gebre build?",
+      "answer": "Lihon builds AI chat assistants and agents that answer from retrieved data, together with the backend APIs they need. His Upwork jobs from June and July 2025 include a LangChain and LangGraph build for a SaaS product and a RAG AI agent."
+    },
+    {
+      "question": "Is Lihon Gebre available for remote AI or backend work?",
+      "answer": "Yes. He wants a salaried engineering position and will work remotely or on site in Addis Ababa, Ethiopia. The contact form on lihongebre.com and his LinkedIn profile both reach him directly."
+    },
+    {
+      "question": "Which stack does Lihon use for retrieval-augmented generation?",
+      "answer": "He works with LangChain and LangGraph, and uses Pinecone for vector search. The Academic Advisor AI and Only Hers case studies show two retrieval setups."
+    },
+    {
+      "question": "Where can I check Lihon's work?",
+      "answer": "Each project on lihongebre.com has its own case study page. The code for Academic Advisor AI, Inventory Management and AI Customer Support is public at github.com/gelftheshot. On Upwork he is Top Rated, with 10 completed jobs and 9 written client reviews."
+    }
+  ]
 }

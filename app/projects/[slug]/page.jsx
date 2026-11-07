@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import StructuredData from "@/components/StructuredData";
+import StructuredData, { sourceCodeNode } from "@/components/StructuredData";
 import { projects } from "@/lib/projects";
 import { profile } from "@/lib/profile";
-import { absoluteUrl, contentUpdated, personId } from "@/lib/site";
+import { absoluteUrl, contentUpdated, homeUrl, personId } from "@/lib/site";
 import "../project.css";
 import "../case-evidence.css";
 
@@ -30,11 +30,9 @@ export async function generateMetadata({ params }) {
 
   const title = `${project.title} — Engineering Case Study | Lihon Gebre`;
   const url = absoluteUrl(`/projects/${project.slug}`);
-  const image = project.images?.[0];
-  const images = image
-    ? [{ url: absoluteUrl(image), alt: project.visualAlt || `${project.title} project overview` }]
-    : [];
 
+  // og:image and twitter:image come from ./opengraph-image.jsx (1200x630 PNG with width, height, type and alt).
+  // Setting `images` here would override that file, so neither block lists one.
   return {
     title: { absolute: title },
     description: project.description,
@@ -45,13 +43,11 @@ export async function generateMetadata({ params }) {
       url,
       type: "article",
       siteName: "Lihon Gebre",
-      images,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description: project.description,
-      images: image ? [absoluteUrl(image)] : [],
     },
   };
 }
@@ -69,6 +65,8 @@ export default async function ProjectPage({ params }) {
   const sections = project.technicalSections || [];
   const sources = project.sources || [];
   const caseStudy = project.caseStudy;
+  const lastModified = project.updatedAt || contentUpdated;
+  const sourceCode = sourceCodeNode(project);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -78,10 +76,10 @@ export default async function ProjectPage({ params }) {
         name: `${project.title} — Engineering Case Study`,
         url: canonical,
         description: project.description,
-        author: { "@type": "Person", "@id": personId, name: profile.name, url: absoluteUrl("/") },
+        author: { "@type": "Person", "@id": personId, name: profile.name, url: homeUrl },
         inLanguage: "en",
         genre: "Software engineering case study",
-        dateModified: contentUpdated,
+        ...(lastModified ? { dateModified: lastModified } : {}),
         keywords: project.tags || [],
         ...(images.length ? { image: images.map((image) => absoluteUrl(image)) } : {}),
         about: {
@@ -107,6 +105,7 @@ export default async function ProjectPage({ params }) {
           { "@type": "ListItem", position: 2, name: project.title, item: canonical },
         ],
       },
+      ...(sourceCode ? [sourceCode] : []),
     ],
   };
 
@@ -134,6 +133,7 @@ export default async function ProjectPage({ params }) {
               </div>
             )}
           </div>
+          {project.sourceNote && <p className="case-source-note">{project.sourceNote}</p>}
         </header>
 
         {images[0] && (

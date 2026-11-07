@@ -44,7 +44,7 @@ test("selected employer content, identity, and dated proof stay connected to sha
   knowledge.profile.links.website = "https://updated-portfolio.example/";
   knowledge.profile.resumeSummary = "Backend engineer focused on service integrations and data systems.";
   knowledge.profile.experience[0].resumeBullets = ["Integrated application data with service interfaces."];
-  knowledge.profile.experience.find((role) => role.id === "axious-tech").company = "Updated Employer";
+  knowledge.profile.experience.find((role) => role.id === "axontech").company = "Updated Employer";
   knowledge.clientWork.profile.totalJobCount = 12;
   knowledge.clientWork.profile.completedJobCount = 11;
   knowledge.clientWork.profile.writtenReviewCount = 10;

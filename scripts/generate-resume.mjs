@@ -222,7 +222,8 @@ export async function generateResume(knowledge) {
   paragraph(`${selection.clientWork.title} | Upwork | Selected engagements, ${workYears[0]} - ${workYears.at(-1)}`, "role");
   for (const bullet of selection.clientWork.bullets) paragraph(`- ${bullet}`, "bullet", { indent: 9 });
   for (const item of experience) {
-    const title = `${item.role} | ${item.company} | ${item.period}`;
+    // Data periods use an unspaced en dash ("2023–2025"); the CV keeps its spaced hyphen ("2023 - 2025").
+    const title = `${item.role} | ${item.company} | ${item.period.replace(/\s*[\u2013\u2014]\s*/g, " - ")}`;
     const bullets = item.resumeBullets?.length ? item.resumeBullets : [item.description];
     keepTogether([[title, "role"], ...bullets.map((bullet) => [`- ${bullet}`, "bullet"])], 4);
     text.push("");

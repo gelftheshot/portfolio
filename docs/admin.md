@@ -10,17 +10,17 @@ Open /admin for profile, projects, employment, reviews, assistant settings and t
 4. To publish content, set ADMIN_GITHUB_TOKEN to a fine-grained token restricted to this repository with **Contents: read and write**. The default target is gelftheshot/portfolio, branch main. An alternative requires server-side ADMIN_GITHUB_REPOSITORY and ADMIN_GITHUB_BRANCH; browsers cannot select arbitrary repositories or files. Account credential creation and permissions are separate operator steps.
 5. Redeploy, then sign in at /admin. Verify the configured project and branch before publishing an intended small change.
 
-No real credential is provided by the code. There is no default production password, localhost authentication bypass, or public admin registration. A missing configuration keeps access locked. For local development, use your local credentials and npm run dev; private inbox/settings are memory-only without Redis and reset on restart.
+No real credential is provided by the code. There is no default production password, localhost authentication bypass, or public admin registration. A missing configuration keeps access locked: /admin and every /api/admin/* route answer 404 until the password hash, the session secret and, in production, the shared Redis credentials are all valid. A 404 at /admin after a deploy therefore means the setup is incomplete. For local development, use your local credentials and npm run dev; private inbox/settings are memory-only without Redis and reset on restart.
 
 ## Content editing and publication
 
 The editor loads the latest immutable Git revision. Valid public content drafts are saved in the current browser; they contain no inbox messages, assistant settings, session cookies or passwords. Download a content draft before clearing browser data or resolving a conflict. Invalid structured JSON must be fixed before publishing. The first three projects are featured, and ordering controls set that priority.
 
-Publishing validates all three public JSON datasets and new image files, writes one versioned commit, and lets the existing GitHub → Vercel integration deploy it. Stale revisions are rejected instead of overwriting newer work. A successful commit is followed by a build; it is not an immediate live update.
+Publishing validates all three public JSON datasets and new image files, writes one versioned commit, and lets the existing GitHub → Vercel integration deploy it. Stale revisions are rejected instead of overwriting newer work. A successful commit is followed by a build; it is not an immediate live update. When a published change alters a public fact, copy it to LinkedIn, Upwork and GitHub the same day and log it in [surface-sync.md](surface-sync.md).
 
-The build runs assistant:export and the Node-based resume:build automatically before Next.js. Public pages, AI knowledge, crawler text and résumé downloads therefore derive from the same source revision. Current résumé content uses two pages; longer histories paginate. The previous Python generator remains a legacy development tool and is not used by production builds.
+The build runs assistant:export and the Node-based resume:build automatically before Next.js. Public pages, AI knowledge, crawler text and résumé downloads therefore derive from the same source revision. Current résumé content fits on one page; longer histories paginate. The previous Python generator remains a legacy development tool and is not used by production builds.
 
-Project uploads accept PNG, JPEG and WebP, up to three new files and 2 MiB raw data per publish. The server validates and resizes them, strips metadata, and stores WebP under derived public paths. Existing case-study details and source notes are preserved. Keep public facts, review quotations and source dates accurate.
+Project uploads accept PNG, JPEG and WebP, up to three new files and 2 MiB raw data per publish. The server validates and resizes them, strips metadata, and stores WebP under derived public paths. Existing case-study details and source notes are preserved. Editing a project sets its updatedAt to the current UTC date, which the sitemap and the case-study JSON-LD use; the Source note field is shown as one muted line under the project buttons. Keep public facts, review quotations and source dates accurate.
 
 ## Private operations
 

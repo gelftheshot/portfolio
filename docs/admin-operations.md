@@ -1,6 +1,6 @@
 # Private assistant controls and contact inbox
 
-The Assistant and Inbox tabs at `/admin` use the same owner session as the content editor. All reads require a valid signed session. Settings updates and message status changes also require an exact matching `Origin`; cross-site and sibling-site requests are rejected. Responses are private, uncached, and excluded from indexing.
+The Assistant and Inbox tabs at `/admin` use the same owner session as the content editor. All reads require a valid signed session. Settings updates and message status changes also require an exact matching `Origin`; cross-site and sibling-site requests are rejected. Responses are private, uncached, and excluded from indexing. Before the admin credentials are configured, both endpoints answer 404; see [admin-auth.md](admin-auth.md).
 
 `GET /api/admin/operations` returns assistant settings, up to 200 private contact messages, the storage mode (`shared` or development-only `memory`), and configuration booleans. Configuration contains no keys, tokens, credentials, or provider configuration values. `PUT /api/admin/operations` accepts only `{ settings: { enabled, model, instructions } }`. The model ID is bounded to 100 safe characters, guidance to 2,000 characters, and enabled to a boolean. Settings do not edit API keys.
 

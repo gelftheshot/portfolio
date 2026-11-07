@@ -67,6 +67,9 @@ After the changes are approved, push the reviewed release to the repository/bran
 - Open the homepage on desktop and mobile. Check navigation, disclosure sections, all 11 project case-study routes, image galleries, and résumé downloads.
 - Confirm the three featured projects retain the distinction between listed roles, public/documented product context, and individual contribution evidence. Keep generated concept images and explanatory diagrams labeled.
 - Confirm `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/llms-full.txt`, project canonicals, structured data, and social metadata use the intended public origin. Verify the résumé PDF/text links resolve.
+- Open an address that does not exist, such as `/projects/not-a-project`. It should return 404 with the site's not-found page and its links home. If the admin credentials are not set on this deployment, `/admin` should return the same 404.
+- Check the Markdown alternate header on the homepage and one project page: `curl -s -D - -o /dev/null https://www.lihongebre.com/ | grep -i '^link'`. It should show `</llms-full.txt>; rel="alternate"; type="text/markdown"`.
+- Open `/20d80a38995dc4949a1d36f89b71fb07.txt` and confirm it returns the IndexNow key. See [search-discovery.md](search-discovery.md#indexnow).
 - Test the assistant with a short portfolio question after configuring real service credentials. Confirm response streaming, stop/reset behavior, and links. Verify Redis permissions and trusted proxy handling using the staging procedure in [chat-operations.md](chat-operations.md); mocked tests do not prove live operation.
 - Confirm a real contact-form message in the receiving mailbox and verify the email-app fallback. EmailJS acceptance alone does not prove receipt.
 - Check host logs for configuration or runtime errors without copying credentials or private visitor data into public issues.
@@ -75,6 +78,6 @@ If shared protection is missing or unavailable, chat should fail closed while th
 
 ## 4. Optional discovery follow-up
 
-After confirming the public deployment, update the GitHub profile/repository website link to the adopted origin. A verified site owner can submit `/sitemap.xml` through Google Search Console and Bing Webmaster Tools and inspect representative project pages. These are separate account actions; the application does not perform them automatically.
+After confirming the public deployment, update the GitHub profile/repository website link to the adopted origin. A verified site owner can submit `/sitemap.xml` through Google Search Console and Bing Webmaster Tools and inspect representative project pages. These are separate account actions; the application does not perform them automatically. Record the monthly and quarterly results in [discovery-checks.md](discovery-checks.md).
 
-Maintain consistent public facts across the website, résumé, GitHub, LinkedIn, and Upwork. Crawlable HTML, source links, and accurate metadata help people and automated readers inspect the work, but do not guarantee indexing, rankings, AI citations, or hiring selection. Stronger documented personal contributions and evidence remain the priority when adding content.
+Maintain consistent public facts across the website, résumé, GitHub, LinkedIn, and Upwork, following [surface-sync.md](surface-sync.md) whenever a fact changes. Crawlable HTML, source links, and accurate metadata help people and automated readers inspect the work, but do not guarantee indexing, rankings, AI citations, or hiring selection. Stronger documented personal contributions and evidence remain the priority when adding content.

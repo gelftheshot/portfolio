@@ -2,6 +2,8 @@
 
 Generated with the built-in image tool. These are concept covers; original product screenshots remain in their galleries.
 
+Academic Advisor AI, Inventory Management and AI Customer Support no longer use their concept covers on the site. Their first images are now application screenshots: `public/academy2.png`, `public/inventory2.png` and `public/customer1.png`. The concept files for those three stay in `public/projects/` and are still referenced by the Upwork project drafts.
+
 | Project | Saved cover |
 | --- | --- |
 | SeaSure | `public/projects/seasure-cover.png` |

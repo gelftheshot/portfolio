@@ -27,7 +27,11 @@
 .experience-more-list { padding-top: 30px; }
 .experience-more-list .experience-item:first-child { padding-top: 0; }
 .expertise-grid.expertise-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.about-more-copy { margin-top: 26px; max-width: 740px; }
+.about-skills { margin: 26px 0 0; max-width: 740px; }
+.about-skills > div { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); align-items: baseline; gap: 6px 24px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.about-skills > div:last-child { border-bottom: 0; }
+.about-skills dt { color: var(--ink); font-size: 12px; font-weight: 500; }
+.about-skills dd { margin: 0; color: #646464; font-size: 10px; line-height: 1.9; }
 .expertise-grid.expertise-more-grid { margin-top: 26px; grid-template-columns: minmax(0, 1fr); }
 .expertise-more-grid .expertise-item { max-width: 540px; padding-left: 0; border-left: 0; }
 
@@ -41,4 +45,7 @@
   .expertise-highlights .expertise-item:first-child,
   .expertise-highlights .expertise-item:last-child { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
   .section-more { margin-top: 26px; }
+}
+@media (max-width: 540px) {
+  .about-skills > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }

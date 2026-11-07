@@ -1,6 +1,6 @@
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
-import { absoluteUrl, siteUrl } from "@/lib/site";
+import { homeUrl, siteUrl } from "@/lib/site";
 import { profile } from "@/lib/profile";
 
 const title = profile.name + " — " + profile.title;
@@ -11,23 +11,23 @@ export const metadata = {
   title: { default: title, template: "%s | " + profile.name },
   description,
   applicationName: "Lihon Gebre Portfolio",
-  authors: [{ name: profile.name, url: absoluteUrl("/") }],
-  // Points AI agents at the full plain-text profile, including employment details collapsed on the page.
-  alternates: { canonical: "/", types: { "text/plain": "/llms-full.txt" } },
+  authors: [{ name: profile.name, url: homeUrl }],
+  // Points AI agents at the full Markdown profile, including employment details collapsed on the page.
+  alternates: { canonical: "/", types: { "text/markdown": "/llms-full.txt" } },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: absoluteUrl("/"),
+    url: homeUrl,
     siteName: "Lihon Gebre",
     title,
     description,
-    images: [{ url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: title }],
+    // No images here: app/opengraph-image.jsx supplies og:image with its width, height, type and alt,
+    // and twitter:image falls back to the same file.
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [absoluteUrl("/opengraph-image")],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   icons: { icon: "/icon.svg" },

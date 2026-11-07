@@ -10,6 +10,7 @@
 .case-role { display: flex; flex-direction: column; gap: 5px; font-size: 14px; }
 .case-role > span { font-family: "SFMono-Regular", Consolas, monospace; font-size: 9px; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
 .case-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-left: auto; }
+.case-source-note { margin-top: 18px; max-width: 740px; color: var(--muted); font-size: 14px; line-height: 1.6; }
 .case-cover { margin-bottom: 68px; }
 .case-image-frame { position: relative; width: 100%; aspect-ratio: 1.7; overflow: hidden; background: #ededed; border: 1px solid var(--line); border-radius: 3px; }
 .case-image-frame img { object-fit: contain; filter: grayscale(1); padding: 24px; }

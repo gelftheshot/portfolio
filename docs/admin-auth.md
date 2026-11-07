@@ -45,9 +45,13 @@ These limits reuse the atomic Redis operation and proxy trust rules in [chat-ope
 
 All mutations require an exact same-origin `Origin` and reject cross-site/sibling-site fetch metadata. The expected origin uses the request URL's HTTP/HTTPS scheme and the validated `Host` authority, because Next.js development can place its internal `localhost` hostname in the URL while the browser uses `127.0.0.1`. Missing Host falls back to the request URL. Malformed or multi-value authorities are rejected; forwarded host/protocol headers never expand the accepted origin. Vercel documents `Host` as the domain accessed by the client. A custom reverse proxy must preserve the actual host and correctly construct the request's scheme; arbitrary forwarded headers are not authentication. Sign-in bodies are bounded to 4 KiB, passwords to 256 characters, and body reading to five seconds. Every session response uses private/no-store caching and a noindex response header.
 
+## Before configuration
+
+Until the admin is configured, `/admin` and every `/api/admin/*` route answer 404. Configured means a valid `ADMIN_PASSWORD_HASH`, a valid `ADMIN_SESSION_SECRET` and, in production, a valid shared Redis pair. Each API route is wrapped by `whenAdminConfigured` from `app/api/admin/_lib/when-configured.js`. It returns an empty 404 with `Cache-Control: private, no-store` and `X-Robots-Tag: noindex, nofollow`, and it checks the settings on every request, so a later configuration change takes effect without a cached 404. The `/admin` page calls `notFound()` and returns empty metadata in that state, so the response is the site's normal 404 page and does not name the admin. Once configured, the wrapped handlers run unchanged. Wrap any new `/api/admin/*` handler the same way.
+
 ## API integration
 
-- `GET /api/admin/session` returns only `{ authenticated, configured }`.
+- `GET /api/admin/session` returns only `{ authenticated, configured }`. Because the route answers 404 before configuration, a response from it always has `configured: true`.
 - `POST /api/admin/session` accepts `{ password }`, checks origin and shared admission before password work, then issues the HttpOnly cookie.
 - `DELETE /api/admin/session` checks origin and expires the cookie.
 - Server routes import `assertAdminRequest(request, { mutation: true })` for writes, or omit `mutation` for authenticated reads. It returns `true` or throws `AdminAuthError` with a safe `status`, `code` and `message`.

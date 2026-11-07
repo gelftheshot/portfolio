@@ -10,7 +10,7 @@ The existing GitHub → Vercel integration deploys the resulting commit. The pub
 
 ## Server configuration
 
-Set up owner authentication first using [admin-auth.md](admin-auth.md). Without authenticated server access, the content endpoints refuse requests. A browser-visible login page alone does not grant content access.
+Set up owner authentication first using [admin-auth.md](admin-auth.md). Without authenticated server access, the content endpoints refuse requests. Before the admin credentials are configured at all, `/api/admin/content` answers 404 like a missing route. A browser-visible login page alone does not grant content access.
 
 | Server variable | Meaning |
 | --- | --- |

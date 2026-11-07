@@ -143,6 +143,9 @@ test("presentation fields reject excess length, wrong types and unsupported nest
     ["unsupported nested HTML field", (p) => { p.headline = { first: "Text", second: "Text", html: "<script>example</script>" }; }],
     ["headline prototype field", (p) => { p.headline = JSON.parse('{"first":"Text","second":"Text","__proto__":{}}'); }],
     ["headline wrong type", (p) => { p.headline = { first: {}, second: "Text" }; }],
+    ["question without answer", (p) => { p.faq = [{ question: "Text" }]; }],
+    ["question with extra field", (p) => { p.faq = [{ question: "Text", answer: "Text", html: "<b>Text</b>" }]; }],
+    ["long answer", (p) => { p.faq = [{ question: "Text", answer: "a".repeat(2001) }]; }],
   ];
   for (const [name, mutate] of mutations) await t.test(name, () => { const content = bundle(); mutate(content.profile); assert.throws(() => validateContentBundle(content, { now: now() }), (error) => error instanceof AdminContentError && error.status === 400); });
 });
@@ -154,6 +157,9 @@ test("schema bounds content and rejects unsafe fields, paths, links, identities,
     ["duplicate slug", (c) => { c.projects[1].slug = c.projects[0].slug; }],
     ["duplicate employer id", (c) => { c.profile.experience[1].id = c.profile.experience[0].id; }],
     ["reserved employer id", (c) => { c.profile.experience[0].id = "contact"; }],
+    ["employer id used by a question anchor", (c) => { c.profile.experience[0].id = "faq-2"; }],
+    ["bad project update date", (c) => { c.projects[0].updatedAt = "2026-13-01"; }],
+    ["long project source note", (c) => { c.projects[0].sourceNote = "a".repeat(601); }],
     ["duplicate review id", (c) => { c.upwork.completedWork[1].id = c.upwork.completedWork[0].id; }],
     ["path traversal", (c) => { c.projects[0].images = ["/projects/../secret.png"]; }],
     ["encoded traversal", (c) => { c.projects[0].images = ["/projects/%2e%2e/secret.png"]; }],

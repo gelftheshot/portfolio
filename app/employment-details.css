@@ -1,4 +1,5 @@
 .experience-item .experience-focus { margin-top: 14px; }
+#experience-title > span { white-space: nowrap; }
 
 .experience-disclosure > summary {
   display: inline-flex;
@@ -31,4 +32,18 @@
 
 @media (prefers-reduced-motion: reduce) {
   .experience-disclosure > summary, .experience-chevron { transition: none; }
+}
+
+.section-more.experience-more > summary { align-items: flex-start; }
+.section-more.experience-more > summary:hover { text-decoration: none; }
+.section-more.experience-more > summary:hover .experience-more-label { text-decoration: underline; text-underline-offset: 4px; }
+.experience-more-summary { display: grid; flex: 1; gap: 14px; min-width: 0; }
+.experience-more-roles { display: grid; gap: 9px; }
+.experience-more[open] .experience-more-roles { display: none; }
+.experience-more-role { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; color: var(--ink); font-size: 13px; letter-spacing: -.01em; }
+.experience-more-company { color: var(--muted); font-weight: 400; }
+.experience-more-role .mono { flex-shrink: 0; color: var(--muted); font-size: 10px; font-weight: 400; white-space: nowrap; }
+
+@media (max-width: 540px) {
+  .experience-more-role { flex-direction: column; gap: 2px; }
 }

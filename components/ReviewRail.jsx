@@ -193,7 +193,7 @@ export default function ReviewRail({ children }) {
         id={viewportId}
         ref={viewportRef}
         role="region"
-        aria-label="Completed client jobs and reviews"
+        aria-label="Client reviews from completed Upwork jobs"
         aria-describedby={hintId}
         tabIndex={0}
         onMouseEnter={() => setHovered(true)}
@@ -218,7 +218,7 @@ export default function ReviewRail({ children }) {
         {children}
       </div>
       <div className="review-rail-footer">
-        <p className="review-rail-hint" id={hintId}>Swipe, scroll, or use the arrows to browse.</p>
+        <p className="review-rail-hint" id={hintId}>Swipe or use the arrows to see more reviews.</p>
         <div className="review-rail-controls" aria-label="Review scrolling controls">
           <button type="button" aria-label="Previous reviews" aria-controls={viewportId} disabled={!ready || edges.start} onClick={() => moveByCard(-1)}>
             <span aria-hidden="true">←</span> Previous
