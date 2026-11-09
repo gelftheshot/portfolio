@@ -7,7 +7,7 @@
     "updatedAt": "2026-11-07",
     "title": "AI & Backend Engineer",
     "location": "Addis Ababa, Ethiopia",
-    "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history covers 2016 to 2025, and his completed Upwork contracts run through June 2026. Projects in his portfolio cover conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure and workflow automation. He is seeking a salaried engineering role, remote or in Addis Ababa.",
+    "summary": "Lihon Gebre is an AI and backend engineer based in Addis Ababa, Ethiopia. His employment history covers 2016 to 2025, and his completed Upwork contracts run through June 2026. Projects in his portfolio cover conversational AI, retrieval-augmented generation, search, backend APIs, web applications, infrastructure and workflow automation. He works remotely from Addis Ababa (UTC+3).",
     "skills": {
       "AI and retrieval": [
         "Retrieval-augmented generation (RAG)",
@@ -82,7 +82,7 @@
     ],
     "workPreferences": {
       "environment": "Remote",
-      "availability": "Seeking a salaried engineering role, remote or in Addis Ababa, Ethiopia"
+      "availability": "Works remotely from Addis Ababa (UTC+3); reach him about a role or a project through the contact form at lihongebre.com/#contact"
     },
     "links": {
       "website": "https://www.lihongebre.com/",
@@ -401,8 +401,8 @@
         "answer": "Lihon builds AI chat assistants and agents that answer from retrieved data, together with the backend APIs they need. His Upwork jobs from June and July 2025 include a LangChain and LangGraph build for a SaaS product and a RAG AI agent."
       },
       {
-        "question": "Is Lihon Gebre available for remote AI or backend work?",
-        "answer": "Yes. He wants a salaried engineering position and will work remotely or on site in Addis Ababa, Ethiopia. The contact form on lihongebre.com and his LinkedIn profile both reach him directly."
+        "question": "How do I contact Lihon Gebre about a role or a project?",
+        "answer": "Use the contact form on lihongebre.com or send him a message on LinkedIn. He works remotely from Addis Ababa, Ethiopia (UTC+3)."
       },
       {
         "question": "Which stack does Lihon use for retrieval-augmented generation?",
